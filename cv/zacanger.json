@@ -4,6 +4,13 @@
     "legal": "Zachary E. Unger",
     "handle": "zacanger"
   },
+
+  "website": "http://zacanger.com",
+
+  "avatar": "http://zacanger.com/logo.svg",
+
+  "writing": "http://zacanger.com/blog",
+
   "occupations": [
     "*n*x nerd",
     "debian administrator",
@@ -13,41 +20,50 @@
     "sometime web designer",
     "node fanboi"
   ],
-  "status": "seeking full-time employment, ideally in node development",
-  "qualifications": [
-    "Comptia A+ Certification",
-    "Rackspace Cloud U Certificate",
-    "Microsoft Virtual Academy Certificates (Various)"
-  ],
-  "education": [
-    {
-      "name": "DevMountain",
-      "year completed": 2016,
-      "description": "Full-time immersive JavaScript programme with focus on MEAN Stack.",
-      "url": "http://devmounta.in"
-    },{
-      "name": "Homeschool",
-      "year completed": 2007,
-      "description": "High school years were fun. Fortunately, also totally irrelevant.",
-      "url": null
-    }
-  ],
-  "website": "http://zacanger.com",
-  "avatar": "http://zacanger.com/logo.svg",
-  "writing": "http://zacanger.com/blog",
+
+  "status": "Seeking full-time employment in software development or devops (ideally in Node)",
+
   "projects": [
     {
+      "name": "luvi",
+      "url": "http://npm.im/luvi",
+      "description": "Dev server with nifty extras and easy config and API."
+    },{
+      "name": "mdkb",
+      "url": "https://github.com/zacanger/mdkb",
+      "description": "Markdown-based knowledgebase webapp"
+    },{
+      "name": "create-repo",
+      "url": "http://npm.im/create-repo",
+      "description": "Node tool to create GH repo using name/description from package.json."
+    },{
+      "name": "dolog",
+      "url": "http://npm.im/dolog",
+      "description": "Node module to turn console.log on and off at will"
+    },{
+      "name": "hipper",
+      "url": "http://npm.im/hipper",
+      "description": "A text editor for the terminal."
+    },{
+      "name": "lilnote",
+      "url": "http://npm.im/lilnote",
+      "description": "A tiny note-taking app that stores notes in JSON"
+    },{
+      "name": "scrapegh",
+      "url": "http://npm.im/scrapegh",
+      "description": "A command-line utility for scraping GitHub"
+    },{
+      "name": "scrapingnode",
+      "url": "http://npm.im/scrapingnode",
+      "description": "A tiny command-line scraper in Node"
+    },{
       "name": "Pharaoh",
       "url": "http://pharaoh.js.org",
       "summary": "An educational tool, for live broadcasting of code. This is the web frontend."
     },{
-      "name": "Pharaoh-NWjs",
+      "name": "Pharaoh-Desktop",
       "url": "http://npm.im/pharaoh",
-      "summary": "The desktop app for Pharaoh; installable as an executable from NPM, or from binaries."
-    },{
-      "name": "Mickey's Wholesale Pizza",
-      "url": null,
-      "summary": "Client web project for wholesale foods business."
+      "summary": "The desktop app for Pharaoh; installable as an executable from NPM."
     },{
       "name": "ayuba",
       "url": "https://github.com/zacanger/ayuba.git",
@@ -65,19 +81,11 @@
       "url": "http://zacanger.com/fromunderthemountain",
       "summary": "Commissioned soundtrack accompaniment for fantasy novel."
     },{
-      "name": "IP",
-      "url": "http://zacanger.com/ip",
-      "summary": "PHP script to echo IP address, for usage by cURL"
-    },{
-      "name": "Pengins",
+      "name": "pengins",
       "url": "http://npm.im/pengins",
       "summary": "A tiny script to give you 'pengins, in ur xterm, chillin.'"
     },{
-      "name": "Google",
-      "url": "http://zacanger.com/search",
-      "summary": "Google, with a little less Google."
-    },{
-      "name": "dotfiles",
+      "name": "z",
       "url": "https://github.com/zacanger/z.git",
       "summary": "My own configuration files, scripts, cheatsheets, and manpages."
     },{
@@ -86,10 +94,14 @@
       "summary": "An amusing, inappropriate take on the 'Fork Me On Github' ribbon."
     }
   ],
+
   "social": [
     {
       "name": "Pinboard",
       "url": "http://pinboard.in/u:zacanger"
+    },{
+      "name": "LinkedIn",
+      "url": "http://linkedin.com/in/zacanger"
     },{
       "name": "Twitter",
       "url": "http://twitter.com/zacanger"
@@ -118,6 +130,49 @@
       "name": "Google+",
       "url": "https://plus.google.com/+zacangermusic/"
     }
+  ],
+
+  "employment": [
+    {
+      "name": "DevMountain",
+      "position": "Mentor and Junior Developer",
+      "dates": "2016",
+      "description": "Mentored group of new devs; planned and carried out lectures; maintained curriculum; worked on internal projects",
+      "technologies":" Node, Express, Angular, Chromium (extensions), CSS and preprocessors, MongoDB and Mongoose, MySQL, build systems, Linux."
+    },{
+      "name": "Mickey's Wholesale Pizza",
+      "position": "Web Developer",
+      "dates": "2014-2015",
+      "description": "Full revamp of wholesale foods company's web presence.",
+      "technologies": "HTML, CSS, JavaScript, jQuery, Twitter Bootstrap, image manipulation."
+    },{
+      "name": "RLH Guitars",
+      "position": "Venue management, recording engineer",
+      "dates": "2005-2008",
+      "description": "Ran live music venue; lead engineer at in-house recording studio.",
+      "technologies": "Windows, Mac, and Linux workstations and servers; pro audio hardware and software."
+    }
+  ],
+
+  "qualifications": [
+    "Comptia A+ Certification",
+    "Rackspace Cloud U Certificate",
+    "Microsoft Virtual Academy Certificates (Various)"
+  ],
+
+  "education": [
+    {
+      "name": "DevMountain",
+      "year completed": 2016,
+      "description": "Full-time immersive JavaScript programme with focus on MEAN Stack.",
+      "url": "http://devmounta.in"
+    },{
+      "name": "Homeschool",
+      "year completed": 2007,
+      "description": "High school years were fun. Fortunately, also totally irrelevant.",
+      "url": null
+    }
   ]
+
 }
 
