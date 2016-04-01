@@ -197,14 +197,17 @@ section {
   height: 2em;
   margin-left: auto;
   margin-right: auto;
-  text-align: left;
-  float: right;
+  clear: both;
 }
 
 footer {
   color: #707070;
   font-size: 1em;
   margin-bottom: 30px;
+}
+
+#wrapper-footer footer p {
+  text-align: center;
 }
 
 .progress {
