@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel><title>angr</title><link>http://zacanger.com/blog</link>
+<description>writings from zac anger, who is not all that angry</description><language>en</language>
+<lastBuildDate>Mon, 28 Mar 2016 14:19:42 -0600</lastBuildDate>
+<pubDate>Mon, 28 Mar 2016 14:19:42 -0600</pubDate>
+<atom:link href="http://zacanger.com/blog/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+nginx reverse proxy
+</title><description><![CDATA[
+
+<p>reverse proxy: multiple local servers being served out to a client that only really sees
+ngnix.</p>
+
+<p><code>cd /etc/ngnix</code></p>
+
+<p><code>vi nginx.conf</code></p>
+
+<p>at the bottom-ish there'll be an <code>http {}</code> block, with a comment about virtual host configs</p>
+
+<p><code>cd /etc/nginx/site-available</code></p>
+
+<p><code>cp default whatever</code></p>
+
+<p>replace (non-comment) content with something like the following:</p>
+
+<pre><code>server {
+  listen 80 default_server;
+  listen [::]:80 default_server;
+
+  location / {
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-NginX-Proxy true;
+    proxy_pass http://127.0.0.1:3000;
+    proxy_redirect off;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_set_header X-Forwarded-Proto $scheme;
+  }
+}
+</code></pre>
+
+<p>and then do an <code>ln -s /etc/nginx/sites-available/whatever /etc/nginx/sites-enabled/</code></p>
+
+<p>after <code>service nginx restart</code> shiz should be working.</p>
+
+<p>redirects www.url.com to url.com:</p>
+
+<pre><code>server {
+    server_name www.example.com;
+    return 301 $scheme://example.com$request_uri;
+}
+</code></pre>
+
+<p>a full working example:</p>
+
+<pre><code>server {
+    listen 80;
+    server_name example.com;
+    location / {
+        proxy_pass http://127.0.0.1:8081;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+server {
+    server_name www.example.com;
+    return 301 $scheme://example.com$request_uri;
+}
+
+server {
+    listen 80;
+    server_name qwerty.example.com;
+    location / {
+        proxy_pass http://127.0.0.1:8082;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+server {
+    listen 80;
+    server_name asdf.example.com;
+    location / {
+        proxy_pass http://127.0.0.1:8083;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+server {
+    listen 80;
+    server_name ghjkl.example.com;
+    location / {
+        proxy_pass http://127.0.0.1:8084;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+</code></pre>
+
+<p>tags: <a href='tag_nginx.html'>nginx</a>, <a href='tag_deployment.html'>deployment</a>, <a href='tag_reverse-proxy.html'>reverse-proxy</a></p>
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/nginx-reverse-proxy.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/nginx-reverse-proxy.html'><span id='count-17596'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/nginx-reverse-proxy.html</link>
+<guid>http://zacanger.com/blog/./nginx-reverse-proxy.html</guid>
+<dc:creator>Zac Anger</dc:creator>
+<pubDate>Mon, 28 Mar 2016 14:19:39 -0600</pubDate></item>
+<item><title>
+scott
+</title><description><![CDATA[
+
+<p>lol</p>
+
+<p><img src="http://zacanger.com/blog/scott.gif" alt="scott" /></p>
+
+<p>tags: <a href='tag_people.html'>people</a>, <a href='tag_gif.html'>gif</a></p>
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/scott.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/scott.html'><span id='count-32012'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/scott.html</link>
+<guid>http://zacanger.com/blog/./scott.html</guid>
+<dc:creator>Zac Anger</dc:creator>
+<pubDate>Thu, 03 Mar 2016 16:31:00 -0700</pubDate></item>
+<item><title>
+kik's api
+</title><description><![CDATA[
+
+<p>Kik's API is kinda basically shit.
+Their API docs are also basically shit.
+Probably becaues their API is basically shit.
+Kik's a lot more focused on people building Kik-friendly websites than they are on people integrating with their service.</p>
+
+<p>Kik's js: http://cdn.kik.com/kik/2.0.5/kik.js</p>
+
+<p>Kik requires that we make terms of use and privacy policy available, like so:</p>
+
+<p><head>
+    <link rel="terms" href="termsofuse.html">
+    <link rel="privacy" href="privacypolicy.html">
+  </head></p>
+
+<p>User-related stuff:</p>
+
+<pre><code>kik.getUser(function(user){
+  if(!user){
+    alert('nope!')
+  } else {
+    console.log(user.username)
+    // user.fullName
+    // user.firstName
+    // user.lastName
+    // user.pic
+    // user.thumbnail
+    // ^^ these are all strings.
+  }
+})
+if(kik.hasPermission(){
+  // cool! user has given us permission to work with their account
+})
+// to work with a user anonymously (doesn't expose identifying
+// information, also doesn't require permission from user):
+kik.getAnonymousUser(function(token){
+  console.log(token) // str
+})
+// kik's auth only works over https.
+kik.sign('foo bar data etc.', function(signedData, username, host){
+  if(!signedData){
+    // either failed, or user denied
+  } else {
+    console.log(signedData, username, host)
+    // all strings. need to be passed to verification service.
+    // we'd pass stuff to a back-end for that.
+  }
+})
+// to make this work with the anonymous thing, it's almost exactly the same:
+kik.anonymousSign('data', function(signedData, anonToken, host)){
+  // same stuff, except we would get anonToken instead of username
+}
+</code></pre>
+
+<p>Messaging:</p>
+
+<pre><code>kik.send({
+  title     : 'message title'
+, text      : 'message content'
+, pic       : 'http://if.we/want/to/send/a/photo'
+, big       : true // optional, for large images, etc.
+, noForward : true // optional, for restricting receiving user from forwarding the message
+, data      : {something: 'stuff'} // optional, arbitrary JSON, max 7.5kb
+})
+kik.send('otherUser', {
+  title : 'etc'
+// all the same stuff here.
+})
+if(kik.message){
+  // do things; now we know the user has opened the message.
+}
+</code></pre>
+
+<p>Kik has some analytics stuff for messaging, but I really just don't care about that.</p>
+
+<p>Social things:</p>
+
+<pre><code>kik.showProfile('zacanger') // shows profile!
+kik.pickUsers(function(users){
+  if(!users) // cancelled, maybe.
+}  else {
+  users.forEach(function(user){
+    alert('user.username') // etc., all the same stuff from the user info.
+  })
+})
+kik.pickUsers({minResults:1,maxResults:4}, function(users){
+// etc.
+})
+kik.pickUsers({preselected:[{username:'zacanger'}]}, function(users){
+// same objects as from call to pickUsers
+})
+kik.pickUsers({filtered:['badPerson','iHateThisGuy']}, function(users){
+// users we don't want to show. doesn't work with preselected.
+})
+kik.pickUsers({filterSelf:false}, function(users){
+// allow user to see their own profile in the user picker
+})
+</code></pre>
+
+<p>Misc:</p>
+
+<pre><code>// events:
+function someEventHandler(){
+// do stuff...?
+}
+kik.on('event', eventHandler) // bind to event
+kik.off() // unbind
+kik.once() // only bind once, ignore after that.
+// event can be, for example, 'message'.
+kik.trigger('message', {title:'title'}) // objects are passed to all even listeners.
+
+// platform &amp; browser detection:
+var platform = kik.utils.platform.os
+console.log(os.name, os.version) // string, int
+var browser = kik.utils.platform.browser
+console.log(browser.name, browser.version)
+var eng = kik.utils.platform.engine // rendering engine
+console.log(engine.name, engine.version)
+// for unsupported browsers (iOS &lt;= 5, android &lt;= 2.3), use a meta tag:
+// &lt;meta name="kik-unsupported" content="android-2.3"&gt; (or whatever).
+</code></pre>
+
+<p>tags: <a href='tag_kik.html'>kik</a>, <a href='tag_api.html'>api</a></p>
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/kiks-api.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/kiks-api.html'><span id='count-20334'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/kiks-api.html</link>
+<guid>http://zacanger.com/blog/./kiks-api.html</guid>
+<dc:creator>Zac Anger</dc:creator>
+<pubDate>Wed, 17 Feb 2016 20:58:07 -0700</pubDate></item>
+<item><title>
+mac disk usage shiz
+</title><description><![CDATA[
+
+<p>i don't have a mac. so. whatever. but here's how to find out
+where all your disk space went, if you do have a mac.</p>
+
+<ul>
+<li><p>to find large files from the mac os x finder:</p>
+
+<ul>
+<li>command-h to go home</li>
+<li>command-f to find</li>
+<li>in the 'find' options:</li>
+<li>'kind', set to 'other' (anything not 'media' or 'apps,' i think)</li>
+<li>'file size', set to 'greater than', (set amount and unit)
+<ul>
+<li>maybe try 10 GB, work down from there? (5 GB, 1 GB, 500 MB, etc.)</li>
+</ul></li>
+</ul></li>
+<li><p>commands you can enter in the terminal:</p>
+
+<ul>
+<li><code>du -h . | grep ^[5-9][0-9][0-9.]M</code></li>
+<li># will list all directories by total size of contents, if larger than 500mb</li>
+<li><code>du -h . | grep [0-9][0-9]G</code></li>
+<li># same thing, but will only find directories over 10GB</li>
+<li><code>du -h . | sort -nr</code></li>
+<li># shows all directories from current, sorted by size (smallest to largest);</li>
+<li>better in smaller-ish directories (du's already kinda slow, and sort is even slower)</li>
+<li><code>find . -maxdepth 1 -mindepth 1 -type d  -exec du -hs {} \;</code></li>
+<li># shows all directories, ordered by name, with size of directory printed next to it</li>
+</ul></li>
+<li><p>some graphical os x programs to visualise disk usage:</p>
+
+<ul>
+<li><a href="http://downloads.sourceforge.net/project/grandperspectiv/grandperspective/1.5.1/GrandPerspective-1_5_1.dmg?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fgrandperspectiv%2Ffiles%2Fgrandperspective%2F1.5.1%2F&amp;ts=1454688889&amp;use_mirror=superb-dca2">most commonly recommended treemap-style disk-usage visualising tool</a></li>
+<li><a href="https://www.omnigroup.com/download/latest/OmniDiskSweeper">shows files ordered by desc. size, allows deletion (use caution!)</a></li>
+<li><a href="http://www.jgoodies.com/download/jdiskreport/jdiskreport-1_4_1-mac.zip">free, highly recommended, cross-platform, web version--but requires java</a></li>
+<li><a href="http://www.derlien.com/download.php?file=dix1.0universal">simpler interface, treemaps-style, hasn't been updated in a while, might not run on newer os x</a></li>
+<li><a href="http://download.piriform.com/mac/CCMacSetup111.dmg">must-have tool on windows, cleans out cache, duplicate files, empty dirs, etc., seems there's a mac version</a></li>
+<li><a href="http://www.spacegremlinapp.com/mac/SpaceGremlinPro2.0.3.zip">another treesize type of viewer, paid, but with a free demo</a></li>
+<li><a href="https://nektony.com/downloads">this company's apps are all commercial</a></li>
+<li>they have a suite (disk analyzer/scanner, uninstaller, duplicate finder, hidden file viewer, etc.)</li>
+<li><a href="https://nektony.com/download/mac-cleanup-suite/mac-cleanup-suite.dmg">and they have a free trial</a></li>
+</ul></li>
+</ul>
+
+<p>tags: <a href='tag_mac.html'>mac</a>, <a href='tag_apple.html'>apple</a></p>
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/mac-disk-usage-shiz.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/mac-disk-usage-shiz.html'><span id='count-28583'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/mac-disk-usage-shiz.html</link>
+<guid>http://zacanger.com/blog/./mac-disk-usage-shiz.html</guid>
+<dc:creator>Zac Anger</dc:creator>
+<pubDate>Wed, 17 Feb 2016 20:56:18 -0700</pubDate></item>
+<item><title>
+getting up and running with nw.js really super quickly
+</title><description><![CDATA[
+
+<p>There are basically two main ways to build a desktop app in JS: Electron (formerly called 'Atom-Shell') and
+NW.js (formerly called 'Node-Webkit'). Electron's really swell, probably offers more options overall, and has a cleaner
+way of keeping Node and client-side code separate. NW.js is a heckuva lot easier, overall, though.</p>
+
+<p>This is what I've been using to build and run Pharaoh: https://github.com/nwjs/nw-builder</p>
+
+<p>There's also a nifty sort of version manager for NW.js here: https://www.npmjs.com/package/nwjs , which worked a little
+more smoothly out of the box, but gave me issues when trying to get Node integration to work.</p>
+
+<p>To get up and running with NW.js using nw-builder, you basically just need to put the relevant information in your
+<code>package.json</code>. The relevant info on that is all here: https://github.com/nwjs/nw.js/wiki/Manifest-format but mostly
+it's just something like</p>
+
+<pre><code>"window": {
+  "height": 800,
+  "width": 1200,
+  "title": "my app"
+}
+</code></pre>
+
+<p>et cetera. The <code>main</code> field (which usually has, like, <code>server/index.js</code> or whatever in it), needs to be what NW.js
+is pointed to. That can be an HTML file (<code>"main": "./client/public/index.html"</code> or whatever) or a URL (if you're
+serving the app, especially locally--this is how Atom, Brackets, LightTable, etc. do things, except using Electron).</p>
+
+<p>That's basically it, I think. There are a lot of great Yeoman generators and stuff to scaffold out NW.js apps, but
+they're mostly overkill.</p>
+
+<p>Using <code>nw-builder</code> makes things pretty simple. <code>npm i -g nw-builder</code>, then just run <code>nwbuild -h</code> to see the options.
+(I use <code>nwbuild -r .</code> in the project root/wherever the relevant <code>package.json</code> is, to run the app).</p>
+
+<p>Their docs are really good, and there's a crapload of options and neat stuff you can do: https://github.com/nwjs/nw.js/wiki</p>
+
+<p>tags: <a href='tag_nwjs.html'>nwjs</a>, <a href='tag_desktop.html'>desktop</a>, <a href='tag_node.html'>node</a>, <a href='tag_electron.html'>electron</a>, <a href='tag_app.html'>app</a></p>
+
+
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/getting-up-and-running-with-nwjs-really-super-quickly.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/getting-up-and-running-with-nwjs-really-super-quickly.html'><span id='count-15589'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/getting-up-and-running-with-nwjs-really-super-quickly.html</link>
+<guid>http://zacanger.com/blog/./getting-up-and-running-with-nwjs-really-super-quickly.html</guid>
+<dc:creator>Zac Anger</dc:creator>
+<pubDate>Sun, 14 Feb 2016 14:41:00 -0700</pubDate></item>
+<item><title>
+basic auth
+</title><description><![CDATA[
+
+<ul>
+<li>Basic HTTP:
+<ul>
+<li>restricted based on system user/pass</li>
+<li>http://zacanger:encryptedpassword@zacanger.com</li>
+</ul></li>
+<li>Form-based:
+<ul>
+<li>restricted based on cookies</li>
+<li>success = stored cookie on client</li>
+<li><code>POST whatever.com/login (headers)</code></li>
+</ul></li>
+<li>Token-based:
+<ul>
+<li>requests with auth token</li>
+<li>https://foo.bar/whatever?auth_token=asdfghjkl123456789</li>
+</ul></li>
+<li>OAuth
+<ul>
+<li>rate limited, expired, revoked server-side</li>
+</ul></li>
+<li>Passport
+<ul>
+<li>this is, clearly, the preferred method, both with devmtn and with express in general, i feel</li>
+</ul></li>
+</ul>
+
+<hr />
+<p>tags: <a href='tag_auth.html'>auth</a>, <a href='tag_node.html'>node</a>, <a href='tag_js.html'>js</a>, <a href='tag_passport.html'>passport</a></p>
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/basic-auth.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/basic-auth.html'><span id='count-831'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/basic-auth.html</link>
+<guid>http://zacanger.com/blog/./basic-auth.html</guid>
+<dc:creator>Zac Anger</dc:creator>
+<pubDate>Fri, 12 Feb 2016 21:48:00 -0700</pubDate></item>
+<item><title>
+node-fs basics
+</title><description><![CDATA[
+
+<p>this is another one that'll be presented just as a giant code block.</p>
+
+<pre><code>// using files in node
+var fs = require('fs')
+var buf = new Buffer(1024)
+
+// reading asynchronously
+fs.readFile('foo.md', function(err, data){
+  if(err){
+    return console.error(err)
+  }
+  console.log('async read: ' + data.toString())
+})
+// and synchronously
+var data = fs.readFileSync('foo.md')
+console.log('sync read: ' + data.toString())
+console.log('#############\n')
+
+// opening
+// fs.open(path, flags[, mode], cb)
+// flags can be r (r), r (rw), rs (r synchronously), rs+ (rw, sync),
+// w (write), wx (fails if file exists), w+ (rw, creates file (or truncates existing)),
+// wx+ (fails if path exists), a (append), ax (fails if path exists),
+// a+ (file for read &amp; append), ax+ (fails if path exists)
+console.log('opening file')
+fs.open('foo.md', 'r+', function(err, fd){
+  if(err){
+    return console.error(err)
+  }
+  console.log('opened')
+})
+
+// information about files
+// fs.stat(path, callback)
+// .isFile() returns true if file, .isDirectory returns true if dir,
+// isBlockDevice returns true if block device, isCharacterDevice...,
+// isSymbolicLink ..., isFifo, isSocket
+console.log('getting file info')
+fs.stat('foo.md', function(err, stats){
+  if(err){
+    return console.error(err)
+  }
+  console.log(stats)
+  console.log('got yer file')
+  console.log('symlink? ' +  stats.isSymbolicLink)
+  console.log('char? ' + stats.isCharacterDevice)
+})
+
+// writing: fs.writeFile(filename, data[, options], cb)
+console.log('gonna write a file')
+fs.writeFile('bar.md', 'stuff!', function(err){
+  if(err){return console.error(err)}
+  console.log('written!')
+  console.log('reading that now')
+  fs.readFile('bar.md', function(err, data){
+    if(err){return console.error(err)}
+    console.log('async read: ' data.toString())
+  })
+})
+
+// closing: fs.close(fd, callback)
+console.log('opening file')
+fs.open('bar.md', 'r+', function(err, fd){
+  if(err){return console.error(err)}
+  console.log('opened')
+  console.log('reading it')
+  fs.read(fd, buf, 0, buf.length, 0 function(err, bytes){
+    if(err){console.log(err)}
+    if(bytes &gt; 0){console.log(buf.slice(0, bytes).toString())}
+    fs.close(fd, function(err){
+      if(err){console.log(err)
+    }
+    console.log('closed!')
+    })
+  })
+})
+
+// truncating: fs.ftruncate(fd, len, cb)
+// ... meh
+
+// deleting: fs.unlink(path, cb)
+console.log('gonna DELETE a file!')
+fs.unlink('bar.md', function(err){if(err){return console.error(err)}
+console.log('deleted!')})
+
+// mkdir: fs.mkdir(path[, mode], cb)
+fs.mkdir('./test', function(err){
+  if(err){return console.error(err)}
+  console.log('created a directory at \'test\'')
+})
+fs.mkdir('./asdf', function(err){
+  if(err){return console.error(err)}
+  console.log('created one called \'asdf\', too!')
+})
+// fs.readdir(path, cb)
+fs.readdir('./', function(err, files){
+  if(err){return console.error(err)}
+  files.forEach(function(file){
+    console.log(file)
+  })
+})
+
+// fs.rmdir(path, cb)
+fs.rmdir('./asdf', function(err){
+  if(err){return console.error(err)}
+  fs.readdir('./', function(err, files){
+    if(err){return console.error(err)}
+    files.forEach(function(file){
+      console.log(file)
+    })
+  })
+})
+
+// there are a whole bunch of other methods, but i feel like this is good enough for now, yes?
+</code></pre>
+
+<p>tags: <a href='tag_node.html'>node</a>, <a href='tag_fs.html'>fs</a>, <a href='tag_node-fs.html'>node-fs</a>, <a href='tag_javascript.html'>javascript</a>, <a href='tag_basics.html'>basics</a></p>
+
+
+
+
+
+
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/node-fs-basics.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/node-fs-basics.html'><span id='count-25094'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/node-fs-basics.html</link>
+<guid>http://zacanger.com/blog/./node-fs-basics.html</guid>
+<dc:creator>Zac Anger</dc:creator>
+<pubDate>Fri, 12 Feb 2016 19:58:00 -0700</pubDate></item>
+<item><title>
+Solving programming problems
+</title><description><![CDATA[
+
+<p>Basic steps of solving programming problems:</p>
+
+<ol>
+<li>Find the input.</li>
+<li>Find the output.</li>
+<li>Figure out how you need to transform the input to the output <em>in plain English</em>.</li>
+<li>Translate this into your chosen programming language.</li>
+<li>Run the code (in your head, or on a machine).</li>
+<li>If the output isn't what you expected, start over with step three.</li>
+</ol>
+
+<p>... that's basically it.</p>
+
+<p>tags: <a href='tag_toy-problems.html'>toy-problems</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_problem-solving.html'>problem-solving</a></p>
+
+
+
+
+
+
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/solving-programming-problems.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/solving-programming-problems.html'><span id='count-11393'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/solving-programming-problems.html</link>
+<guid>http://zacanger.com/blog/./solving-programming-problems.html</guid>
+<dc:creator>Zac Anger</dc:creator>
+<pubDate>Wed, 10 Feb 2016 22:58:00 -0700</pubDate></item>
+<item><title>
+void elements in html
+</title><description><![CDATA[
+
+<p>you know what <em>really</em> gets on my nerves? people who close tags that don't get closed, in html.</p>
+
+<p>i mean, html in general just kinda gets on my nerves, because, let's be honest, xml is ugly,
+and it's mostly just writing a crapload of the same stuff over and over again. we should be
+past that, by now.</p>
+
+<p>but seeing a tag with a closing slash (or, worse, a closing tag) when it can't be closed,
+that really just irks me.</p>
+
+<p>these are the elements that don't get closed. if you look at the list, you'll see why that is.</p>
+
+<ul>
+<li>area</li>
+<li>base</li>
+<li>br</li>
+<li>col</li>
+<li>embed</li>
+<li>hr</li>
+<li>img</li>
+<li>input</li>
+<li>keygen</li>
+<li>link</li>
+<li>menuitem</li>
+<li>meta</li>
+<li>param</li>
+<li>source</li>
+<li>track</li>
+<li>wbr</li>
+</ul>
+
+<p>see what they all have in common?</p>
+
+<p>you can't possibly have anything in any of them, like, between tags. what can you put between
+an opening and closing line break tag? <strong>nothing</strong>. so why would you need a closing tag?  <strong>you wouldn't</strong>.
+so don't close it. none of that <code>&lt;img src="img.jpg"&gt;&lt;/img&gt;</code> bs. No <code>&lt;br /&gt;</code>. and please, please,
+never do something just weird like <code>&lt;link rel="stylesheet" type="text/css" href="styles.css" /&gt;</code>.</p>
+
+<p>not only is there no need for it, it's actually just straight-up wrong.</p>
+
+<p>k?</p>
+
+<p>tags: <a href='tag_html.html'>html</a>, <a href='tag_tags.html'>tags</a></p>
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/void-elements-in-html.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/void-elements-in-html.html'><span id='count-10700'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/void-elements-in-html.html</link>
+<guid>http://zacanger.com/blog/./void-elements-in-html.html</guid>
+<dc:creator>Zac Anger</dc:creator>
+<pubDate>Mon, 08 Feb 2016 12:41:00 -0700</pubDate></item>
+<item><title>
+Javascript Operators
+</title><description><![CDATA[
+
+<p>(Just a little cheatsheet/list for my own easy reference--and anyone else's, too, of course.
+This is like maybe 83 percent just copied from MDN.)</p>
+
+<h1>JAVASCRIPT OPERATORS</h1>
+
+<p>There are a whole whole bunch! Here's most of 'em, kinda hopefully split up
+and sorted in some sort of order that makes sense. It's always worth just
+taking a peek at the spec or MDN or whatever, especially it looks like actual
+standards are going to be getting actual changes within actual human lifespans
+now.</p>
+
+<hr />
+<p>tags: <a href='tag_javascript.html'>javascript</a>, <a href='tag_operators.html'>operators</a>, <a href='tag_cheatsheet.html'>cheatsheet</a>, <a href='tag_reference.html'>reference</a>, <a href='tag_ecmascript.html'>ecmascript</a></p>
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/javascript-operators.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/javascript-operators.html'><span id='count-1951'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/javascript-operators.html</link>
+<guid>http://zacanger.com/blog/./javascript-operators.html</guid>
+<dc:creator>Zac Anger</dc:creator>
+<pubDate>Sat, 06 Feb 2016 17:23:00 -0700</pubDate></item>
+</channel></rss>

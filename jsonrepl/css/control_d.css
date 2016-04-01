@@ -1,0 +1,151 @@
+.control {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  height: 20px;
+  background-color: hsl(70, 8%, 45%);
+}
+
+/******************************************************************************/
+/* LAYOUT                                                                     */
+/******************************************************************************/
+.control > div.viewer {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 50%;
+  bottom: 20px;
+}
+.control > div.editor {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  right: 0px;
+  bottom: 20px;
+}
+
+.control > div.import {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 20px;
+}
+
+.control .right {
+  float: right;
+}
+
+/******************************************************************************/
+/* BUTTONS                                                                    */
+/******************************************************************************/
+.control a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  line-height: 20px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.control a.run {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: hsl(100, 80%, 70%);
+}
+
+.control a.prev,
+.control a.next {
+}
+
+.control a.download {
+  margin-left: 10px;
+}
+.control a.import {
+}
+
+.control a.mode {
+  opacity: 0.5;
+}
+
+.control a.active {
+  font-weight: bold;
+  opacity: 1.0;
+}
+
+/******************************************************************************/
+/* EDITOR COMMANDS                                                            */
+/******************************************************************************/
+.control > div.editor div.commands {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  width: 33px;
+}
+
+/******************************************************************************/
+/* EDITOR STATE                                                               */
+/******************************************************************************/
+.control > div.editor div.state {
+  display: inline-block;
+}
+
+.control div.step {
+  position: relative;
+  float: left;
+  height: 20px;
+  padding-left: 15px;
+  padding-right: 5px;
+  line-height: 20px;
+  cursor: pointer;
+  color: black;
+}
+
+.control div.step.current {
+  font-weight: bold;
+  opacity: 1.0;
+  color: white;
+}
+
+.control div.step:after {
+  left: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.control div.step:after {
+  border-color: rgba(136, 183, 213, 0);
+  border-left-color: #aaa;
+  border-width: 10px;
+  top: 50%;
+  margin-top: -10px;
+}
+
+.control div.step.dirty {
+  background-color: #aaa;
+}
+.control div.step.dirty:after {
+  border-left-color: #aaa;
+}
+
+.control div.step.clean {
+  background-color: hsl(100, 30%, 55%);
+}
+.control div.step.clean:after {
+  border-left-color: hsl(100, 30%, 55%);
+}
+
+.control div.step.error {
+  background-color: hsl(0, 40%, 65%);
+}
+.control div.step.error:after {
+  border-left-color: hsl(0, 40%, 65%);
+}
+
+
+
