@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>alarm</title>
+  <link rel="stylesheet" type="text/css" href="./css.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script type="text/javascript" src="./js.js"></script>
+</head>
+<body class="night">
+  <div id="container">
+    <h1 id="weekday">Wednesday</h1>
+    <div id="clock">
+      <span class="hours">0</span>
+      <span class="minutes">0</span>
+      <span class="seconds">0</span>
+    </div>
+    <div id="weather">
+      <span class="temp">-</span>
+      /
+      <span class="condition">-</span>
+    </div>
+  </div>
+  <nav id="debug_tools">
+    <ul>
+      <li><a href="#alarm_now" class="setoffalarm">trigger alarm</a></li>
+      <li><a href="#alarm_now" class="switchdaynightmode">day/night</a></li>
+    </ul>
+  </nav>
+  <audio id="alarm_audio_file" preload="auto">
+    <source src="./alarm.mp3">
+  </audio>
+</body>
+</html>
+

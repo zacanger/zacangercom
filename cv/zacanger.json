@@ -1,0 +1,123 @@
+{
+  "names": {
+    "preferred": "Zac Anger",
+    "legal": "Zachary E. Unger",
+    "handle": "zacanger"
+  },
+  "occupations": [
+    "*n*x nerd",
+    "debian administrator",
+    "javascript developer",
+    "web enthusiast",
+    "session musician",
+    "sometime web designer",
+    "node fanboi"
+  ],
+  "status": "seeking full-time employment, ideally in node development",
+  "qualifications": [
+    "Comptia A+ Certification",
+    "Rackspace Cloud U Certificate",
+    "Microsoft Virtual Academy Certificates (Various)"
+  ],
+  "education": [
+    {
+      "name": "DevMountain",
+      "year completed": 2016,
+      "description": "Full-time immersive JavaScript programme with focus on MEAN Stack.",
+      "url": "http://devmounta.in"
+    },{
+      "name": "Homeschool",
+      "year completed": 2007,
+      "description": "High school years were fun. Fortunately, also totally irrelevant.",
+      "url": null
+    }
+  ],
+  "website": "http://zacanger.com",
+  "avatar": "http://zacanger.com/logo.svg",
+  "writing": "http://zacanger.com/blog",
+  "projects": [
+    {
+      "name": "Pharaoh",
+      "url": "http://pharaoh.js.org",
+      "summary": "An educational tool, for live broadcasting of code. This is the web frontend."
+    },{
+      "name": "Pharaoh-NWjs",
+      "url": "http://npm.im/pharaoh",
+      "summary": "The desktop app for Pharaoh; installable as an executable from NPM, or from binaries."
+    },{
+      "name": "Mickey's Wholesale Pizza",
+      "url": null,
+      "summary": "Client web project for wholesale foods business."
+    },{
+      "name": "ayuba",
+      "url": "https://github.com/zacanger/ayuba.git",
+      "summary": "A desktop Markdown editor, with realtime rendering, customisable themes, and Mongo storage."
+    },{
+      "name": "markvi",
+      "url": "http://npm.im/markvi",
+      "summary": "In-browser Markdown editor with realtime rendering & vim-like keybinds."
+    },{
+      "name": "Gifland",
+      "url": "http://zacanger.com/gifland",
+      "summary": "Animated gif hosting for personal & friend usage."
+    },{
+      "name": "From Under The Mountain OST",
+      "url": "http://zacanger.com/fromunderthemountain",
+      "summary": "Commissioned soundtrack accompaniment for fantasy novel."
+    },{
+      "name": "IP",
+      "url": "http://zacanger.com/ip",
+      "summary": "PHP script to echo IP address, for usage by cURL"
+    },{
+      "name": "Pengins",
+      "url": "http://npm.im/pengins",
+      "summary": "A tiny script to give you 'pengins, in ur xterm, chillin.'"
+    },{
+      "name": "Google",
+      "url": "http://zacanger.com/search",
+      "summary": "Google, with a little less Google."
+    },{
+      "name": "dotfiles",
+      "url": "https://github.com/zacanger/z.git",
+      "summary": "My own configuration files, scripts, cheatsheets, and manpages."
+    },{
+      "name": "F Me On Github",
+      "url": "http://zacanger.github.io/f-me-on-github/",
+      "summary": "An amusing, inappropriate take on the 'Fork Me On Github' ribbon."
+    }
+  ],
+  "social": [
+    {
+      "name": "Pinboard",
+      "url": "http://pinboard.in/u:zacanger"
+    },{
+      "name": "Twitter",
+      "url": "http://twitter.com/zacanger"
+    },{
+      "name": "Tumblr",
+      "url": "http://zacanger.tumblr.com"
+    },{
+      "name": "Github",
+      "url": "http://github.com/zacanger"
+    },{
+      "name": "Soundcloud",
+      "url": "http://soundcloud.com/zacanger"
+    },{
+      "name": "Bandcamp",
+      "url": "http://zacanger.bandcamp.com"
+    },{
+      "name": "DeviantArt",
+      "url": "http://zacanger.deviantart.com"
+    },{
+      "name": "Pen",
+      "url": "http://zacanger.pen.io"
+    },{
+      "name": "Facebook",
+      "url": "http://facebook.com/zacangermusic"
+    },{
+      "name": "Google+",
+      "url": "https://plus.google.com/+zacangermusic/"
+    }
+  ]
+}
+

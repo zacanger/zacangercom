@@ -1,0 +1,29 @@
+html,body,div,span,h1,ul,li,a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  line-height: 1.2;
+}
+
+body { font-family: "Merriweather", "Cardo", serif; font-size: 1.2em; text-align: right; }
+
+body.night { background: #080808; color: #404A45; }
+body.day { background: #ededed; color: #202020; }
+
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+#container { padding: 10%; color: #404A45; }
+#weekday { font-size: 3.4em; }
+#clock { font-size: 4.8em; padding: 2% 4% 4% 0; }
+#clock span.hours { font-size: 1.2em; }
+#clock span.minutes { font-size: 1.4em; }
+#clock span.seconds { font-size: 0.8em; }
+#weather { font-size: 3.2em; }
+#debug_tools { opacity: 0; }
+#debug_tools:hover { opacity: 1; }
+

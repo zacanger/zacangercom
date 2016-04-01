@@ -1,0 +1,74 @@
+/*
+ * my little css boilerplate. i use it everywhere. it's its most
+ * generic over at zacanger.com/blog, probably. feel free to use.
+ * wtfpl and/or dbad licensed, whatever you're feeling atm, idc.
+ */
+
+/* reset */
+html{height:100%;width:100%;}
+html,ul,ol,li,form,fieldset,legend{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6,p{margin-top:0;}
+fieldset,img{border:0;}
+legend{color:#000;}
+li{list-style: none; }
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th,td{text-align:left;vertical-align:top;font-weight:normal;}
+input,textarea,select{font-size:110%;line-height:1.1;}
+abbr,acronym{border-bottom:.1em dotted;cursor:help;}
+
+/* everything else */
+@import url(https://fonts.googleapis.com/css?family=Cardo:700);
+@import url(https://fonts.googleapis.com/css?family=Merriweather);
+
+html { font-size: 62.5%; }
+body {
+  font-size: 1.6em;
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Merriweather", serif;
+  color: #143125;
+  background: #f4fafc;
+  margin-top: 1.2rem;
+  margin-left: 2rem;
+  padding-top: 1.2em;
+  padding-left: 2.2em;
+  max-width: 700px;
+}
+
+h1, h3 {
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+  font-family: "Cardo", serif;
+  letter-spacing: -.1rem;
+}
+h1 { font-size: 3.8rem; line-height: 1.2; }
+h3 { font-size: 3.2rem; line-height: 1.3; }
+
+@media (min-width: 550px) {
+  h1 { font-size: 3.4rem; }
+  h3 { font-size: 2.2rem; }
+}
+
+a { color: #5b8b80; text-decoration: none;}
+a:hover { color: #85b276; text-decoration: underline; }
+a:visted { color: #505e5b; text-decoration: none; }
+a:active { color: #436c85; text-decoration: none; }
+
+ul { list-style: circle inside; }
+ul { padding-left: 1rem; margin-top: 0; }
+ul ul { margin: 1.5rem 0 1.5rem 3rem; font-size: 80%; }
+li { margin-bottom: 1rem; }
+
+p { margin-top: 1rem; }
+p,ul { margin-bottom: 1em; }
+img { float: left; margin: 0 1rem 1rem 0; }
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-width: 0;
+  border-top: 1px solid #b688b0;
+}
+

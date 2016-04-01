@@ -1,0 +1,135 @@
+/* based on csscv by @csswizardry */
+.csscv * {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font-family: "Hasklig", "Fira Code", "Hack", "Monaco",monospace;
+  font-weight: 400;
+}
+.csscv .spaced,.csscv .ruleset,.csscv .notice {
+  margin-bottom: 1.2rem;
+}
+.csscv .spaced--large {
+  margin-bottom: 1.8rem;
+}
+.csscv .indented {
+  padding-left: 1.8em;
+}
+.csscv {
+  line-height: 1.4;
+  padding: 1.2rem;
+  padding-bottom: 0;
+  color: ##7a7b7c;
+  background-color: #0f0f0f;
+}
+.csscv a {
+  color: inherit;
+}
+.csscv .selector {
+  color: #30aabc;
+  text-transform: lowercase;
+}
+.csscv .selector:before {
+  content: ".";
+}
+.csscv .selector:after {
+  content: " {";
+}
+.csscv .selector__delimiter {
+  position: relative;
+  white-space: pre;
+}
+.csscv .selector__delimiter:before {
+  content: "-";
+  position: absolute;
+  display: inline-block;
+  width: .5em;
+  text-align: center;
+}
+.csscv .declarations:after {
+  content: "}";
+  color: #30aabc;
+}
+.csscv .property {
+  text-transform: lowercase;
+  float: left;
+  clear: both;
+  padding-left: 1.8em;
+  color: #cacbcc;
+}
+.csscv .property:after {
+  content: ":\00A0";
+  color: #c9f;
+}
+.csscv .value {
+  color: #fedcba;
+}
+.csscv .value:after {
+  content: ";";
+  color: #C9F;
+}
+.csscv .string {
+  color: #2b4;
+}
+.csscv .string:before,.csscv .string:after {
+  content: "\"";
+}
+.csscv .number {
+  color: #fffabc;
+}
+.csscv .url:before {
+  content: "url(";
+}
+.csscv .url:after {
+  content: ")";
+}
+.csscv .value-list {
+  list-style: none;
+  display: inline;
+}
+.csscv .value-list>li {
+  display: inline;
+}
+.csscv .value-list>li:after {
+  content: ", ";
+}
+.csscv .value-list>li:last-child:after {
+  content: "";
+}
+.csscv .element:before {
+  content: attr(data-namespace) "__";
+}
+.csscv .modifier:before {
+  content: attr(data-namespace) "--";
+}
+.csscv .comment {
+  color: #C9F;
+}
+.csscv .comment:before {
+  content: "/* ";
+}
+.csscv .comment:after {
+  content: " */";
+}
+.csscv .comment-block {
+  color: #C9F;
+}
+.csscv .comment-block:before,.csscv .comment-block:after {
+  display: block;
+}
+.csscv .comment-block:before {
+  content: "/**";
+}
+.csscv .comment-block:after {
+  content: "\00A0*/";
+}
+.csscv .comment-block__line {
+  display: block;
+}
+.csscv .comment-block__line:before {
+  content: "\00A0*\00A0";
+}
+.csscv .notice {
+  display: block !important;
+}
+
