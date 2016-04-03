@@ -23,7 +23,7 @@
 <meta name='twitter:card' content='summary' />
 <meta name='twitter:site' content='@zacanger' />
 <meta name='twitter:title' content='angr &mdash; posts tagged "js"' />
-<meta name='twitter:description' content=" basic auth  February 12, 2016  &mdash;  Zac Anger    Basic HTTP:  restricted based on system user/pass http://zacanger:encryptedpassword@zacanger.com  Form-based:  restricted based on cookies success = stored cookie on client POST whatever.com/login" />
+<meta name='twitter:description' content=" FP in JS  April 03, 2016 &mdash;  Zac Anger   Notes taken while going through this guy's videos.  You should watch them all. He's great.  'use strict'  // // HOF // // Higher Order Functions // functions are values // const something = function &gt;" />
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -32,6 +32,273 @@
 <div id="description">writings from zac anger, who is not all that angry</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="fp-in-js.html">
+FP in JS
+</a></h3>
+<div class="subtitle">April 03, 2016 &mdash; 
+Zac Anger</div>
+<!-- text begin -->
+
+<p>Notes taken while going through
+<a href="https://www.youtube.com/channel/UCO1cgjhGzsSYb1rsB4bFe4Q/videos">this guy's videos</a>.</p>
+
+<p>You should watch them all. He's great.</p>
+
+<pre><code>'use strict'
+
+//
+// HOF
+//
+// Higher Order Functions
+// functions are values
+// const something = function &gt; function something
+// obvs functions passed into functions
+// composition yay
+// example: filter (method on array, takes another function as action)
+// filter's should return true or false to determine whether item belongs in arr
+let something = [{foo : 'bar'}, {quux : 'baz'}, {whatever : 'target'}]
+let newArr
+for (let i = 0; i &lt; something.length; i++) {
+  if (something[i].what === 'target') {
+    newArr.push(something[i])
+  }
+}
+// vs
+let newArr = something.filter(thing =&gt; {
+  return thing.what === 'target'
+})
+// or, using reject
+let isTarget = something =&gt; thing.what === 'target'
+let notTarget = something.reject(isTarget)
+// note: there's also find. that returns just the first item that matches.
+
+//
+// Map
+//
+// map's cb returns a transformed object to put into array
+let peeps = [
+  {name : 'geordyn', relationship : 'bffl'                   }
+, {name : 'erin'   , relationship : 'number one bro'         }
+, {name : 'ryan'   , relationship : 'nemesis. also, the one.'}
+, {name : 'andrew' , relationship : 'special mormon'         }
+, {name : 'sarah'  , relationship : 'grandma'                }
+]
+// non-functional way of doing getting an array of the names
+let names = []
+for (let i = 0; i &lt; something.length; i++) {
+  names.push(something[i].name)
+}
+// vs
+let names = peeps.map(peep =&gt; peep.name)
+let about = peeps.map(peep =&gt; peep.name + ' is my ' + peep.relationship + '.')
+
+//
+// Reduce
+//
+// map, filter, reject, and find are fairly specific list transformations.
+// reduce is is more of a swiss-army knife. it can do just about anything.
+// reduce wants an object, though. (yes, it's a method on the array prototype.)
+let stuffToSum = [
+  {amount : 4   }
+, {amount : 16  }
+, {amount : 1024}
+, {amount : 4096}
+]
+// so...
+let total = 0
+for (let i = 0; i &lt; stuffToSum.length; i++) {
+  total += stuffToSum[i].amount
+}
+// vs
+let total = stuffToSum.reduce((sum, stuff) =&gt; sum + stuff.amount, 0)
+// this is adding stuffToSum[0].amount to sum (which is initialised at 0)
+// and returning that sum, then going again with stuffToSum[1].amount and
+// the current sum (4), and so on.
+//
+// let's say we have some file in TSV format, like below. (i'm using 4 spaces
+// to represent a tab here, since tabs = 2 spaces in all my editors, and 2 spaces
+// isn't large enough to clearly distinguish fields here, i think.)
+// miss lady    an item    7    20
+// miss lady    a thing or two    75    2
+// some dude    another product    33    9
+// some dude    some product    100    1
+// we need to transform this into a nice looking object (containing two objects,
+// one for each person, each containing an array of objects that are the items bought).
+import fs from 'fs'
+let contents = fs.readFileSync('./thatFile.tsv', 'utf8')
+.trim()                        // remove trailing newline
+.split('\n')                   // split into array of strings at newlines
+.map(line =&gt; line.split('\t')) // \t is a tab character
+.reduce((persons, line) =&gt; {
+  persons[line[0]] = persons[line[0]] || []
+  persons[line[0]].push({
+    name  : line[1]
+  , cost  : line[2]
+  , quant : line[3]
+  })
+  return persons
+}, {})
+console.log('contents: ', JSON.stringify(contents, null, 2))
+
+//
+// Closures
+//
+function sendReq(){
+  let reqId = 'asdf'
+  $.ajax({
+    url : '/someurl'
+  , success(response){
+      console.log('request ' + reqId + ' returned')
+    }
+  })
+}
+// see, we don't have to pass stuff around here. reqId is going to be 'asdf'
+// no matter when jquery's ajax finishes whatever it's doing. nice.
+// there's also this classic example:
+function makeAdder(x){
+  return(y =&gt; x + y)
+}
+let
+  add4 = makeAdder(4)
+, add8 = makeAdder(8)
+console.log(add4(16))
+console.log(add8(64))
+
+//
+// Currying
+//
+// so, you've got some arguments. you could have a function that
+// takes your bunch of arguments and does stuff with them. or you could
+// have a function that takes your first argument and winds up returning
+// a function that takes your second argument which returns a function
+// that takes your third argument... etc., you get the idea.
+let self1 = (name, age, language, location) =&gt;
+  `Hi, I'm ${name}, age ${age}. I speak ${language} and live in ${location}.`
+console.log(self1('zac', 26, 'english', 'utah, i guess'))
+// vs
+let self2 = name =&gt; age =&gt; language =&gt; location =&gt;
+  `Hi, I'm ${name}, age ${age}. I speak ${language} and live in ${location}.`
+console.log(self2('zac')(26)('english')('utah, i guess'))
+// why? maybe i don't know everything about myself yet, but my app will find
+// out some of this information later. so i call self('zac'), have a birthday,
+// call self(27)('english') because it's been another year and i still only
+// speak one language, and then i call self('texas??') because i've moved.
+// now, finally, i have the return value (the introductory sentence)!
+// what about self1? we could always use something from some library to
+// transform it, like wu.js's autoCurry, or whatever. for the sake of familiarity,
+// try lodash (first npm i -S lodash):
+import _ from 'lodash'
+let me = _.curry(self1)
+console.log(self1('zac'))
+// yay! okay, another example.
+let
+  guitars = [
+  {brand : 'ovation'    , type : 'acoustic' }
+, {brand : 'silvertone' , type : 'acoustic' }
+, {brand : 'esp'        , type : 'electric' }
+, {brand : 'teton',     , type : 'acoustic' }
+, {brand : 'danburn'    , type : 'electric' }
+, {brand : 'homemade'   , type : 'cigar-box'}
+]
+, isType    = (type, obj) =&gt; obj.type === type
+, electrics = guitars.filter(x =&gt; istype('electric'), x)
+console.log(electrics)
+// okay, so using the same guitars array:
+import _ from 'lodash'
+let isTypeCur = _.curry((type, obj) =&gt; obj.type === type)
+  , acoustics = guitars.filter(isTypeCur('acoustic'))
+
+//
+// Recursion
+//
+// recursion is not at all a difficult idea. won't even
+// bother laying it out here, really. a function calls itself
+// until it's done calling itself. it's a super useful way to
+// program, especially in actual functional languages.
+// es6 makes recursion a lot nicer. we can get rid of the
+// if statement in the below function in es6 because we won't
+// end with a 'RangeError: Maximum call stack size exceeded
+// or whatever.
+let countDown = num =&gt; {
+  if (num === 0) {
+    return
+  }
+  console.log(num)
+  countDown(num - 1)
+}
+
+//
+// Promises
+//
+function loadStuff(url, cb){
+  let img = new Image()
+  img.onload = () =&gt; {
+    cb(null, img)
+  }
+  img.onerror = () =&gt; {
+    let msg = 'failed loading ' + url
+    cb(new Error(msg))
+  }
+  img.src = url
+}
+export default loadStuff
+// with
+import loadStuff from './loadStuff'
+let addThing = src =&gt; {
+  let el = document.createElement('img')
+  el.src = src
+  document.body.appendChild(el)
+}
+loadStuff('/thing/to/load.png', (err, img) =&gt; {
+  if (err) {
+    throw err
+  }
+  addThing(img.src)
+  loadStuff('/thing/two.png', (err, newImg) =&gt; {
+    if (err) {
+      throw err
+    }
+    addThing(img.src)
+    // etc
+  })
+})
+// vs
+function loadThing(url){
+  return new Promise((resolve, reject) =&gt; {
+    let img = new image()
+    img.onload = () =&gt; {
+      resolve(image)
+    }
+    img.onerror = () =&gt; {
+      let msg = 'failed loading ' + url
+      reject(new Error(msg))
+    }
+    img.src = url
+  })
+}
+export default loadThing
+//with
+import loadThing from './loadThing'
+let addThing = src =&gt; {
+  let el = document.createElement('img')
+  el.src = src
+  document.body.appendChild(el)
+}
+Promise.all([
+  loadThing('/path/one.png')
+, loadThing('/path/two.png')
+// , etc
+]).then(images =&gt; {
+  images.forEach(img =&gt; addThing(img.src))
+}).catch(err =&gt; {
+  throw err
+})
+</code></pre>
+
+<p>tags: <a href='tag_functional-programming.html'>functional-programming</a>, <a href='tag_javascript.html'>javascript</a>, <a href='tag_js.html'>js</a>, <a href='tag_fp.html'>fp</a>, <a href='tag_functional.html'>functional</a>, <a href='tag_notes.html'>notes</a>, <a href='tag_examples.html'>examples</a>, <a href='tag_map.html'>map</a>, <a href='tag_filter.html'>filter</a>, <a href='tag_reduce.html'>reduce</a>, <a href='tag_promises.html'>promises</a>, <a href='tag_closure.html'>closure</a>, <a href='tag_closures.html'>closures</a>, <a href='tag_recursion.html'>recursion</a></p>
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/fp-in-js.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/fp-in-js.html'><span id='count-21002'></span></a>&nbsp;</p>
 <h3><a class="ablack" href="basic-auth.html">
 basic auth
 </a></h3>
@@ -66,7 +333,7 @@ Zac Anger</div>
 </ul></li>
 </ul>
 
-<p class="readmore"><a href="./basic-auth.html">read more...</a></p>
+<p class="readmore"><a href="basic-auth.html">read more...</a></p>
 <p>tags: <a href='tag_auth.html'>auth</a>, <a href='tag_node.html'>node</a>, <a href='tag_js.html'>js</a>, <a href='tag_passport.html'>passport</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/basic-auth.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/basic-auth.html'><span id='count-831'></span></a>&nbsp;</p>
@@ -264,7 +531,7 @@ fn2(2)     // num:11; quuxArr:1,2,3,9,11; ref.bazVar:5
 
 <p>Closures <em>can</em> definitely be nested.</p>
 
-<p class="readmore"><a href="./closures.html">read more...</a></p>
+<p class="readmore"><a href="closures.html">read more...</a></p>
 <p>tags: <a href='tag_js.html'>js</a>, <a href='tag_closures.html'>closures</a>, <a href='tag_notes.html'>notes</a>, <a href='tag_closure.html'>closure</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/closures.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/closures.html'><span id='count-9485'></span></a>&nbsp;</p>
@@ -327,7 +594,7 @@ Zac Anger</div>
    onChange={this.foo.bar} /&gt;
 </code></pre>
 
-<p class="readmore"><a href="./react-notes.html">read more...</a></p>
+<p class="readmore"><a href="react-notes.html">read more...</a></p>
 <p>tags: <a href='tag_react.html'>react</a>, <a href='tag_webpack.html'>webpack</a>, <a href='tag_js.html'>js</a>, <a href='tag_notes.html'>notes</a>, <a href='tag_redux.html'>redux</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/react-notes.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/react-notes.html'><span id='count-6354'></span></a>&nbsp;</p>
@@ -710,7 +977,7 @@ counter.onValue(x =&gt; $('#example .output').html(x))
 <p>Ohh, okay, so the 'take' and 'skip' combinators are new. They do what they sound like. Basically like slicing
 arrays, but with streams.</p>
 
-<p class="readmore"><a href="./baconjs.html">read more...</a></p>
+<p class="readmore"><a href="baconjs.html">read more...</a></p>
 <p>tags: <a href='tag_bacon.html'>bacon</a>, <a href='tag_js.html'>js</a>, <a href='tag_frp.html'>frp</a>, <a href='tag_streams.html'>streams</a>, <a href='tag_events.html'>events</a>, <a href='tag_functional.html'>functional</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_reactive.html'>reactive</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/baconjs.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/baconjs.html'><span id='count-21805'></span></a>&nbsp;</p>
@@ -860,7 +1127,7 @@ B: -----b--c----d------q---&gt;
 
 <p>OH WAIT DUH, I forgot jQuery. Thank goodness. I really was hoping I wasn't gonna have dumb problems. YAY THIS IS NICE!</p>
 
-<p class="readmore"><a href="./everything-is-a-stream-or-notes-on-frp.html">read more...</a></p>
+<p class="readmore"><a href="everything-is-a-stream-or-notes-on-frp.html">read more...</a></p>
 <p>tags: <a href='tag_rxjs.html'>rxjs</a>, <a href='tag_reactive.html'>reactive</a>, <a href='tag_js.html'>js</a>, <a href='tag_frp.html'>frp</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/everything-is-a-stream-or-notes-on-frp.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/everything-is-a-stream-or-notes-on-frp.html'><span id='count-27515'></span></a>&nbsp;</p>
@@ -877,7 +1144,7 @@ Zac Anger</div>
 
 <p><code>const</code> = <code>var</code>, but it's a constant, <em>finally</em>. this means variables you can't fuck with, man! for simple things, that is. <code>const x = 2; x = 3</code> does <em>not</em> work. however, parts of a <code>const</code> are mutable; that is, <code>const y = [0, 1, 2, 3]; y[0] = 7</code> <em>does</em> work. Constants can be global or local, that's just up to how you declare it. Const and let behave the same no matter where you declare them; the difference is that const can't be <em>defined</em> again, whereas let <em>can</em> be redefined. <em>Neither</em> of them can be <em>declared</em> again.</p>
 
-<p class="readmore"><a href="./es6-notes.html">read more...</a></p>
+<p class="readmore"><a href="es6-notes.html">read more...</a></p>
 <p>tags: <a href='tag_js.html'>js</a>, <a href='tag_javascript.html'>javascript</a>, <a href='tag_ecmascript.html'>ecmascript</a>, <a href='tag_es6.html'>es6</a>, <a href='tag_es2015.html'>es2015</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/es6-notes.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/es6-notes.html'><span id='count-20865'></span></a>&nbsp;</p>
@@ -961,7 +1228,7 @@ Zac Anger</div>
 
 <p>Note that the 'EventLog.elm' in this directory doesn't actually need the start-app package anymore; turns out it's really easy to just wire the damn thing up all on your own.</p>
 
-<p class="readmore"><a href="./differences-from-js.html">read more...</a></p>
+<p class="readmore"><a href="differences-from-js.html">read more...</a></p>
 <p>tags: <a href='tag_js.html'>js</a>, <a href='tag_haskell.html'>haskell</a>, <a href='tag_functional.html'>functional</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_javascript.html'>javascript</a>, <a href='tag_elm.html'>elm</a>, <a href='tag_lang.html'>lang</a>, <a href='tag_language.html'>language</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/differences-from-js.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/differences-from-js.html'><span id='count-26621'></span></a>&nbsp;</p>
@@ -1044,7 +1311,7 @@ Zac Anger</div>
   * eg, if (searchArray.length = 0) return exit status 1
   * because infinite loops are dumb</p>
 
-<p class="readmore"><a href="./algorithms-amp-big-o.html">read more...</a></p>
+<p class="readmore"><a href="algorithms-amp-big-o.html">read more...</a></p>
 <p>tags: <a href='tag_algorithms.html'>algorithms</a>, <a href='tag_big-o.html'>big-o</a>, <a href='tag_sort.html'>sort</a>, <a href='tag_math.html'>math</a>, <a href='tag_js.html'>js</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/algorithms-amp-big-o.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/algorithms-amp-big-o.html'><span id='count-24326'></span></a>&nbsp;</p>
@@ -1245,7 +1512,7 @@ Zac Anger</div>
       }
     })
 </code></pre>
-<p class="readmore"><a href="./express-vs-koa-vs-hapi.html">read more...</a></p>
+<p class="readmore"><a href="express-vs-koa-vs-hapi.html">read more...</a></p>
 <p>tags: <a href='tag_express.html'>express</a>, <a href='tag_koa.html'>koa</a>, <a href='tag_js.html'>js</a>, <a href='tag_hapi.html'>hapi</a>, <a href='tag_server.html'>server</a>, <a href='tag_node.html'>node</a>, <a href='tag_framework.html'>framework</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/express-vs-koa-vs-hapi.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/express-vs-koa-vs-hapi.html'><span id='count-11154'></span></a>&nbsp;</p>
@@ -1271,7 +1538,7 @@ will start getting down to some note-taking and summarizing.... Oh, right. I'm r
 <a href="https://browserdiet.com/en/">this little guide</a>, right now, so that's what sparked this. I know I've read it before,
 but I'm really hardcore procrastinating learning Redux right now, so I figured I'd do something else. This is actually
 in my school notes directory, but it may end up as a blog post. Certainly sounds like it. Who knows?</p>
-<p class="readmore"><a href="./front-end-performance-notes.html">read more...</a></p>
+<p class="readmore"><a href="front-end-performance-notes.html">read more...</a></p>
 <p>tags: <a href='tag_performance.html'>performance</a>, <a href='tag_front-end.html'>front-end</a>, <a href='tag_speed.html'>speed</a>, <a href='tag_browser.html'>browser</a>, <a href='tag_client.html'>client</a>, <a href='tag_javascript.html'>javascript</a>, <a href='tag_js.html'>js</a>, <a href='tag_css.html'>css</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/front-end-performance-notes.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/front-end-performance-notes.html'><span id='count-8694'></span></a>&nbsp;</p>
@@ -1283,7 +1550,7 @@ Zac Anger</div>
 <!-- text begin -->
 
 <p>There's this <a href="https://medium.com/bread-crumbs/i-officially-endorse-react-for-president-9c103e4568d4">post</a> kinda making the rounds lately. It's a nice post. Everything in there, I agree with, for sure. Especially as someone who feels a lot more comfortable with Node than with, say, Angular's mostly ungrokable <a href="https://docs.angularjs.org/api">API</a>. I <em>get</em> why people like React. <em>I get React</em>. It's not exactly hard to pick up, anyway. It's very logical and intuitive. And I really do like the concepts behind React. But I still have problems with it.</p>
-<p class="readmore"><a href="./my-problem-with-react.html">read more...</a></p>
+<p class="readmore"><a href="my-problem-with-react.html">read more...</a></p>
 <p>tags: <a href='tag_react.html'>react</a>, <a href='tag_frameworks.html'>frameworks</a>, <a href='tag_libraries.html'>libraries</a>, <a href='tag_riot.html'>riot</a>, <a href='tag_vue.html'>vue</a>, <a href='tag_js.html'>js</a>, <a href='tag_javascript.html'>javascript</a>, <a href='tag_angular.html'>angular</a>, <a href='tag_components.html'>components</a>, <a href='tag_jsx.html'>jsx</a>, <a href='tag_mithril.html'>mithril</a>, <a href='tag_design.html'>design</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/my-problem-with-react.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/my-problem-with-react.html'><span id='count-8898'></span></a>&nbsp;</p>
@@ -1296,7 +1563,7 @@ Zac Anger</div>
 
 <p>In the interest of <a href="http://coffeecoder.net/blog/blog-little-things/">blogging the little things</a>, I want to write down a couple of things I learned while struggling through <a href="https://github.com/zacanger/ayuba.git">my project</a>. Nothing major, but a few things that I really had to dig to find answers to, buried way underneath unrelated issues in Github and whatnot.</p>
 
-<p class="readmore"><a href="./things-learned-dealing-with-electron-and-the-mean-stack.html">read more...</a></p>
+<p class="readmore"><a href="things-learned-dealing-with-electron-and-the-mean-stack.html">read more...</a></p>
 <p>tags: <a href='tag_javascript.html'>javascript</a>, <a href='tag_js.html'>js</a>, <a href='tag_electron.html'>electron</a>, <a href='tag_angular.html'>angular</a>, <a href='tag_mean.html'>mean</a>, <a href='tag_school.html'>school</a>, <a href='tag_css.html'>css</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/things-learned-dealing-with-electron-and-the-mean-stack.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/things-learned-dealing-with-electron-and-the-mean-stack.html'><span id='count-14163'></span></a>&nbsp;</p>
@@ -1309,7 +1576,7 @@ Zac Anger</div>
 
 <p>This is a simplified version of the <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-7.9">section from the spec that deals with ASI</a>, because I'm really tired of all the idiocy and debate about this. It's not a big deal whether you use semicolons everywhere or don't, but the vitriol from those who use them everywhere really needs to end, and from what I can tell it's almost entirely based on this idea that ASI is complicated. ASI is <em>really simple</em>, and its rules are a lot easier to remember than stupidity like <code>++foo</code> vs <code>foo++</code>, or the rules for <code>this</code>. The actual spec's ASI section is less than two pages, but it can be simplified further, into probably less than a page.</p>
 
-<p class="readmore"><a href="./automatic-semicolon-insertion.html">read more...</a></p>
+<p class="readmore"><a href="automatic-semicolon-insertion.html">read more...</a></p>
 <p>tags: <a href='tag_js.html'>js</a>, <a href='tag_asi.html'>asi</a>, <a href='tag_semicolons.html'>semicolons</a>, <a href='tag_rant.html'>rant</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/automatic-semicolon-insertion.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/automatic-semicolon-insertion.html'><span id='count-27334'></span></a>&nbsp;</p>
@@ -1322,7 +1589,7 @@ Zac Anger</div>
 
 <p>Jesus fuck it's been an interesting week. I've learned so much this week, and managed to get almost nothing done. <a href="http://npm.im/markvi">Markvi</a> is up to version 0.3.0, because it now actually has the keybinds it was always meant to have. The tentatively titled <em>Whiteboard</em> is stuck in planning, because I kind of stopped caring about it, though I really need to get that one done since it's the main project that actually matters, here. The other project (the thing that has to do with documentation, and making money) is stalled, but I'm so ready to get moving on that because it's super exciting.</p>
 
-<p class="readmore"><a href="./thanksgiving-week-projects-fun-times-and-the-future.html">read more...</a></p>
+<p class="readmore"><a href="thanksgiving-week-projects-fun-times-and-the-future.html">read more...</a></p>
 <p>tags: <a href='tag_school.html'>school</a>, <a href='tag_personal.html'>personal</a>, <a href='tag_wiki.html'>wiki</a>, <a href='tag_projects.html'>projects</a>, <a href='tag_vue.html'>vue</a>, <a href='tag_mithril.html'>mithril</a>, <a href='tag_js.html'>js</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/thanksgiving-week-projects-fun-times-and-the-future.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/thanksgiving-week-projects-fun-times-and-the-future.html'><span id='count-14658'></span></a>&nbsp;</p>
@@ -1335,7 +1602,7 @@ Zac Anger</div>
 
 <p>Just about done the first week of real, solid, mostly back-end funtimes. Which means, personal projects are about to start. On the one hand, I have ten thousand ideas and twenty thousand technologies I want to try. (Actually, about five Javascript frameworks that I think would be suitable, and three major ideas.) Given the amount of time I've spent on it thus far, I believe I'll be running with the 'Tinder for Jobs' concept. I'd never even seen the swipe-whatever-way thing until tonight. Now I've downloaded Tinder, swiped left, tapped on things, accidentally swiped right, tried sliding things, was thoroughly disappointed with the super Web 2.0 look and feel, and taken a lot of notes.</p>
 
-<p class="readmore"><a href="./now-things-get-real.html">read more...</a></p>
+<p class="readmore"><a href="now-things-get-real.html">read more...</a></p>
 <p>tags: <a href='tag_projects.html'>projects</a>, <a href='tag_mobile.html'>mobile</a>, <a href='tag_js.html'>js</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/now-things-get-real.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/now-things-get-real.html'><span id='count-4245'></span></a>&nbsp;</p>
@@ -1355,7 +1622,7 @@ Zac Anger</div>
     - that is, the loop.
     - more boilerplate to run that... less boilerplate-replacer built into react?</p>
 
-<p class="readmore"><a href="./react-meetup-17-nov-2015.html">read more...</a></p>
+<p class="readmore"><a href="react-meetup-17-nov-2015.html">read more...</a></p>
 <p>tags: <a href='tag_react.html'>react</a>, <a href='tag_meetup.html'>meetup</a>, <a href='tag_php.html'>php</a>, <a href='tag_xml.html'>xml</a>, <a href='tag_js.html'>js</a>, <a href='tag_school.html'>school</a>, <a href='tag_meteor.html'>meteor</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/react-meetup-17-nov-2015.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/react-meetup-17-nov-2015.html'><span id='count-29172'></span></a>&nbsp;</p>

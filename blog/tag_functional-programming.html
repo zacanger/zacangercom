@@ -6,7 +6,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <link rel="stylesheet" href="z.css" type="text/css">
 <link rel="alternate" type="application/rss+xml" title="subscribe" href="feed.rss">
-<title>angr &mdash; posts tagged "functional"</title>
+<title>angr &mdash; posts tagged "functional-programming"</title>
 <script type="text/javascript">
 
         var _gaq = _gaq || [];
@@ -22,7 +22,7 @@
         </script>
 <meta name='twitter:card' content='summary' />
 <meta name='twitter:site' content='@zacanger' />
-<meta name='twitter:title' content='angr &mdash; posts tagged "functional"' />
+<meta name='twitter:title' content='angr &mdash; posts tagged "functional-programming"' />
 <meta name='twitter:description' content=" FP in JS  April 03, 2016 &mdash;  Zac Anger   Notes taken while going through this guy's videos.  You should watch them all. He's great.  'use strict'  // // HOF // // Higher Order Functions // functions are values // const something = function &gt;" />
 </head><body>
 <div id="divbodyholder">
@@ -299,180 +299,6 @@ Promise.all([
 <!-- text end -->
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/fp-in-js.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/fp-in-js.html'><span id='count-21002'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="baconjs.html">
-BaconJS
-</a></h3>
-<div class="subtitle">January 19, 2016  &mdash; 
-Zac Anger</div>
-<!-- text begin -->
-
-<p><em>Note: this post references 'the snake game' a lot. That's over <br />
-<a href="here">https://github.com/zacanger/extras/tree/master/bacon</a>, now.</em></p>
-
-<p>Bacon is a JS lib for FRP, like Rx, but not MS.</p>
-
-<p>Here's some jQuery, because I don't know why.</p>
-
-<pre><code>var go = $('#clickMe').asEventStream('click')
-go.onValue (
-  () =&gt; $('#output').append('clicked!'))
-</code></pre>
-
-<p>Is it just me or is this tutorial using <em>typescript</em>? Eww, it totally is! Gross.</p>
-
-<p><code>scan</code> combinator is kinda like <code>reduce</code>, except async and produces multiple values. So, there's an initial value,
-and a function to combine them. Returned stream contains the aggregate.</p>
-
-<pre><code>var clicks = $('#example button').asEventStream('click')
-  , counter = clicks
-      .map(1)
-      .scan(0, (x,y) =&gt; x + y)
-counter.onValue(x =&gt; $('#example .output').html(x))
-</code></pre>
-
-<p>Ohh, okay, so the 'take' and 'skip' combinators are new. They do what they sound like. Basically like slicing
-arrays, but with streams.</p>
-
-<p class="readmore"><a href="baconjs.html">read more...</a></p>
-<p>tags: <a href='tag_bacon.html'>bacon</a>, <a href='tag_js.html'>js</a>, <a href='tag_frp.html'>frp</a>, <a href='tag_streams.html'>streams</a>, <a href='tag_events.html'>events</a>, <a href='tag_functional.html'>functional</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_reactive.html'>reactive</a></p>
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/baconjs.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/baconjs.html'><span id='count-21805'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="functional-programming-vocabulary.html">
-Functional Programming Vocabulary
-</a></h3>
-<div class="subtitle">January 16, 2016  &mdash; 
-Zac Anger</div>
-<!-- text begin -->
-
-<ul>
-<li><p>arity</p>
-
-<ul>
-<li>number of args a function takes</li>
-<li>ary + ity (it's two suffixes!)</li>
-<li>binary, ternary, etc = arity of two, arity of three, etc</li>
-<li>variable number of args = variadic</li>
-<li>dyadic = binary (talkin greek here)</li>
-</ul></li>
-<li><p>hof</p>
-
-<ul>
-<li>function that takes function as arg</li>
-<li>or function that returns a function</li>
-</ul></li>
-<li><p>partial application</p>
-
-<ul>
-<li>getting a function with lower arity compared to original function</li>
-<li>by fixing number of args</li>
-</ul></li>
-<li><p>currying</p>
-
-<ul>
-<li>converting function with multiple arity into function with arity of one</li>
-</ul></li>
-<li><p>purity</p>
-
-<ul>
-<li>pure function's return value is determined ONLY by input values</li>
-<li>no side effects</li>
-</ul></li>
-<li><p>side effects</p>
-
-<ul>
-<li>if modifies some state</li>
-<li>or has observable interaction with external functions</li>
-</ul></li>
-<li><p>idempotency</p>
-
-<ul>
-<li>no side effects on multiple executions with same parameters</li>
-</ul></li>
-<li><p>points-free</p>
-
-<ul>
-<li>does not include information regarding arguments</li>
-</ul></li>
-<li><p>functor</p>
-
-<ul>
-<li>structure than can be mapped over</li>
-<li>simplest in js is an array</li>
-</ul></li>
-<li><p>referential transparency</p>
-
-<ul>
-<li>expression that can be replaced with its value without changing its behavior</li>
-<li>eg <code>let oi = ()  = 'howdy'</code>; <code>oi()</code> can be <code>'howdy'</code>, hence is referentially transparent</li>
-</ul></li>
-<li><p>lazy eval</p>
-
-<ul>
-<li>delays evaluation of expression until needed</li>
-<li>allows for structures that are not available in imperative langs where sequence is significant</li>
-</ul></li>
-<li><p>monoid</p>
-
-<ul>
-<li>data type and two-param function that combines two values of the type, where an identity value that doesn't affect result also exists</li>
-<li>example: 1 + 1 (data type is number, function is =)</li>
-<li>1 + 0 (identity value is 0)</li>
-</ul></li>
-<li><p>monad</p>
-
-<ul>
-<li>abstraction. provides interface for executing common sequence of commands on a value one normally avoids acting on directly</li>
-<li>optional value monad is common (to avoid exposing to null values)</li>
-<li>a monad is a special functor that also returns a monad</li>
-<li>so, can be chained to describe sequence of operations</li>
-<li>useful when sequence matters (hence nickname 'programmable semicolons')</li>
-<li>example: <code>let Identity = v =&gt; ({bind: transform =&gt; transform(v)})</code></li>
-</ul></li>
-</ul>
-
-<p>tags: <a href='tag_functional.html'>functional</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_vocabulary.html'>vocabulary</a>, <a href='tag_vocab.html'>vocab</a>, <a href='tag_definitions.html'>definitions</a></p>
-
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/functional-programming-vocabulary.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/functional-programming-vocabulary.html'><span id='count-2098'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="differences-from-js.html">
-Elm (notes)
-</a></h3>
-<div class="subtitle">January 14, 2016  &mdash; 
-Zac Anger</div>
-<!-- text begin -->
-
-<p>Differences from JS:</p>
-
-<ul>
-<li>Elm has multiline string support, with <em>triple</em> sets of quotes, eg """multiline string"""</li>
-<li>Elm <em>cannot</em> use single quotes for <em>strings</em>. Elm uses single quotes to denote <em>characters</em>.</li>
-<li>Booleans are uppercase.</li>
-<li>Objects use <code>=</code> instead of <code>:</code>, so <code>{key: value, key2: value2}</code> in JS would be <code>{key = value, key2 = value2}</code> in Elm.</li>
-<li><code>point.x = 42</code> in JS would be <code>{point | x = 42}</code> in Elm.</li>
-<li>Functions are greatly simplified. <code>function(foo, bar){return foo+bar}</code> in js would be <code>\foo bar -&gt; foo + bar</code> in Elm.</li>
-<li>Math is a little simpler: <code>Math.max(2,4)</code> is just <code>max 2 4</code>. Same with <code>min</code>. <code>Math.pow</code> is just <code>^</code>, eg <code>Math.min(1, Math.pow(2, 4))</code> is <code>min 1 (2^4)</code>.</li>
-<li><code>numbers.map(Math.sqrt)</code> would be <code>List.map sqrt numbers</code>. <code>points.map(function(p){return p.x})</code> becomes <code>List.map .x points</code>.</li>
-<li><code>2 &lt; 4 ? 'WHAT' : 'how?'</code>, <code>if 2 &lt; 4 then "WHAT" else "how?"</code></li>
-<li><code>var foo = 72</code>; <code>let foo = 72 in...</code></li>
-<li>No return statements; everything is an expression.</li>
-<li><code>String.length "asdf"</code> rather than 'asdf.length'</li>
-</ul>
-
-<p>Mostly it looks pretty neat, but there's virtually nothing out there for actually <em>learning</em> it, so I'm already kind of over it....</p>
-
-<p>Note that the 'EventLog.elm' in this directory doesn't actually need the start-app package anymore; turns out it's really easy to just wire the damn thing up all on your own.</p>
-
-<p class="readmore"><a href="differences-from-js.html">read more...</a></p>
-<p>tags: <a href='tag_js.html'>js</a>, <a href='tag_haskell.html'>haskell</a>, <a href='tag_functional.html'>functional</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_javascript.html'>javascript</a>, <a href='tag_elm.html'>elm</a>, <a href='tag_lang.html'>lang</a>, <a href='tag_language.html'>language</a></p>
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/differences-from-js.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/differences-from-js.html'><span id='count-26621'></span></a>&nbsp;</p>
 </div>
 <div id="footer">WTFPL <a href="http://twitter.com/zacanger">Zac Anger</a> &mdash; <a href="mailto:zac&#64;zacanger&#46;com">zac&#64;zacanger&#46;com</a><br>
 written in <a href="https://daringfireball.net/projects/markdown/">markdown</a> and generated with a <a href="http://tiswww.case.edu/php/chet/bash/bashtop.html">shell script</a></div>
