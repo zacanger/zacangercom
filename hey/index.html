@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>hi, you</title>
+  <style type="text/css">
+    body { margin: 60px auto; width: 60%; }
+    #button { color: #999; }
+    #button:hover { text-decoration: underline; cursor: pointer; }
+    h1 { font-size: 3em; font-family:'Helvetica', 'Arial', sans-serif; }
+  </style>
+
+</head>
+
+<body>
+  <div>
+    <h1 id="main">hey, you.</h1>
+    <h1 id="button">what?</h1>
+  </div>
+  <script type="text/javascript">
+    var words = [
+      'brilliant'
+    , 'inimitable'
+    , 'dazzling'
+    , 'marvelous'
+    , 'stunning'
+    , 'flawless'
+    , 'cool'
+    , 'hip'
+    , 'fabulous'
+    , 'amazing'
+    , 'charming'
+    , 'exciting'
+    , 'ravishing'
+    , 'intoxicating'
+    , 'magnificent'
+    , 'fine'
+    , 'sensational'
+    , 'my favourite'
+    , 'divine'
+    , 'beautiful'
+    , 'swell'
+    , 'nifty'
+    , 'dandy'
+    , 'the best'
+    , 'a winner'
+    ]
+    var button = document.getElementById('button')
+    var main   = document.getElementById('main')
+    button.onclick = function(){
+      var num = 0
+      do {
+        num = ~~(Math.random() * words.length)
+      } while (main.innerText == 'hey, you ' + words[num] + '!')
+      main.innerText = 'hey, you\'re ' + words[num] + '!'
+      button.innerText = 'huh?'
+    }
+  </script>
+</body>
+</html>
+
