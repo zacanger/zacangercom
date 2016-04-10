@@ -1,0 +1,93 @@
+/* Grid Theme for Sticky Notes */
+/* This theme uses Vollkorn and Delius font, SIL Open Font License 1.1 */
+/* The grid background is Graphy (http://subtlepatterns.com/graphy/) */ 
+
+body {
+    font-family: helvetica, arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#main_canvas {
+     width: 100%;
+     height: 100%;
+     background: url(graph.png);
+     display: block;
+     position: absolute;
+     background-repeat:repeat;
+}
+
+.sticky {
+   width: 160px;
+   height: 160px;
+   overflow-x: auto;
+   overflow-y: scroll;
+   position: absolute;
+   /* Firefox */
+   -moz-box-shadow: 2px 2px 3px #F0F0F0;
+   /* Safari+Chrome */
+   -webkit-box-shadow: 2px 2px 3px #F0F0F0;
+   /* Opera */
+   box-shadow: 2px 2px 3px #F0F0F0;
+   z-index: 1000;
+   cursor: move;
+   border-style:solid;
+   border-width:1px;
+   border-color: #d4d4d4;
+   padding-left: 5px;
+   padding-right: 5px;
+   padding-top: 5px;
+   color: #777;
+   overflow: hidden;
+}
+
+.sticky textarea {
+   font-family: "Delius", sans-serif; 
+   font-size: 0.8em;
+   background-color: transparent;
+   width: 99%;
+   height: 90%;
+   border: 0px;
+   color: #6b6660;
+   padding-left: 5px;
+   overflow: hidden;
+}
+
+.sticky .delete {
+    float: right;
+}
+
+.sticky .delete a {
+    color: #000;
+    text-decoration: none;
+    opacity: 0.3;
+}
+
+.note1 {
+    background-color: #fdece2;
+}
+
+.note2 {
+    background-color: #e4fbeb;
+}
+
+.note3 {
+    background-color: #e6f2f9;
+}
+
+.note4 {
+    background-color: #f5fde2;
+}
+
+.instructions {
+    position: absolute;
+    top: 5px;
+    left: 30px;
+    opacity: 0.8;
+    font-family: "Vollkorn", sans-serif;
+    font-size: 2em;
+    margin: 0; padding: 0;
+    color: #676767;
+    text-align: left;
+}
