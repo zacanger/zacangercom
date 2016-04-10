@@ -2,7 +2,7 @@
   font-family: 'Inconsolata';
   font-style: normal;
   font-weight: 400;
-  src: local('Inconsolata'), local('Inconsolata'), url(../css/Inconsolata.otf) format('opentype');
+  src: local('Inconsolata'), local('Inconsolata'), url(./Inconsolata.otf) format('opentype');
 }
 
 body {
