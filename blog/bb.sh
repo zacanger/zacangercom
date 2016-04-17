@@ -17,7 +17,7 @@ global_config=".config"
 # by the 'global_config' file contents
 global_variables() {
     global_software_name="BashBlog"
-    global_software_version="2.4"
+    global_software_version="2.6"
 
     # Blog title
     global_title="angr"
@@ -52,9 +52,8 @@ global_variables() {
     # Set this to false for a Twitter button with share count. The cookieless version
     # is just a link.
     global_twitter_cookieless="true"
-    # Set to "topsy" which can search tweets way early in time, or "twitter"
     # for the default search page, where tweets more than a week old are hidden
-    global_twitter_search="topsy"
+    global_twitter_search="twitter"
 
     # Change this to your disqus username to use disqus for comments
     global_disqus_username=""
@@ -160,30 +159,15 @@ global_variables_check() {
 
 # Test if the markdown script is working correctly
 test_markdown() {
-    [[ -z "$markdown_bin" ]] && return 1
-    [[ -z "$(which diff)" ]] && return 1
-
-    in="/tmp/md-in-${RANDOM}.md"
-    out="/tmp/md-out-${RANDOM}.html"
-    good="/tmp/md-good-${RANDOM}.html"
-    echo -e "line 1\n\nline 2" > "$in"
-    echo -e "<p>line 1</p>\n\n<p>line 2</p>" > "$good"
-    $markdown_bin $in > $out 2> /dev/null
-    diff $good $out &> /dev/null # output is irrelevant, we'll check $?
-    if [[ $? -ne 0 ]]; then
-        rm -f "$in" "$good" "$out"
-        return 1
-    fi
-
-    rm -f "$in" "$good" "$out"
-    return 0
+    [[ -n $markdown_bin ]] &&
+        [[ $("$markdown_bin" <<< $'line 1\n\nline 2') == $'<p>line 1</p>\n\n<p>line 2</p>' ]]
 }
 
 
 # Parse a Markdown file into HTML and return the generated file
 markdown() {
-    out="$(echo $1 | sed 's/md$/html/g')"
-    while [ -f "$out" ]; do out="$(echo $out | sed 's/\.html$/\.'$RANDOM'\.html/')"; done
+    out=${1%.md}.html
+    while [[ -f $out ]]; do out=${out%.html}.$RANDOM.html; done
     $markdown_bin "$1" > "$out"
     echo "$out"
 }
@@ -191,9 +175,9 @@ markdown() {
 
 # Prints the required google analytics code
 google_analytics() {
-    [[ -z "$global_analytics" ]] && [[ -z "$global_analytics_file" ]]  && return
+    [[ -z $global_analytics && -z $global_analytics_file ]]  && return
 
-    if [[ -z "$global_analytics_file" ]]; then
+    if [[ -z $global_analytics_file ]]; then
         echo "<script type=\"text/javascript\">
 
         var _gaq = _gaq || [];
@@ -211,6 +195,7 @@ google_analytics() {
         cat "$global_analytics_file"
     fi
 }
+
 
 # Prints the required code for disqus comments
 disqus_body() {
@@ -249,6 +234,7 @@ disqus_footer() {
     </script>'
 }
 
+
 # Reads HTML file from stdin, prints its content to stdout
 # $1    where to start ("text" or "entry")
 # $2    where to stop ("text" or "entry")
@@ -256,16 +242,17 @@ disqus_footer() {
 #       note that this does not remove <hr /> line itself,
 #       so you can see if text was cut or not
 get_html_file_content() {
-    awk '/<!-- '$1' begin -->/, /<!-- '$2' end -->/{
-        if (!/<!-- '$1' begin -->/ && !/<!-- '$2' end -->/) print
-        if ("'$3'" == "cut" && /'"$cut_line"'/){
-            if ("'$2'" == "text") exit # no need to read further
+    awk "/<!-- $1 begin -->/, /<!-- $2 end -->/{
+        if (!/<!-- $1 begin -->/ && !/<!-- $2 end -->/) print
+        if (\"$3\" == \"cut\" && /$cut_line/){
+            if (\"$2\" == \"text\") exit # no need to read further
             while (getline > 0 && !/<!-- text end -->/) {
-                if ("'$cut_tags'" == "no" && /^'"<p>$template_tags_line_header"'/ ) print
+                if (\"$cut_tags\" == \"no\" && /^<p>$template_tags_line_header/ ) print
             }
         }
-    }'
+    }"
 }
+
 
 # Edit an existing, published .html file while keeping its original timestamp
 # Please note that this function does not automatically republish anything, as
@@ -281,52 +268,53 @@ get_html_file_content() {
 #	leave empty for default behavior (edit only text part and change name)
 edit() {
     # Original post timestamp
-    edit_timestamp="$(LC_ALL=C date -r "${1%%.*}.html" +"%a, %d %b %Y %H:%M:%S %z" )"
-    touch_timestamp="$(LC_ALL=C date -r "${1%%.*}.html" +'%Y%m%d%H%M')"
-    tags_before="$(tags_in_post "${1%%.*}.html")"
-    if [ "$2" = "full" ]; then
+    edit_timestamp=$(LC_ALL=C date -r "${1%%.*}.html" +"%a, %d %b %Y %H:%M:%S %z" )
+    touch_timestamp=$(LC_ALL=C date -r "${1%%.*}.html" +'%Y%m%d%H%M')
+    tags_before=$(tags_in_post "${1%%.*}.html")
+    if [[ $2 == full ]]; then
         $EDITOR "$1"
-        filename="$1"
+        filename=$1
     else
-        if [[ "${1##*.}" == "md" ]]; then
+        if [[ ${1##*.} == md ]]; then
             test_markdown
-            if [[ "$?" -ne 0 ]]; then
+            if (($? != 0)); then
                 echo "Markdown is not working, please edit HTML file directly."
                 exit
             fi
             # editing markdown file
             $EDITOR "$1"
-            TMPFILE="$(markdown "$1")"
-            filename="${1%%.*}.html"
+            TMPFILE=$(markdown "$1")
+            filename=${1%%.*}.html
         else
             # Create the content file
-            TMPFILE="$(basename $1).$RANDOM.html"
+            TMPFILE=$(basename "$1").$RANDOM.html
             # Title
-            echo "$(get_post_title $1)" > "$TMPFILE"
+            get_post_title "$1" > "$TMPFILE"
             # Post text with plaintext tags
-            get_html_file_content 'text' 'text' <$1 | sed "/^<p>$template_tags_line_header/s|<a href='$prefix_tags\([^']*\).html'>\\1</a>|\\1|g" >> "$TMPFILE"
+            get_html_file_content 'text' 'text' <"$1" | sed "/^<p>$template_tags_line_header/s|<a href='$prefix_tags\([^']*\).html'>\\1</a>|\\1|g" >> "$TMPFILE"
             $EDITOR "$TMPFILE"
-            filename="$1"
+            filename=$1
         fi
         rm "$filename"
-        if [ "$2" = "keep" ]; then
+        if [[ $2 == keep ]]; then
             parse_file "$TMPFILE" "$edit_timestamp" "$filename"
         else
             parse_file "$TMPFILE" "$edit_timestamp" # this command sets $filename as the html processed file
-            [[ "${1##*.}" == "md" ]] && mv "$1" "${filename%%.*}.md" 2>/dev/null
+            [[ ${1##*.} == md ]] && mv "$1" "${filename%%.*}.md" 2>/dev/null
         fi
         rm "$TMPFILE"
     fi
     touch -t "$touch_timestamp" "$filename"
     chmod 644 "$filename"
     echo "Posted $filename"
-    tags_after="$(tags_in_post $filename)"
-    relevant_tags="$(echo "$tags_before $tags_after" | tr ',' ' ' | tr ' ' '\n' | sort -u | tr '\n' ' ')"
-    if [ ! -z "$relevant_tags" ]; then
+    tags_after=$(tags_in_post "$filename")
+    relevant_tags=$(echo "$tags_before $tags_after" | tr ',' ' ' | tr ' ' '\n' | sort -u | tr '\n' ' ')
+    if [[ ! -z $relevant_tags ]]; then
         relevant_posts="$(posts_with_tags $relevant_tags) $filename"
         rebuild_tags "$relevant_posts" "$relevant_tags"
     fi
 }
+
 
 # Create a Twitter summary (twitter "card") for the post
 #
@@ -357,7 +345,6 @@ twitter() {
             id=$RANDOM
 
             search_engine="https://twitter.com/search?q="
-            [[ "$global_twitter_search" == "topsy" ]] && search_engine="http://topsy.com/trackback?url="
 
             echo "<p id='twitter'><a href='http://twitter.com/intent/tweet?url=$1&text=$template_twitter_comment&via=$global_twitter_username'>$template_comments $template_twitter_button</a> "
             echo "<a href='$search_engine""$1'><span id='count-$id'></span></a>&nbsp;</p>"
