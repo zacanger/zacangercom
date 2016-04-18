@@ -48,6 +48,11 @@ body {
   display: none;
 }
 
+.langs {
+  min-height: 400px;
+  min-width: 600px;
+}
+
 .namecard {
   width: 500px;
 }
