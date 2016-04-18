@@ -6,6 +6,7 @@
  * If it's original, it's DBAD; http://dbad-license.org
  */
 
+@import url(https://fonts.googleapis.com/css?family=Cardo:400,700,400italic);
 
 /* First, a wee reset... */
 html, body { height: 100%; width: 100%; }
@@ -44,12 +45,12 @@ body {
   font-size: 1.5em;
   line-height: 1.6;
   font-weight: 400;
-  font-family: "Merriweather", "Cardo", serif;
-  color: #f2f4cd;
-  background: #101010;
-  padding: 4rem;
-  max-width: 60rem;
-  margin-left: 10rem;
+  font-family: "Cardo", serif;
+  color: #f8f9ee;
+  background: #0c0c0d;
+  padding: 2rem;
+  max-width: 900px;
+  margin-left: 2rem;
 }
 
 /* Typography */
@@ -103,8 +104,8 @@ img {
   height: auto;
 }
 code, pre {
-  background: #212121;
-  color: #d0f6cf;
+  background: #0e0f0e;
+  color: #d3ecd2;
   padding: 4px;
   margin: 4px;
 }
