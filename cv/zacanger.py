@@ -119,7 +119,7 @@ if __name__ == "__main__":
     print "\nSummary: Web enthusiast, professional musician, FOSS supporter, nix nerd, Node geek.\n"
     print "Languages: Javascript (React, Node, ES7, Angular, jQuery, and even vanilla!), Bash, HTML, CSS.\n"
     print "Technologies: Git, CSS preprocessors, build systems.\n"
-    print "Learning: Python, C, Functional Reactive Programming, Go, Haskell."
+    print "Learning: Python, C, Functional Reactive Programming, Go, Ruby, Haskell."
 
     print "\nExperience:"
     for exp in experience:
