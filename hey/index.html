@@ -4,11 +4,19 @@
 <head>
   <meta charset="utf-8">
   <title>hi, you</title>
+  <link href="https://fonts.googleapis.com/css?family=Cardo" rel="stylesheet" type="text/css">
   <style type="text/css">
     body { margin: 60px auto; width: 60%; }
-    #button { color: #999; }
-    #button:hover { text-decoration: underline; cursor: pointer; }
-    h1 { font-size: 3em; font-family: "Cardo", "Merriweather", serif; }
+    #button {
+      color: #999;
+      -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none;   /* Chrome/Safari/Opera */
+      -khtml-user-select: none;    /* Konqueror */
+      -moz-user-select: none;      /* Firefox */
+      -ms-user-select: none;       /* IE/Edge */
+      user-select: none;           /* non-prefixed version, currently */
+    }
+    h1 { font-size: 3em; font-family: "Cardo", serif; }
   </style>
 
 </head>
@@ -19,9 +27,13 @@
     <h1 id="button">what?</h1>
   </div>
   <script type="text/javascript">
-    var words = [
+    var
+      button = document.getElementById('button')
+    , main   = document.getElementById('main')
+    , words  = [
       'brilliant'
     , 'inimitable'
+    , 'adorable'
     , 'dazzling'
     , 'marvelous'
     , 'stunning'
@@ -45,9 +57,15 @@
     , 'dandy'
     , 'the best'
     , 'a winner'
+    , 'sublime'
+    , 'gorgeous'
+    , 'wonderful'
+    , 'perfect'
+    , 'awesome'
+    , 'doing great'
+    , 'on top of this'
     ]
-    var button = document.getElementById('button')
-    var main   = document.getElementById('main')
+
     button.onclick = function(){
       var num = 0
       do {
