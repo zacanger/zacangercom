@@ -20,14 +20,14 @@ abbr,acronym{border-bottom:.1em dotted;cursor:help;}
 
 /* everything else */
 @import url(https://fonts.googleapis.com/css?family=Cardo:700);
-@import url(https://fonts.googleapis.com/css?family=Merriweather);
+@import url(https://fonts.googleapis.com/css?family=Merriweather:300);
 
 html { font-size: 62.5%; }
 
 body {
   font-size: 1.6em;
   line-height: 1.6;
-  font-weight: 400;
+  font-weight: 300;
   font-family: "Merriweather", serif;
   color: #16241e;
   background: #fbf9f9;
@@ -46,16 +46,10 @@ h1, h3 {
   letter-spacing: -.1rem;
 }
 
-h1 { font-size: 3.8rem; line-height: 1.2; }
-h3 { font-size: 3.2rem; line-height: 1.3; }
+h1 { font-size: 3.4rem; line-height: 1.2; font-weight: 700; }
+h3 { font-size: 2.2rem; line-height: 1.2; font-weight: 700; }
 
 small { font-size: 0.8em; }
-
-@media (min-width: 768px) {
-  h1 { font-size: 2.8rem; }
-  h3 { font-size: 1.8rem; }
-  body { padding-left: 1.2em; padding-right: 1.2em; }
-}
 
 a { color: #3f786b; text-decoration: none; }
 a:hover { color: #46a17e; text-decoration: underline; }
@@ -70,4 +64,6 @@ hr {
   border-width: 0;
   border-top: 1px solid #b688b0;
 }
+
+.inline h1, .inline h3 { display: inline-block; }
 

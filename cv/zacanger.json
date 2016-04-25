@@ -37,6 +37,10 @@
       "url": "http://npm.im/create-repo",
       "description": "Node tool to create GH repo using name/description from package.json."
     },{
+      "name": "zeess",
+      "url": "http://zacanger.github.io/zeess",
+      "description": "CSS Microframework"
+    },{
       "name": "dolog",
       "url": "http://npm.im/dolog",
       "description": "Node module to turn console.log on and off at will"
