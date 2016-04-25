@@ -2,9 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>angr</title><link>http://zacanger.com/blog</link>
 <description>writings from zac anger, who is not all that angry</description><language>en</language>
-<lastBuildDate>Sun, 03 Apr 2016 15:50:09 -0600</lastBuildDate>
-<pubDate>Sun, 03 Apr 2016 15:50:09 -0600</pubDate>
+<lastBuildDate>Sun, 24 Apr 2016 20:27:25 -0600</lastBuildDate>
+<pubDate>Sun, 24 Apr 2016 20:27:25 -0600</pubDate>
 <atom:link href="http://zacanger.com/blog/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Notes from the AngularJS Utah Meetup
+</title><description><![CDATA[
+
+<p>So what with my last computer dying, getting a new phone, trying to find a job, preparing to maybe move,
+and all the other nonsense going on, I haven't really blogged at all lately. Oh well.</p>
+
+<p>My to-do list is gigantic, like a whole huge directory tree of several gigabytes full of unfinished stuff.</p>
+
+<p>Somewhere in there, there's rewriting my entire website.</p>
+
+<p>I've just switched from GoDaddy's hosting to my own VPS (a droplet), since GoDaddy's cost was going up by
+about 110%. This means I have a LOT more available to me, now. Not quite as much space, but I can run
+whatever I need to on my server now, so... I think it's time to finally update everything. I plan on leaving
+most things as just plain old static sites (because, let's be honest, no one cares how flashy this crap is
+if it takes a year to render it on an old phone). The blog might change a bit, though. I'm still using that
+same old script (based originally on <a href="https://github.com/cfenollosa/bashblog">BashBlog</a>, heavily modified
+over the past almost-year). Nothing against that script, it does its job and everything, but a 1300-line
+shell script to basically turn Markdown into HTML is absurd -- ESPECIALLY since it doesn't include the
+parser.</p>
+
+<p>Anyway, here are some notes from the NG-JS meetup a couple of weeks ago. They were lost on my old laptop,
+but the SATA-to-USB thingy came in the mail the other day, so I can finally just do something with these.</p>
+
+<hr />
+<p>tags: <a href='tag_rxjs.html'>rxjs</a>, <a href='tag_immutable.html'>immutable</a>, <a href='tag_js.html'>js</a>, <a href='tag_utah.html'>utah</a>, <a href='tag_meetup.html'>meetup</a>, <a href='tag_notes.html'>notes</a></p>
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/notes-from-the-angularjs-utah-meetup.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/notes-from-the-angularjs-utah-meetup.html'><span id='count-11670'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/notes-from-the-angularjs-utah-meetup.html</link>
+<guid>http://zacanger.com/blog/./notes-from-the-angularjs-utah-meetup.html</guid>
+<dc:creator>Zac Anger</dc:creator>
+<pubDate>Sun, 24 Apr 2016 20:27:22 -0600</pubDate></item>
 <item><title>
 FP in JS
 </title><description><![CDATA[
@@ -272,7 +304,7 @@ Promise.all([
 ]]></description><link>http://zacanger.com/blog/fp-in-js.html</link>
 <guid>http://zacanger.com/blog/./fp-in-js.html</guid>
 <dc:creator>Zac Anger</dc:creator>
-<pubDate>Sun, 03 Apr 2016 15:50:06 -0600</pubDate></item>
+<pubDate>Sat, 09 Apr 2016 20:18:28 -0600</pubDate></item>
 <item><title>
 stuff everybody knows
 </title><description><![CDATA[
@@ -331,7 +363,7 @@ stuff everybody knows
 ]]></description><link>http://zacanger.com/blog/stuff-everybody-knows.html</link>
 <guid>http://zacanger.com/blog/./stuff-everybody-knows.html</guid>
 <dc:creator>Zac Anger</dc:creator>
-<pubDate>Sat, 02 Apr 2016 14:23:37 -0600</pubDate></item>
+<pubDate>Sat, 09 Apr 2016 20:18:28 -0600</pubDate></item>
 <item><title>
 nginx reverse proxy
 </title><description><![CDATA[
@@ -874,35 +906,4 @@ fs.rmdir('./asdf', function(err){
 <guid>http://zacanger.com/blog/./node-fs-basics.html</guid>
 <dc:creator>Zac Anger</dc:creator>
 <pubDate>Fri, 12 Feb 2016 19:58:00 -0700</pubDate></item>
-<item><title>
-Solving programming problems
-</title><description><![CDATA[
-
-<p>Basic steps of solving programming problems:</p>
-
-<ol>
-<li>Find the input.</li>
-<li>Find the output.</li>
-<li>Figure out how you need to transform the input to the output <em>in plain English</em>.</li>
-<li>Translate this into your chosen programming language.</li>
-<li>Run the code (in your head, or on a machine).</li>
-<li>If the output isn't what you expected, start over with step three.</li>
-</ol>
-
-<p>... that's basically it.</p>
-
-<p>tags: <a href='tag_toy-problems.html'>toy-problems</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_problem-solving.html'>problem-solving</a></p>
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/solving-programming-problems.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/solving-programming-problems.html'><span id='count-11393'></span></a>&nbsp;</p>
-]]></description><link>http://zacanger.com/blog/solving-programming-problems.html</link>
-<guid>http://zacanger.com/blog/./solving-programming-problems.html</guid>
-<dc:creator>Zac Anger</dc:creator>
-<pubDate>Wed, 10 Feb 2016 22:58:00 -0700</pubDate></item>
 </channel></rss>
