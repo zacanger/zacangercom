@@ -2,10 +2,12 @@
 ## Developer & Musician
 
 ### Links
-* [CV](http://zacanger.com/cv)
-* [Python version](http://zacanger.com/cv/zacanger.py)
-* [JSON version](http://zacanger.com/cv/zacanger.json)
-* [PDF version](http://zacanger.com/cv/zacanger.pdf)
+* CV:
+  * [HTML](http://zacanger.com/cv)
+  * [JSON](http://zacanger.com/cv/zacanger.json)
+  * [Markdown](http://zacanger.com/cv/zacanger.md)
+  * [Python](http://zacanger.com/cv/zacanger.py)
+  * [PDF](http://zacanger.com/cv/zacanger.pdf)
 * [GitHub](https://github.com/zacanger)
 * [zac@zacanger.com](mailto:zac@zacanger.com)
 * [@zacanger](http://twitter.com/@zacanger)
