@@ -9,6 +9,7 @@
   * [Python](http://zacanger.com/cv/zacanger.py)
   * [PDF](http://zacanger.com/cv/zacanger.pdf)
 * [GitHub](https://github.com/zacanger)
+* [NPM](https://npmjs.com/~zacanger)
 * [zac@zacanger.com](mailto:zac@zacanger.com)
 * [@zacanger](http://twitter.com/@zacanger)
 * [LinkedIn](http://linkedin.com/in/zacanger)
