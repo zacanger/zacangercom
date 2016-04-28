@@ -142,7 +142,7 @@
       "position": "Mentor and Junior Developer",
       "dates": "2016",
       "description": "Mentored group of new devs; planned and carried out lectures; maintained curriculum; worked on internal projects",
-      "technologies":" Node, Express, Angular, Chromium (extensions), CSS and preprocessors, MongoDB and Mongoose, MySQL, build systems, Linux."
+      "technologies": "Node, Express, Angular, Chromium (extensions), CSS and preprocessors, MongoDB and Mongoose, MySQL, build systems, Linux."
     },{
       "name": "Mickey's Wholesale Pizza",
       "position": "Web Developer",

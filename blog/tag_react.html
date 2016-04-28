@@ -23,7 +23,7 @@
 <meta name='twitter:card' content='summary' />
 <meta name='twitter:site' content='@zacanger' />
 <meta name='twitter:title' content='angr &mdash; posts tagged "react"' />
-<meta name='twitter:description' content=" REACT NOTES  January 25, 2016  &mdash;  Zac Anger   This is all such a mess, and so unsorted, so, sorry about that in advance.  This is also almost entirely notes from very early on in trying to learn React, so not all of it will be completely valid" />
+<meta name='twitter:description' content=" More React Notes  April 27, 2016 &mdash;  Zac Anger   Lifecycle &amp;Co.   The three phases of life:  Mounting Updating Unmounting  Mounting:  getInitialState(), before component is mounted. componentWillMount(), immediately before mounting. compone" />
 <meta name='twitter:image' content='http://zacanger.com/blog/devmtn-sign.jpg' />
 </head><body>
 <div id="divbodyholder">
@@ -33,6 +33,64 @@
 <div id="description">writings from zac anger, who is not all that angry</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="more-react-notes.html">
+More React Notes
+</a></h3>
+<div class="subtitle">April 27, 2016 &mdash; 
+Zac Anger</div>
+<!-- text begin -->
+
+<h2>Lifecycle &amp;Co.</h2>
+
+<ul>
+<li>The three phases of life:
+<ul>
+<li>Mounting</li>
+<li>Updating</li>
+<li>Unmounting</li>
+</ul></li>
+<li>Mounting:
+<ul>
+<li><code>getInitialState()</code>, before component is mounted.</li>
+<li><code>componentWillMount()</code>, <em>immediately</em> before mounting.</li>
+<li><code>componentDidMount()</code>, <em>immediately</em> after mounting. DOM-node-dependant initialisation happens here.</li>
+</ul></li>
+<li>Updating:
+<ul>
+<li><code>componentWillReceiveProps()</code>, invoked when mounted component receives new props from parent. Use this
+when changing state (<code>this.setState()</code>).</li>
+<li><code>shouldComponentUpdate()</code>, invoked when component 'decides' whether or not to push updates to the DOM.
+Return <code>false</code> from this if we don't want React to update.</li>
+<li><code>componentDidUpdate()</code>, invoked <em>immediately</em> after updating.</li>
+</ul></li>
+<li>Unmounting:
+<ul>
+<li><code>componentWillUnmount()</code>, <em>immediately</em> before component unmounts and is destroyed. Clean-up goes here.</li>
+</ul></li>
+<li>While mounted, <code>component.forceUpdate()</code> is also available. This is for any mounted component whose state
+has changed without <code>this.setState()</code>.</li>
+</ul>
+
+<p>The big, big difference between <code>props</code> and <code>state</code>: state is private to components.
+A parent component (or any other component) can never manipulate the state of another (with <code>setState</code> or whatever).</p>
+
+<ul>
+<li>So:
+<ul>
+<li>parent passes new props to child</li>
+<li>child handles new props with <code>componentWillReceiveProps</code></li>
+<li>calls <code>setState</code> if necessary</li>
+<li>child handles new state in <code>componentWillUpdate</code></li>
+<li>if component is stateful, <code>componentWIllReceiveProps</code> will be enough here</li>
+</ul></li>
+</ul>
+
+<p>Defaults set in <code>getInitialState</code> will be used for initial rendering.</p>
+
+<p>tags: <a href='tag_react.html'>react</a>, <a href='tag_lifecycle.html'>lifecycle</a>, <a href='tag_events.html'>events</a></p>
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/more-react-notes.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/more-react-notes.html'><span id='count-21810'></span></a>&nbsp;</p>
 <h3><a class="ablack" href="react-notes.html">
 REACT NOTES
 </a></h3>
@@ -92,7 +150,7 @@ Zac Anger</div>
    onChange={this.foo.bar} /&gt;
 </code></pre>
 
-<p class="readmore"><a href="./react-notes.html">read more...</a></p>
+<p class="readmore"><a href="react-notes.html">read more...</a></p>
 <p>tags: <a href='tag_react.html'>react</a>, <a href='tag_webpack.html'>webpack</a>, <a href='tag_js.html'>js</a>, <a href='tag_notes.html'>notes</a>, <a href='tag_redux.html'>redux</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/react-notes.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/react-notes.html'><span id='count-6354'></span></a>&nbsp;</p>
@@ -341,7 +399,7 @@ Zac Anger</div>
 <!-- text begin -->
 
 <p>There's this <a href="https://medium.com/bread-crumbs/i-officially-endorse-react-for-president-9c103e4568d4">post</a> kinda making the rounds lately. It's a nice post. Everything in there, I agree with, for sure. Especially as someone who feels a lot more comfortable with Node than with, say, Angular's mostly ungrokable <a href="https://docs.angularjs.org/api">API</a>. I <em>get</em> why people like React. <em>I get React</em>. It's not exactly hard to pick up, anyway. It's very logical and intuitive. And I really do like the concepts behind React. But I still have problems with it.</p>
-<p class="readmore"><a href="./my-problem-with-react.html">read more...</a></p>
+<p class="readmore"><a href="my-problem-with-react.html">read more...</a></p>
 <p>tags: <a href='tag_react.html'>react</a>, <a href='tag_frameworks.html'>frameworks</a>, <a href='tag_libraries.html'>libraries</a>, <a href='tag_riot.html'>riot</a>, <a href='tag_vue.html'>vue</a>, <a href='tag_js.html'>js</a>, <a href='tag_javascript.html'>javascript</a>, <a href='tag_angular.html'>angular</a>, <a href='tag_components.html'>components</a>, <a href='tag_jsx.html'>jsx</a>, <a href='tag_mithril.html'>mithril</a>, <a href='tag_design.html'>design</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/my-problem-with-react.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/my-problem-with-react.html'><span id='count-8898'></span></a>&nbsp;</p>
@@ -354,7 +412,7 @@ Zac Anger</div>
 
 <p><a href="https://www.instagram.com/p/-SlGTAxf6W/?taken-by=zacanger"><img src="http://zacanger.com/blog/devmtn-sign.jpg" alt="DevMountain Sign" /></a></p>
 
-<p class="readmore"><a href="./quick-little-thing.html">read more...</a></p>
+<p class="readmore"><a href="quick-little-thing.html">read more...</a></p>
 <p>tags: <a href='tag_react.html'>react</a>, <a href='tag_angular.html'>angular</a>, <a href='tag_mean-stack.html'>mean-stack</a>, <a href='tag_meteor.html'>meteor</a>, <a href='tag_socket.html'>socket</a>, <a href='tag_idk.html'>idk</a>, <a href='tag_personal projects.html'>personal projects</a>, <a href='tag_break.html'>break</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/quick-little-thing.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/quick-little-thing.html'><span id='count-12213'></span></a>&nbsp;</p>
@@ -374,7 +432,7 @@ Zac Anger</div>
     - that is, the loop.
     - more boilerplate to run that... less boilerplate-replacer built into react?</p>
 
-<p class="readmore"><a href="./react-meetup-17-nov-2015.html">read more...</a></p>
+<p class="readmore"><a href="react-meetup-17-nov-2015.html">read more...</a></p>
 <p>tags: <a href='tag_react.html'>react</a>, <a href='tag_meetup.html'>meetup</a>, <a href='tag_php.html'>php</a>, <a href='tag_xml.html'>xml</a>, <a href='tag_js.html'>js</a>, <a href='tag_school.html'>school</a>, <a href='tag_meteor.html'>meteor</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/react-meetup-17-nov-2015.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/react-meetup-17-nov-2015.html'><span id='count-29172'></span></a>&nbsp;</p>

@@ -2,9 +2,68 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>angr</title><link>http://zacanger.com/blog</link>
 <description>writings from zac anger, who is not all that angry</description><language>en</language>
-<lastBuildDate>Sun, 24 Apr 2016 20:27:25 -0600</lastBuildDate>
-<pubDate>Sun, 24 Apr 2016 20:27:25 -0600</pubDate>
+<lastBuildDate>Wed, 27 Apr 2016 21:12:26 -0600</lastBuildDate>
+<pubDate>Wed, 27 Apr 2016 21:12:26 -0600</pubDate>
 <atom:link href="http://zacanger.com/blog/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+More React Notes
+</title><description><![CDATA[
+
+<h2>Lifecycle &amp;Co.</h2>
+
+<ul>
+<li>The three phases of life:
+<ul>
+<li>Mounting</li>
+<li>Updating</li>
+<li>Unmounting</li>
+</ul></li>
+<li>Mounting:
+<ul>
+<li><code>getInitialState()</code>, before component is mounted.</li>
+<li><code>componentWillMount()</code>, <em>immediately</em> before mounting.</li>
+<li><code>componentDidMount()</code>, <em>immediately</em> after mounting. DOM-node-dependant initialisation happens here.</li>
+</ul></li>
+<li>Updating:
+<ul>
+<li><code>componentWillReceiveProps()</code>, invoked when mounted component receives new props from parent. Use this
+when changing state (<code>this.setState()</code>).</li>
+<li><code>shouldComponentUpdate()</code>, invoked when component 'decides' whether or not to push updates to the DOM.
+Return <code>false</code> from this if we don't want React to update.</li>
+<li><code>componentDidUpdate()</code>, invoked <em>immediately</em> after updating.</li>
+</ul></li>
+<li>Unmounting:
+<ul>
+<li><code>componentWillUnmount()</code>, <em>immediately</em> before component unmounts and is destroyed. Clean-up goes here.</li>
+</ul></li>
+<li>While mounted, <code>component.forceUpdate()</code> is also available. This is for any mounted component whose state
+has changed without <code>this.setState()</code>.</li>
+</ul>
+
+<p>The big, big difference between <code>props</code> and <code>state</code>: state is private to components.
+A parent component (or any other component) can never manipulate the state of another (with <code>setState</code> or whatever).</p>
+
+<ul>
+<li>So:
+<ul>
+<li>parent passes new props to child</li>
+<li>child handles new props with <code>componentWillReceiveProps</code></li>
+<li>calls <code>setState</code> if necessary</li>
+<li>child handles new state in <code>componentWillUpdate</code></li>
+<li>if component is stateful, <code>componentWIllReceiveProps</code> will be enough here</li>
+</ul></li>
+</ul>
+
+<p>Defaults set in <code>getInitialState</code> will be used for initial rendering.</p>
+
+<p>tags: <a href='tag_react.html'>react</a>, <a href='tag_lifecycle.html'>lifecycle</a>, <a href='tag_events.html'>events</a></p>
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/more-react-notes.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/more-react-notes.html'><span id='count-21810'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/more-react-notes.html</link>
+<guid>http://zacanger.com/blog/./more-react-notes.html</guid>
+<dc:creator>Zac Anger</dc:creator>
+<pubDate>Wed, 27 Apr 2016 21:12:23 -0600</pubDate></item>
 <item><title>
 Notes from the AngularJS Utah Meetup
 </title><description><![CDATA[
@@ -772,138 +831,4 @@ basic auth
 <guid>http://zacanger.com/blog/./basic-auth.html</guid>
 <dc:creator>Zac Anger</dc:creator>
 <pubDate>Fri, 12 Feb 2016 21:48:00 -0700</pubDate></item>
-<item><title>
-node-fs basics
-</title><description><![CDATA[
-
-<p>this is another one that'll be presented just as a giant code block.</p>
-
-<pre><code>// using files in node
-var fs = require('fs')
-var buf = new Buffer(1024)
-
-// reading asynchronously
-fs.readFile('foo.md', function(err, data){
-  if(err){
-    return console.error(err)
-  }
-  console.log('async read: ' + data.toString())
-})
-// and synchronously
-var data = fs.readFileSync('foo.md')
-console.log('sync read: ' + data.toString())
-console.log('#############\n')
-
-// opening
-// fs.open(path, flags[, mode], cb)
-// flags can be r (r), r (rw), rs (r synchronously), rs+ (rw, sync),
-// w (write), wx (fails if file exists), w+ (rw, creates file (or truncates existing)),
-// wx+ (fails if path exists), a (append), ax (fails if path exists),
-// a+ (file for read &amp; append), ax+ (fails if path exists)
-console.log('opening file')
-fs.open('foo.md', 'r+', function(err, fd){
-  if(err){
-    return console.error(err)
-  }
-  console.log('opened')
-})
-
-// information about files
-// fs.stat(path, callback)
-// .isFile() returns true if file, .isDirectory returns true if dir,
-// isBlockDevice returns true if block device, isCharacterDevice...,
-// isSymbolicLink ..., isFifo, isSocket
-console.log('getting file info')
-fs.stat('foo.md', function(err, stats){
-  if(err){
-    return console.error(err)
-  }
-  console.log(stats)
-  console.log('got yer file')
-  console.log('symlink? ' +  stats.isSymbolicLink)
-  console.log('char? ' + stats.isCharacterDevice)
-})
-
-// writing: fs.writeFile(filename, data[, options], cb)
-console.log('gonna write a file')
-fs.writeFile('bar.md', 'stuff!', function(err){
-  if(err){return console.error(err)}
-  console.log('written!')
-  console.log('reading that now')
-  fs.readFile('bar.md', function(err, data){
-    if(err){return console.error(err)}
-    console.log('async read: ' data.toString())
-  })
-})
-
-// closing: fs.close(fd, callback)
-console.log('opening file')
-fs.open('bar.md', 'r+', function(err, fd){
-  if(err){return console.error(err)}
-  console.log('opened')
-  console.log('reading it')
-  fs.read(fd, buf, 0, buf.length, 0 function(err, bytes){
-    if(err){console.log(err)}
-    if(bytes &gt; 0){console.log(buf.slice(0, bytes).toString())}
-    fs.close(fd, function(err){
-      if(err){console.log(err)
-    }
-    console.log('closed!')
-    })
-  })
-})
-
-// truncating: fs.ftruncate(fd, len, cb)
-// ... meh
-
-// deleting: fs.unlink(path, cb)
-console.log('gonna DELETE a file!')
-fs.unlink('bar.md', function(err){if(err){return console.error(err)}
-console.log('deleted!')})
-
-// mkdir: fs.mkdir(path[, mode], cb)
-fs.mkdir('./test', function(err){
-  if(err){return console.error(err)}
-  console.log('created a directory at \'test\'')
-})
-fs.mkdir('./asdf', function(err){
-  if(err){return console.error(err)}
-  console.log('created one called \'asdf\', too!')
-})
-// fs.readdir(path, cb)
-fs.readdir('./', function(err, files){
-  if(err){return console.error(err)}
-  files.forEach(function(file){
-    console.log(file)
-  })
-})
-
-// fs.rmdir(path, cb)
-fs.rmdir('./asdf', function(err){
-  if(err){return console.error(err)}
-  fs.readdir('./', function(err, files){
-    if(err){return console.error(err)}
-    files.forEach(function(file){
-      console.log(file)
-    })
-  })
-})
-
-// there are a whole bunch of other methods, but i feel like this is good enough for now, yes?
-</code></pre>
-
-<p>tags: <a href='tag_node.html'>node</a>, <a href='tag_fs.html'>fs</a>, <a href='tag_node-fs.html'>node-fs</a>, <a href='tag_javascript.html'>javascript</a>, <a href='tag_basics.html'>basics</a></p>
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/node-fs-basics.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/node-fs-basics.html'><span id='count-25094'></span></a>&nbsp;</p>
-]]></description><link>http://zacanger.com/blog/node-fs-basics.html</link>
-<guid>http://zacanger.com/blog/./node-fs-basics.html</guid>
-<dc:creator>Zac Anger</dc:creator>
-<pubDate>Fri, 12 Feb 2016 19:58:00 -0700</pubDate></item>
 </channel></rss>
