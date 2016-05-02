@@ -23,7 +23,7 @@
 <meta name='twitter:card' content='summary' />
 <meta name='twitter:site' content='@zacanger' />
 <meta name='twitter:title' content='angr &mdash; posts tagged "programming"' />
-<meta name='twitter:description' content=" Solving programming problems  February 10, 2016  &mdash;  Zac Anger   Basic steps of solving programming problems:   Find the input. Find the output. Figure out how you need to transform the input to the output in plain English. Translate this into " />
+<meta name='twitter:description' content=" BaconJS  May 01, 2016  &mdash;  Zac Anger   Note: this post references 'the snake game' a lot. That's over  https://github.com/zacanger/extras/tree/master/bacon, now.  Bacon is a JS lib for FRP, like Rx, but not MS.  Here's some jQuery, because I do" />
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -32,40 +32,10 @@
 <div id="description">writings from zac anger, who is not all that angry</div>
 </div></div></div>
 <div id="divbody"><div class="content">
-<h3><a class="ablack" href="solving-programming-problems.html">
-Solving programming problems
-</a></h3>
-<div class="subtitle">February 10, 2016  &mdash; 
-Zac Anger</div>
-<!-- text begin -->
-
-<p>Basic steps of solving programming problems:</p>
-
-<ol>
-<li>Find the input.</li>
-<li>Find the output.</li>
-<li>Figure out how you need to transform the input to the output <em>in plain English</em>.</li>
-<li>Translate this into your chosen programming language.</li>
-<li>Run the code (in your head, or on a machine).</li>
-<li>If the output isn't what you expected, start over with step three.</li>
-</ol>
-
-<p>... that's basically it.</p>
-
-<p>tags: <a href='tag_toy-problems.html'>toy-problems</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_problem-solving.html'>problem-solving</a></p>
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/solving-programming-problems.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/solving-programming-problems.html'><span id='count-11393'></span></a>&nbsp;</p>
 <h3><a class="ablack" href="baconjs.html">
 BaconJS
 </a></h3>
-<div class="subtitle">January 19, 2016  &mdash; 
+<div class="subtitle">May 01, 2016  &mdash; 
 Zac Anger</div>
 <!-- text begin -->
 
@@ -99,11 +69,58 @@ arrays, but with streams.</p>
 <p class="readmore"><a href="./baconjs.html">read more...</a></p>
 <p>tags: <a href='tag_bacon.html'>bacon</a>, <a href='tag_js.html'>js</a>, <a href='tag_frp.html'>frp</a>, <a href='tag_streams.html'>streams</a>, <a href='tag_events.html'>events</a>, <a href='tag_functional.html'>functional</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_reactive.html'>reactive</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/baconjs.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/baconjs.html'><span id='count-21805'></span></a>&nbsp;</p>
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/baconjs.html'><span id='count-25421'></span></a>&nbsp;</p>
+<h3><a class="ablack" href="code-bootcamps-comparison.html">
+Code Bootcamps (Comparison)
+</a></h3>
+<div class="subtitle">May 01, 2016  &mdash; 
+Zac Anger</div>
+<!-- text begin -->
+
+<p>This is old, but I just found it lingering in my important docs directory in Dropbox. So... before I move it away, I figured I'd post it here in case someone is looking into these things at some point.</p>
+
+<p>FWIW, I'm now officially at DevMountain (day one, yo), and I think I made the absolute best possible choice here.</p>
+
+<p class="readmore"><a href="./code-bootcamps-comparison.html">read more...</a></p>
+<p>tags: <a href='tag_old.html'>old</a>, <a href='tag_education.html'>education</a>, <a href='tag_school.html'>school</a>, <a href='tag_code-bootcamp.html'>code-bootcamp</a>, <a href='tag_javascript.html'>javascript</a>, <a href='tag_coding.html'>coding</a>, <a href='tag_programming.html'>programming</a></p>
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/code-bootcamps-comparison.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/code-bootcamps-comparison.html'><span id='count-22951'></span></a>&nbsp;</p>
+<h3><a class="ablack" href="differences-from-js.html">
+Elm (notes)
+</a></h3>
+<div class="subtitle">May 01, 2016  &mdash; 
+Zac Anger</div>
+<!-- text begin -->
+
+<p>Differences from JS:</p>
+
+<ul>
+<li>Elm has multiline string support, with <em>triple</em> sets of quotes, eg """multiline string"""</li>
+<li>Elm <em>cannot</em> use single quotes for <em>strings</em>. Elm uses single quotes to denote <em>characters</em>.</li>
+<li>Booleans are uppercase.</li>
+<li>Objects use <code>=</code> instead of <code>:</code>, so <code>{key: value, key2: value2}</code> in JS would be <code>{key = value, key2 = value2}</code> in Elm.</li>
+<li><code>point.x = 42</code> in JS would be <code>{point | x = 42}</code> in Elm.</li>
+<li>Functions are greatly simplified. <code>function(foo, bar){return foo+bar}</code> in js would be <code>\foo bar -&gt; foo + bar</code> in Elm.</li>
+<li>Math is a little simpler: <code>Math.max(2,4)</code> is just <code>max 2 4</code>. Same with <code>min</code>. <code>Math.pow</code> is just <code>^</code>, eg <code>Math.min(1, Math.pow(2, 4))</code> is <code>min 1 (2^4)</code>.</li>
+<li><code>numbers.map(Math.sqrt)</code> would be <code>List.map sqrt numbers</code>. <code>points.map(function(p){return p.x})</code> becomes <code>List.map .x points</code>.</li>
+<li><code>2 &lt; 4 ? 'WHAT' : 'how?'</code>, <code>if 2 &lt; 4 then "WHAT" else "how?"</code></li>
+<li><code>var foo = 72</code>; <code>let foo = 72 in...</code></li>
+<li>No return statements; everything is an expression.</li>
+<li><code>String.length "asdf"</code> rather than 'asdf.length'</li>
+</ul>
+
+<p>Mostly it looks pretty neat, but there's virtually nothing out there for actually <em>learning</em> it, so I'm already kind of over it....</p>
+
+<p>Note that the 'EventLog.elm' in this directory doesn't actually need the start-app package anymore; turns out it's really easy to just wire the damn thing up all on your own.</p>
+
+<p class="readmore"><a href="./differences-from-js.html">read more...</a></p>
+<p>tags: <a href='tag_js.html'>js</a>, <a href='tag_haskell.html'>haskell</a>, <a href='tag_functional.html'>functional</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_javascript.html'>javascript</a>, <a href='tag_elm.html'>elm</a>, <a href='tag_lang.html'>lang</a>, <a href='tag_language.html'>language</a></p>
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/differences-from-js.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/differences-from-js.html'><span id='count-1783'></span></a>&nbsp;</p>
 <h3><a class="ablack" href="functional-programming-vocabulary.html">
 Functional Programming Vocabulary
 </a></h3>
-<div class="subtitle">January 16, 2016  &mdash; 
+<div class="subtitle">May 01, 2016  &mdash; 
 Zac Anger</div>
 <!-- text begin -->
 
@@ -201,45 +218,14 @@ Zac Anger</div>
 
 
 
+
 <!-- text end -->
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/functional-programming-vocabulary.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/functional-programming-vocabulary.html'><span id='count-2098'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="differences-from-js.html">
-Elm (notes)
-</a></h3>
-<div class="subtitle">January 14, 2016  &mdash; 
-Zac Anger</div>
-<!-- text begin -->
-
-<p>Differences from JS:</p>
-
-<ul>
-<li>Elm has multiline string support, with <em>triple</em> sets of quotes, eg """multiline string"""</li>
-<li>Elm <em>cannot</em> use single quotes for <em>strings</em>. Elm uses single quotes to denote <em>characters</em>.</li>
-<li>Booleans are uppercase.</li>
-<li>Objects use <code>=</code> instead of <code>:</code>, so <code>{key: value, key2: value2}</code> in JS would be <code>{key = value, key2 = value2}</code> in Elm.</li>
-<li><code>point.x = 42</code> in JS would be <code>{point | x = 42}</code> in Elm.</li>
-<li>Functions are greatly simplified. <code>function(foo, bar){return foo+bar}</code> in js would be <code>\foo bar -&gt; foo + bar</code> in Elm.</li>
-<li>Math is a little simpler: <code>Math.max(2,4)</code> is just <code>max 2 4</code>. Same with <code>min</code>. <code>Math.pow</code> is just <code>^</code>, eg <code>Math.min(1, Math.pow(2, 4))</code> is <code>min 1 (2^4)</code>.</li>
-<li><code>numbers.map(Math.sqrt)</code> would be <code>List.map sqrt numbers</code>. <code>points.map(function(p){return p.x})</code> becomes <code>List.map .x points</code>.</li>
-<li><code>2 &lt; 4 ? 'WHAT' : 'how?'</code>, <code>if 2 &lt; 4 then "WHAT" else "how?"</code></li>
-<li><code>var foo = 72</code>; <code>let foo = 72 in...</code></li>
-<li>No return statements; everything is an expression.</li>
-<li><code>String.length "asdf"</code> rather than 'asdf.length'</li>
-</ul>
-
-<p>Mostly it looks pretty neat, but there's virtually nothing out there for actually <em>learning</em> it, so I'm already kind of over it....</p>
-
-<p>Note that the 'EventLog.elm' in this directory doesn't actually need the start-app package anymore; turns out it's really easy to just wire the damn thing up all on your own.</p>
-
-<p class="readmore"><a href="./differences-from-js.html">read more...</a></p>
-<p>tags: <a href='tag_js.html'>js</a>, <a href='tag_haskell.html'>haskell</a>, <a href='tag_functional.html'>functional</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_javascript.html'>javascript</a>, <a href='tag_elm.html'>elm</a>, <a href='tag_lang.html'>lang</a>, <a href='tag_language.html'>language</a></p>
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/differences-from-js.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/differences-from-js.html'><span id='count-26621'></span></a>&nbsp;</p>
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/functional-programming-vocabulary.html'><span id='count-28779'></span></a>&nbsp;</p>
 <h3><a class="ablack" href="javascript.html">
 Javascript
 </a></h3>
-<div class="subtitle">October 16, 2015  &mdash; 
+<div class="subtitle">May 01, 2016  &mdash; 
 Zac Anger</div>
 <!-- text begin -->
 
@@ -261,28 +247,14 @@ Zac Anger</div>
 
 
 
+
 <!-- text end -->
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/javascript.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/javascript.html'><span id='count-21635'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="code-bootcamps-comparison.html">
-Code Bootcamps (Comparison)
-</a></h3>
-<div class="subtitle">October 12, 2015  &mdash; 
-Zac Anger</div>
-<!-- text begin -->
-
-<p>This is old, but I just found it lingering in my important docs directory in Dropbox. So... before I move it away, I figured I'd post it here in case someone is looking into these things at some point.</p>
-
-<p>FWIW, I'm now officially at DevMountain (day one, yo), and I think I made the absolute best possible choice here.</p>
-
-<p class="readmore"><a href="./code-bootcamps-comparison.html">read more...</a></p>
-<p>tags: <a href='tag_old.html'>old</a>, <a href='tag_education.html'>education</a>, <a href='tag_school.html'>school</a>, <a href='tag_code-bootcamp.html'>code-bootcamp</a>, <a href='tag_javascript.html'>javascript</a>, <a href='tag_coding.html'>coding</a>, <a href='tag_programming.html'>programming</a></p>
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/code-bootcamps-comparison.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/code-bootcamps-comparison.html'><span id='count-25828'></span></a>&nbsp;</p>
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/javascript.html'><span id='count-18288'></span></a>&nbsp;</p>
 <h3><a class="ablack" href="learn-to-code-link-post.html">
 Learn To Code; Link Post
 </a></h3>
-<div class="subtitle">September 29, 2015  &mdash; 
+<div class="subtitle">May 01, 2016  &mdash; 
 Zac Anger</div>
 <!-- text begin -->
 
@@ -291,7 +263,38 @@ Zac Anger</div>
 <p class="readmore"><a href="./learn-to-code-link-post.html">read more...</a></p>
 <p>tags: <a href='tag_education.html'>education</a>, <a href='tag_links.html'>links</a>, <a href='tag_nix.html'>nix</a>, <a href='tag_dev.html'>dev</a>, <a href='tag_web.html'>web</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_code.html'>code</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/learn-to-code-link-post.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/learn-to-code-link-post.html'><span id='count-24333'></span></a>&nbsp;</p>
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/learn-to-code-link-post.html'><span id='count-2583'></span></a>&nbsp;</p>
+<h3><a class="ablack" href="solving-programming-problems.html">
+Solving programming problems
+</a></h3>
+<div class="subtitle">May 01, 2016  &mdash; 
+Zac Anger</div>
+<!-- text begin -->
+
+<p>Basic steps of solving programming problems:</p>
+
+<ol>
+<li>Find the input.</li>
+<li>Find the output.</li>
+<li>Figure out how you need to transform the input to the output <em>in plain English</em>.</li>
+<li>Translate this into your chosen programming language.</li>
+<li>Run the code (in your head, or on a machine).</li>
+<li>If the output isn't what you expected, start over with step three.</li>
+</ol>
+
+<p>... that's basically it.</p>
+
+<p>tags: <a href='tag_toy-problems.html'>toy-problems</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_problem-solving.html'>problem-solving</a></p>
+
+
+
+
+
+
+
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/solving-programming-problems.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/solving-programming-problems.html'><span id='count-32630'></span></a>&nbsp;</p>
 </div>
 <div id="footer">WTFPL <a href="http://twitter.com/zacanger">Zac Anger</a> &mdash; <a href="mailto:zac&#64;zacanger&#46;com">zac&#64;zacanger&#46;com</a><br>
 written in <a href="https://daringfireball.net/projects/markdown/">markdown</a> and generated with a <a href="http://tiswww.case.edu/php/chet/bash/bashtop.html">shell script</a></div>

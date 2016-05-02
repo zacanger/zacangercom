@@ -23,7 +23,7 @@
 <meta name='twitter:card' content='summary' />
 <meta name='twitter:site' content='@zacanger' />
 <meta name='twitter:title' content='angr &mdash; posts tagged "closures"' />
-<meta name='twitter:description' content=" FP in JS  April 03, 2016 &mdash;  Zac Anger   Notes taken while going through this guy's videos.  You should watch them all. He's great.  'use strict'  // // HOF // // Higher Order Functions // functions are values // const something = function &gt;" />
+<meta name='twitter:description' content=" Closures  May 01, 2016  &mdash;  Zac Anger   A closure is a local variable for a function, which sticks around after the function has been returned.  (Or, a closure is a stack-frame which is not deallocated when the function returns [as if a 'stack-" />
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -32,10 +32,120 @@
 <div id="description">writings from zac anger, who is not all that angry</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="closures.html">
+Closures
+</a></h3>
+<div class="subtitle">May 01, 2016  &mdash; 
+Zac Anger</div>
+<!-- text begin -->
+
+<p>A closure is a local variable for a function, which sticks around after the function has been returned.</p>
+
+<p>(Or, a closure is a stack-frame which is <em>not deallocated</em> when the function returns [as if a 'stack-frame' were malloc'ed instead of being on the stack!]. Whatever that means.)</p>
+
+<p>Here, let's explain in Javascript.</p>
+
+<pre><code>function sayHi(name){
+  var text = 'hi ' + name // (local var)
+    , say  = function(){
+    console.log(text)
+    return say
+  }
+}
+var sayIt = sayHi('zac')
+sayIt() // returns 'hi zac'
+</code></pre>
+
+<p>So here, a function is returned as a variable.</p>
+
+<p>What we're doing here is putting a function inside a function. And we're getting something accessible outside of that enclosing function, right?</p>
+
+<p>Hence <em>closure</em>.</p>
+
+<p>In most descendants of C, after a function returns, its local variables are <em>gone</em>. The stack-frame is gone.</p>
+
+<p>In JS, functions that are inside other functions can still be accessed outside of (after) that parent function. Try using the above code, and then doing <code>sayIt.toString()</code>, and you'll see that the variable <code>say</code> is returned -- which is a function that references <code>text</code>, which is a variable local to <code>sayHi()</code>.</p>
+
+<pre><code>function oneMore(){
+  var i     = 1
+    , logIt = function(){
+    console.log(i)
+  }
+  i++
+  return logIt
+}
+var logStuff = logIt()
+oneMore() // 2
+</code></pre>
+
+<p>Make sense? Here's a slightly more complex example pulled straight from the interwebs.</p>
+
+<pre><code>var logNumber, increaseNumber, setNumber
+function setupGlobals(){
+  var i = 4
+  logNumber = function(){
+    console.log(i)
+  }
+  increaseNumber = function(){
+    i++
+  }
+  setNumber = function(x){
+    i = x
+  }
+}
+setupGlobals()
+increaseNumber()
+logNumber()     // 5
+setNumber(8)
+logNumber()     // 8
+var oldLog = logNumber
+setupGlobals()
+logNumber()     // 4
+oldLog()        // 8
+</code></pre>
+
+<p>Local variables from a closure will be overwritten if you call that outer function again. Don't forget this, because you can get some really screwy stuff going on if you do!</p>
+
+<p>There is a closure for <em>every function call</em>, not for every <em>function declaration</em>. This example might help demonstrate this.</p>
+
+<pre><code>function newClosure(fooInt, barRef){
+  var num     = fooInt
+    , quuxArr = [1, 2, 3]
+    , ref     = barRef
+  return function(x){
+    num += x
+    quuxArr.push(num)
+    console.log('num: ' + num +
+      '; quuxArr: ' + quuxArr.toString() +
+      '; ref.bazVar: ' + ref.bazVar)
+  }
+}
+obj = {bazVar: 4}
+fn1 = newClosure(4, obj)
+fn2 = newClosure(8, obj)
+fn1(1)     // num:5; quuxArr:1,2,3,4,5; ref.bazVar: 4
+fn2(1)     // num:9; quuxArr:1,2,3,8; ref.bazVar: 4
+obj.bazVar++ // 4
+fn1(2)     // num:7; quuxArr:1,2,3,5,7; ref.bazVar:5
+fn2(2)     // num:11; quuxArr:1,2,3,9,11; ref.bazVar:5
+</code></pre>
+
+<p>So... a quick recap?</p>
+
+<p>When a function is <em>used</em> inside another function, you've used a <em>closure</em>. This includes <code>eval()</code>. (Note that using a constructor, as in <code>new Function()</code>, does <em>not</em> create a closure.)</p>
+
+<p>Every time you call a function with a closure, it makes a new set of those local variables.</p>
+
+<p>Closures <em>can</em> definitely be nested.</p>
+
+<p class="readmore"><a href="./closures.html">read more...</a></p>
+<p>tags: <a href='tag_js.html'>js</a>, <a href='tag_closures.html'>closures</a>, <a href='tag_notes.html'>notes</a>, <a href='tag_closure.html'>closure</a></p>
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/closures.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/closures.html'><span id='count-13726'></span></a>&nbsp;</p>
 <h3><a class="ablack" href="fp-in-js.html">
 FP in JS
 </a></h3>
-<div class="subtitle">April 03, 2016 &mdash; 
+<div class="subtitle">May 01, 2016  &mdash; 
 Zac Anger</div>
 <!-- text begin -->
 
@@ -296,119 +406,10 @@ Promise.all([
 </code></pre>
 
 <p>tags: <a href='tag_functional-programming.html'>functional-programming</a>, <a href='tag_javascript.html'>javascript</a>, <a href='tag_js.html'>js</a>, <a href='tag_fp.html'>fp</a>, <a href='tag_functional.html'>functional</a>, <a href='tag_notes.html'>notes</a>, <a href='tag_examples.html'>examples</a>, <a href='tag_map.html'>map</a>, <a href='tag_filter.html'>filter</a>, <a href='tag_reduce.html'>reduce</a>, <a href='tag_promises.html'>promises</a>, <a href='tag_closure.html'>closure</a>, <a href='tag_closures.html'>closures</a>, <a href='tag_recursion.html'>recursion</a></p>
+
 <!-- text end -->
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/fp-in-js.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/fp-in-js.html'><span id='count-21002'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="closures.html">
-Closures
-</a></h3>
-<div class="subtitle">February 02, 2016  &mdash; 
-Zac Anger</div>
-<!-- text begin -->
-
-<p>A closure is a local variable for a function, which sticks around after the function has been returned.</p>
-
-<p>(Or, a closure is a stack-frame which is <em>not deallocated</em> when the function returns [as if a 'stack-frame' were malloc'ed instead of being on the stack!]. Whatever that means.)</p>
-
-<p>Here, let's explain in Javascript.</p>
-
-<pre><code>function sayHi(name){
-  var text = 'hi ' + name // (local var)
-    , say  = function(){
-    console.log(text)
-    return say
-  }
-}
-var sayIt = sayHi('zac')
-sayIt() // returns 'hi zac'
-</code></pre>
-
-<p>So here, a function is returned as a variable.</p>
-
-<p>What we're doing here is putting a function inside a function. And we're getting something accessible outside of that enclosing function, right?</p>
-
-<p>Hence <em>closure</em>.</p>
-
-<p>In most descendants of C, after a function returns, its local variables are <em>gone</em>. The stack-frame is gone.</p>
-
-<p>In JS, functions that are inside other functions can still be accessed outside of (after) that parent function. Try using the above code, and then doing <code>sayIt.toString()</code>, and you'll see that the variable <code>say</code> is returned -- which is a function that references <code>text</code>, which is a variable local to <code>sayHi()</code>.</p>
-
-<pre><code>function oneMore(){
-  var i     = 1
-    , logIt = function(){
-    console.log(i)
-  }
-  i++
-  return logIt
-}
-var logStuff = logIt()
-oneMore() // 2
-</code></pre>
-
-<p>Make sense? Here's a slightly more complex example pulled straight from the interwebs.</p>
-
-<pre><code>var logNumber, increaseNumber, setNumber
-function setupGlobals(){
-  var i = 4
-  logNumber = function(){
-    console.log(i)
-  }
-  increaseNumber = function(){
-    i++
-  }
-  setNumber = function(x){
-    i = x
-  }
-}
-setupGlobals()
-increaseNumber()
-logNumber()     // 5
-setNumber(8)
-logNumber()     // 8
-var oldLog = logNumber
-setupGlobals()
-logNumber()     // 4
-oldLog()        // 8
-</code></pre>
-
-<p>Local variables from a closure will be overwritten if you call that outer function again. Don't forget this, because you can get some really screwy stuff going on if you do!</p>
-
-<p>There is a closure for <em>every function call</em>, not for every <em>function declaration</em>. This example might help demonstrate this.</p>
-
-<pre><code>function newClosure(fooInt, barRef){
-  var num     = fooInt
-    , quuxArr = [1, 2, 3]
-    , ref     = barRef
-  return function(x){
-    num += x
-    quuxArr.push(num)
-    console.log('num: ' + num +
-      '; quuxArr: ' + quuxArr.toString() +
-      '; ref.bazVar: ' + ref.bazVar)
-  }
-}
-obj = {bazVar: 4}
-fn1 = newClosure(4, obj)
-fn2 = newClosure(8, obj)
-fn1(1)     // num:5; quuxArr:1,2,3,4,5; ref.bazVar: 4
-fn2(1)     // num:9; quuxArr:1,2,3,8; ref.bazVar: 4
-obj.bazVar++ // 4
-fn1(2)     // num:7; quuxArr:1,2,3,5,7; ref.bazVar:5
-fn2(2)     // num:11; quuxArr:1,2,3,9,11; ref.bazVar:5
-</code></pre>
-
-<p>So... a quick recap?</p>
-
-<p>When a function is <em>used</em> inside another function, you've used a <em>closure</em>. This includes <code>eval()</code>. (Note that using a constructor, as in <code>new Function()</code>, does <em>not</em> create a closure.)</p>
-
-<p>Every time you call a function with a closure, it makes a new set of those local variables.</p>
-
-<p>Closures <em>can</em> definitely be nested.</p>
-
-<p class="readmore"><a href="closures.html">read more...</a></p>
-<p>tags: <a href='tag_js.html'>js</a>, <a href='tag_closures.html'>closures</a>, <a href='tag_notes.html'>notes</a>, <a href='tag_closure.html'>closure</a></p>
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/closures.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/closures.html'><span id='count-9485'></span></a>&nbsp;</p>
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/fp-in-js.html'><span id='count-5235'></span></a>&nbsp;</p>
 </div>
 <div id="footer">WTFPL <a href="http://twitter.com/zacanger">Zac Anger</a> &mdash; <a href="mailto:zac&#64;zacanger&#46;com">zac&#64;zacanger&#46;com</a><br>
 written in <a href="https://daringfireball.net/projects/markdown/">markdown</a> and generated with a <a href="http://tiswww.case.edu/php/chet/bash/bashtop.html">shell script</a></div>

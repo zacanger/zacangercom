@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>angr</title><link>http://zacanger.com/blog</link>
 <description>writings from zac anger, who is not all that angry</description><language>en</language>
-<lastBuildDate>Sun, 01 May 2016 23:06:11 -0600</lastBuildDate>
-<pubDate>Sun, 01 May 2016 23:06:11 -0600</pubDate>
+<lastBuildDate>Sun, 01 May 2016 23:07:44 -0600</lastBuildDate>
+<pubDate>Sun, 01 May 2016 23:07:44 -0600</pubDate>
 <atom:link href="http://zacanger.com/blog/feed.rss" rel="self" type="application/rss+xml" />
 <item><title>
 NOTES FROM DEVMOUNTAIN
@@ -22,99 +22,344 @@ a directory of drafts somewhere. This stuff is totally unedited.</p>
 <hr />
 <p>tags: <a href='tag_notes.html'>notes</a>, <a href='tag_devmountain.html'>devmountain</a>, <a href='tag_lol.html'>lol</a>, <a href='tag_i-am-ridiculous.html'>i-am-ridiculous</a>, <a href='tag_directives.html'>directives</a>, <a href='tag_angular.html'>angular</a>, <a href='tag_firebase.html'>firebase</a>, <a href='tag_express.html'>express</a>, <a href='tag_mongo.html'>mongo</a>, <a href='tag_mongoose.html'>mongoose</a>, <a href='tag_node.html'>node</a>, <a href='tag_ionic.html'>ionic</a>, <a href='tag_d3.html'>d3</a>, <a href='tag_react.html'>react</a>, <a href='tag_heroku.html'>heroku</a>, <a href='tag_digital-ocean.html'>digital-ocean</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/notes-from-devmountain.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='https://twitter.com/search?q=http://zacanger.com/blog/notes-from-devmountain.html'><span id='count-18760'></span></a>&nbsp;</p>
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/notes-from-devmountain.html'><span id='count-32210'></span></a>&nbsp;</p>
 ]]></description><link>http://zacanger.com/blog/notes-from-devmountain.html</link>
 <guid>http://zacanger.com/blog/./notes-from-devmountain.html</guid>
 <dc:creator>Zac Anger</dc:creator>
 <pubDate>Sun, 01 May 2016 23:00:00 -0600</pubDate></item>
 <item><title>
-Thanksgiving Week, Projects, Fun Times, and The Future
+about pages
 </title><description><![CDATA[
 
-<p>Jesus fuck it's been an interesting week. I've learned so much this week, and managed to get almost nothing done. <a href="http://npm.im/markvi">Markvi</a> is up to version 0.3.0, because it now actually has the keybinds it was always meant to have. The tentatively titled <em>Whiteboard</em> is stuck in planning, because I kind of stopped caring about it, though I really need to get that one done since it's the main project that actually matters, here. The other project (the thing that has to do with documentation, and making money) is stalled, but I'm so ready to get moving on that because it's super exciting.</p>
+<p>Why do these pages even exist?</p>
+
+<ul>
+<li>They provide visitors with the essential facts needed to interact with you/the company</li>
+<li>Give them the context for the information they'll find on the rest of the site</li>
+<li>Set yourself/the company apart from others like you/it</li>
+<li>Give visitors a reason (or as many reasons as possible) to do whatever we're trying to do (call a number, sign up for something, buy something, whatever)</li>
+</ul>
+
+<p>Don't be super generic, bland, grey, and corporate-speaky. People want real, meaningful information, not company statistics.</p>
+
+<p>Don't have a sales-y about page. No one wants to hear that you're a 'world-class' whatever, or that you're committed to such and such a thing where you provide so and so such a best whatever. Just get to the point.</p>
+
+<p>Skip the legal. That's for a 'legal' page.</p>
+
+<p>Design the content of this part of your website the same way you should be designging <em>every</em> part of your site: figure out what your users need, and provide it. Use quotes. Use good photos. Use a 'natural, friendly, confident writing voice' (Erin Kissane, alistapart.com, 2006). Have a personality. But don't make it overwhelming.</p>
+
+<p>tags: <a href='tag_webdesign.html'>webdesign</a>, <a href='tag_webdev.html'>webdev</a>, <a href='tag_about-pages.html'>about-pages</a></p>
+
+
+
+
+
+
+
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/about-pages.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/about-pages.html'><span id='count-27958'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/about-pages.html</link>
+<guid>http://zacanger.com/blog/./about-pages.html</guid>
+<dc:creator>Zac Anger</dc:creator>
+<pubDate>Sun, 01 May 2016 13:58:00 -0600</pubDate></item>
+<item><title>
+Algorithms &amp; Big-O
+</title><description><![CDATA[
+
+<h2>Algorithms and Problem Solving in One Hour or Less.</h2>
+
+<p>Why use algorithms? Because they're a structured set of rules to use for calculations of any type, duh. They let you loop over arrays, etc., in a more functional and portable manner.</p>
+
+<p>Common uses: sorting, searching, solving.</p>
+
+<p>Implementations: recursive, logical (which is exact opposite of recursive), prl/distr/etc
+* binary starts with a sorted list
+* EVERY recursive function should start, straight away, with a CYA
+  * eg, if (searchArray.length = 0) return exit status 1
+  * because infinite loops are dumb</p>
 
 <hr />
-<p>tags: <a href='tag_school.html'>school</a>, <a href='tag_personal.html'>personal</a>, <a href='tag_wiki.html'>wiki</a>, <a href='tag_projects.html'>projects</a>, <a href='tag_vue.html'>vue</a>, <a href='tag_mithril.html'>mithril</a>, <a href='tag_js.html'>js</a></p>
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/thanksgiving-week-projects-fun-times-and-the-future.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/thanksgiving-week-projects-fun-times-and-the-future.html'><span id='count-14658'></span></a>&nbsp;</p>
-]]></description><link>http://zacanger.com/blog/thanksgiving-week-projects-fun-times-and-the-future.html</link>
-<guid>http://zacanger.com/blog/./thanksgiving-week-projects-fun-times-and-the-future.html</guid>
+<p>tags: <a href='tag_algorithms.html'>algorithms</a>, <a href='tag_big-o.html'>big-o</a>, <a href='tag_sort.html'>sort</a>, <a href='tag_math.html'>math</a>, <a href='tag_js.html'>js</a></p>
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/algorithms-amp-big-o.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/algorithms-amp-big-o.html'><span id='count-26072'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/algorithms-amp-big-o.html</link>
+<guid>http://zacanger.com/blog/./algorithms-amp-big-o.html</guid>
 <dc:creator>Zac Anger</dc:creator>
-<pubDate>Sun, 01 May 2016 13:58:27 -0600</pubDate></item>
+<pubDate>Sun, 01 May 2016 13:58:00 -0600</pubDate></item>
 <item><title>
-That was fast.
+ANGULAAAAARRRRR
 </title><description><![CDATA[
 
-<h3>Just a note:</h3>
+<p>...is fun. Also a pain. But fun.  </p>
 
-<p>I'mma go ahead and deploy this now. I'm doing things the old fashioned way (that is, FTP) because IIS is the worst and it makes me sad. I've decided to stick with bashblog for the moment, only because baker is more than I need. So is bashblog, for that matter, but baker also brings along <a href="http://getbootstrap.com">Bootstrap</a> weight, and that's really not something I can see myself needing in blog context. Mostly I write things in Markdown, sometimes peeking in on them with a nifty live preview script to check things; I don't need widgets and animations and such, here.</p>
-
-<p>Anyhow, I'll now begin the long work of cleaning up all these old posts for self-hosting. Thank goodness.</p>
-
-<p>tags: <a href='tag_meta.html'>meta</a>, <a href='tag_bashblog.html'>bashblog</a>, <a href='tag_blogging.html'>blogging</a></p>
-
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/that-was-fast.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/that-was-fast.html'><span id='count-29368'></span></a>&nbsp;</p>
-]]></description><link>http://zacanger.com/blog/that-was-fast.html</link>
-<guid>http://zacanger.com/blog/./that-was-fast.html</guid>
-<dc:creator>Zac Anger</dc:creator>
-<pubDate>Sun, 01 May 2016 13:58:27 -0600</pubDate></item>
-<item><title>
-things learned dealing with electron and the mean stack
-</title><description><![CDATA[
-
-<p>In the interest of <a href="http://coffeecoder.net/blog/blog-little-things/">blogging the little things</a>, I want to write down a couple of things I learned while struggling through <a href="https://github.com/zacanger/ayuba.git">my project</a>. Nothing major, but a few things that I really had to dig to find answers to, buried way underneath unrelated issues in Github and whatnot.</p>
+<p>I'm 239% sure I'm falling wayyy behind, but I'm also about 72% sure I started with a fairly decent headstart--not first in the cohort, for sure, but maybe around fifth. I think I'll catch up again (hush, I know it's not a race, but I don't want to be lagging) once we start back-end stuff. Maybe. Angular is nice and all, but for whatever reason I just can't seem to focus on it for long. Probably because somewhere deep down in my brain, I just can't bring myself to love the idea of that much client-side work. It feels like one of those really awesome things built by people who've never owned really shitty devices, or even average ones.</p>
 
 <hr />
-<p>tags: <a href='tag_javascript.html'>javascript</a>, <a href='tag_js.html'>js</a>, <a href='tag_electron.html'>electron</a>, <a href='tag_angular.html'>angular</a>, <a href='tag_mean.html'>mean</a>, <a href='tag_school.html'>school</a>, <a href='tag_css.html'>css</a></p>
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/things-learned-dealing-with-electron-and-the-mean-stack.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/things-learned-dealing-with-electron-and-the-mean-stack.html'><span id='count-14163'></span></a>&nbsp;</p>
-]]></description><link>http://zacanger.com/blog/things-learned-dealing-with-electron-and-the-mean-stack.html</link>
-<guid>http://zacanger.com/blog/./things-learned-dealing-with-electron-and-the-mean-stack.html</guid>
+<p>tags: <a href='tag_javascript.html'>javascript</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_school.html'>school</a>, <a href='tag_people.html'>people</a>, <a href='tag_baas.html'>baas</a></p>
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/angulaaaaarrrrr.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/angulaaaaarrrrr.html'><span id='count-16064'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/angulaaaaarrrrr.html</link>
+<guid>http://zacanger.com/blog/./angulaaaaarrrrr.html</guid>
 <dc:creator>Zac Anger</dc:creator>
-<pubDate>Sun, 01 May 2016 13:58:27 -0600</pubDate></item>
+<pubDate>Sun, 01 May 2016 13:58:00 -0600</pubDate></item>
 <item><title>
-This Here's A Test!
+Angular Meetup, 13th Oct, 2015
 </title><description><![CDATA[
 
-<p>Well, all right! This is just a little test. I've tried what may well be five or six dozen static site/blog generators over the past few months, and I'm back at two of the ones I tried first--<a href="https://github.com/cfenollosa/bashblog">Bashblog</a> and <a href="https://github.com/taylorchu/baker">Baker</a>. They're both written in bash, and both pretty simple. I dig bashblog's one-file thing, and kind of like the extreme simplicity of the post-editing format, but it's a little sloppy and requires some disassembly to actually configure. Baker's quite a bit easier to work with, and quite a bit more attractive by default, but it's also about three times the size of bashblog. Both of them seem to have Discus/disquszszs/diskust really stuck in there, and I'm not actually in the mood to sign up for yet <em>another</em> social platform, so... we'll have to see about that. OH, and neither one wants to use an alternate implementation of Markdown. not that I mind, there's nothing terribly wrong with the original one from <a href="http://daringfireball.net">John Gruber</a>, but I'd prefer to at least have that option. There are versions in C and Python that I like (and the C is obviously much faster), as well as the various Javascript implementations that are all the rage these days. It'd also be nice to work with some extensions. I'm never sure what's kosher in the original because I rarely use it, but I'm fairly certain I can't do tables and syntax hightlighting here.</p>
+<h3>Notes:</h3>
 
-<p>ANYWAY. This is just a quick first post, as a test. I'll be doing the same in Baker, and then following up by (gradually) reposting all of my archived blog posts from other platforms, and saved drafts/notes in my Dropbox.</p>
+<p>Bene Brown; author on subject of empathy.</p>
 
-<p>Cheers!</p>
+<h3>The Technical Bit</h3>
 
-<p>-Z</p>
+<p>Jordan Last, speaker on Angular, client-side storage.</p>
 
-<p>tags: <a href='tag_meta.html'>meta</a>, <a href='tag_bashblog.html'>bashblog</a>, <a href='tag_markdown.html'>markdown</a>, <a href='tag_blogging.html'>blogging</a></p>
+<p>Problem: people want wikis, but don't like the word 'wiki.' (Yes, it's more complicated, but not so much so that a wiki wouldn't handle it).</p>
+
+<p>Organization of survey site data (BYU Archaeology Dept.) &amp;c.; Android devices, needed compat. with iOS. This fellow ended up with <a href="http://ionic.io">Ionic</a> to handle building apps.</p>
+
+<p>Okay, new question, how to work with storage? He checked out Cordova (PhoneGap), but wasn't into SQLite so much. Wanted straight-up persistant storage in the browser.</p>
+
+<p>What options were there? Local, IndexedDB, WebSQL. Obviously IndexedDB isn't useful for people who want to stick with that Apple Webkit crap; Local storage is okay for... a little bit of stuff. They ended up choosing WebSQL (despite its deprecation), because they're big on relational databases and didn't want to get into Mongo or Node stuff. (Sidenote, this fellow doesn't quite grasp how the W3C works, or the problems with non-standard or deprecated technologies. Oh well.) Quick rundown on the very barest basics of ORM, aka Why We're Calling This A Model.</p>
+
+<p>Looks like he's using <a href="https://github.com/coresmart/persistencejs">Persistence JS</a>. In persistence, you would save an object like, for example:</p>
+
+<pre><code>persistence.add(this)
+persistence.flush()
+callback &amp;&amp; callback()
+</code></pre>
+
+<p>And now you have your whatsit all set. That's your save method. Then, say, <code>thingy.save(function);</code> and, y'know, there you go. Oh, wait. He forgot a bit about persistence. Needs <code>schema.sync</code> and a <code>.config</code> bit to get up and working.</p>
+
+<p>Now, to query WebSQL in this kind of screwy setup (persistence-specific):</p>
+
+<pre><code>whatever.getStuff = function(thingPassed, maybeAnother) {
+  whatever.all().filter('thingPassed', '=' whateveritis); // i suppose i missed quite a bit here
+}
+</code></pre>
+
+<p>And, finally, deleting... which evidently should be pretty easy. Too easy to go over.</p>
+
+<h4>Closing points:</h4>
+
+<ul>
+<li>Never access the DB directly--do it through lots of Javascript and boilerplate and awkward ways.</li>
+<li>Keep model-specific DB stuff with the model</li>
+<li>Absolutely don't need to use persistence.js or WebSQL (thank goodness)</li>
+<li>Use an ORM, silly!</li>
+</ul>
+
+<p>Oh, and the fellow who organized this thing maybe isn't aware of other stuff going on aroud here. LunchJS would be worth looking into.</p>
+
+<p>And this Jordan fellow is interesting. Bit enthusiastic, dresses half his age, but information architecture + comp sci + dev + project management = all the things I'm really interested in, mostly, pretty much.</p>
+
+<p>Oh, and it was kinda neat to check out Adobe's SLC building.</p>
+
+<p>tags: <a href='tag_meetup.html'>meetup</a>, <a href='tag_angular.html'>angular</a>, <a href='tag_javascript.html'>javascript</a>, <a href='tag_notes.html'>notes</a></p>
 
 
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/angular-meetup-13th-oct-2015.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/angular-meetup-13th-oct-2015.html'><span id='count-17984'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/angular-meetup-13th-oct-2015.html</link>
+<guid>http://zacanger.com/blog/./angular-meetup-13th-oct-2015.html</guid>
+<dc:creator>Zac Anger</dc:creator>
+<pubDate>Sun, 01 May 2016 13:58:00 -0600</pubDate></item>
+<item><title>
+Auth with Passport and Express
+</title><description><![CDATA[
 
+<h2>Passport/Flash Issues</h2>
 
+<p><code>npm i -S express-flash</code>, and <code>var flash = require('express-flash') in your app.</code>app.use(flash())`.</p>
 
+<p>So, make a route in your app/routes/config file, wherever you're keeping those, something like <code>app.get('/forgot', function(req, res){res.render('forgot', {user: req.user})})</code>, assuming you have some html with a form that <code>POST</code>s, and input for the email.</p>
 
+<p>This assumes <code>async</code> and <code>nodemailer</code>, plus a mailing service (like sendgrid or gmail or whatever).</p>
 
+<pre><code>app.post('/forgot', function(req, res, next){
+  async.waterfall([
+    function(done){
+      crypto.randomBytes(20, function(err, buf){
+        var token = buf.toString('hex')
+        done(err, token)
+      })
+    },
+    function(token, done){
+      User.findOne({email: req.body.email}, function(err, user){
+        if(!user){
+          req.flash('error', 'no account!')
+          return res.redirect('/forgot')
+        }
+        user.resetPasswordToken   = token
+        user.resetPasswordExpires = Date.now() + 3600000
+        user.save(function(err){
+          done(err, token, user)
+        })
+      })
+    },
+    function(token, user, done){
+      var smptTransport = nodemailer.createTransport('SMTP', {
+        service: 'foo',
+        auth: {user: 'your username for the service', pass: 'your pass for the service'}
+      })
+      var mailOptions = {
+        to: user.email,
+        from: 'learny-app@thing.bar',
+        subject: 'reset yer passwerd, yo'.
+        text: 'hey, click the thingy and stuff, right here, to reset yer passwerd: http://' + req.headers.post + '/forgot/' + token '\n' + ' .'
+      }
+      smtpTransport.sendMail(mailOptions, function(err){
+        req.flash('info', 'email sent to ' + user.email + ' to reset yer passwyrd.')
+        done(err, 'done')
+      })
+    }
+  ],
+  function(err){
+    if(err) return next(err)
+    res.redirect('/forgot')
+  })
+})
+app.get('/reset/:token', function(req, res{
+  User.findOne({resetPasswordToken: req.params.token, resetPasswordExpires: $gt: Date.now()}), function(err, user){
+    if(!user){
+      req.flash('error', 'invalid password reset token')
+      return res.redirect('/forgot')
+    }
+    res.render('reset', {
+      user.req.user
+    })
+  })
+})
+app.post('/reset/:token', function(req, res){
+  async.waterfall([
+    function(done) {
+      User.findOne({resetPasswordToken: req.params.token, resetPasswordExpires: {$gt: Date.now()}}, function(err, user){
+        if(!user){
+          req.flash('error', 'nope, nope nope.')
+          return res.redirect('back')
+        }
+        user.password = req.body.password
+        user.resetPasswordToken = undefined
+        user.resetPasswordExpires = undefined
+        user.save(function(err){
+          req.logIn(user, function(err){
+            done(err, user)
+          })
+        })
+      })
+    },
+    function(user, done){
+      var smtpTransport = nodemailer.createTransport('SMTP', {
+        service: 'quux',
+        auth: {
+          user: 'same as above',
+          pass: 'same as above'
+        }
+      })
+      var mailOptions = {
+        to: user.email,
+        from: 'learnythingy@stuff.baz',
+        subject: 'changed pw!',
+        text: 'heyo,\n\n' +
+          'account ' + user.email + ''s password was changed \n'
+      }
+      smtpTransport.sendMail(mailOptions, function(err){
+        req.flash('success', 'pw changed')
+        done(err)
+      })
+    }
+  ], function(err){
+    res.redirect('/')
+  })
+})
+</code></pre>
 
+<hr />
+<p>tags: <a href='tag_passport.html'>passport</a>, <a href='tag_express.html'>express</a>, <a href='tag_node.html'>node</a>, <a href='tag_auth.html'>auth</a>, <a href='tag_authentication.html'>authentication</a>, <a href='tag_local.html'>local</a>, <a href='tag_login.html'>login</a></p>
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/auth-with-passport-and-express.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/auth-with-passport-and-express.html'><span id='count-26552'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/auth-with-passport-and-express.html</link>
+<guid>http://zacanger.com/blog/./auth-with-passport-and-express.html</guid>
+<dc:creator>Zac Anger</dc:creator>
+<pubDate>Sun, 01 May 2016 13:58:00 -0600</pubDate></item>
+<item><title>
+Automatic Semicolon Insertion
+</title><description><![CDATA[
 
+<p>This is a simplified version of the <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-7.9">section from the spec that deals with ASI</a>, because I'm really tired of all the idiocy and debate about this. It's not a big deal whether you use semicolons everywhere or don't, but the vitriol from those who use them everywhere really needs to end, and from what I can tell it's almost entirely based on this idea that ASI is complicated. ASI is <em>really simple</em>, and its rules are a lot easier to remember than stupidity like <code>++foo</code> vs <code>foo++</code>, or the rules for <code>this</code>. The actual spec's ASI section is less than two pages, but it can be simplified further, into probably less than a page.</p>
 
+<hr />
+<p>tags: <a href='tag_js.html'>js</a>, <a href='tag_asi.html'>asi</a>, <a href='tag_semicolons.html'>semicolons</a>, <a href='tag_rant.html'>rant</a></p>
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/automatic-semicolon-insertion.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/automatic-semicolon-insertion.html'><span id='count-414'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/automatic-semicolon-insertion.html</link>
+<guid>http://zacanger.com/blog/./automatic-semicolon-insertion.html</guid>
+<dc:creator>Zac Anger</dc:creator>
+<pubDate>Sun, 01 May 2016 13:58:00 -0600</pubDate></item>
+<item><title>
+BaconJS
+</title><description><![CDATA[
 
+<p><em>Note: this post references 'the snake game' a lot. That's over <br />
+<a href="here">https://github.com/zacanger/extras/tree/master/bacon</a>, now.</em></p>
 
+<p>Bacon is a JS lib for FRP, like Rx, but not MS.</p>
 
+<p>Here's some jQuery, because I don't know why.</p>
 
+<pre><code>var go = $('#clickMe').asEventStream('click')
+go.onValue (
+  () =&gt; $('#output').append('clicked!'))
+</code></pre>
 
+<p>Is it just me or is this tutorial using <em>typescript</em>? Eww, it totally is! Gross.</p>
 
+<p><code>scan</code> combinator is kinda like <code>reduce</code>, except async and produces multiple values. So, there's an initial value,
+and a function to combine them. Returned stream contains the aggregate.</p>
 
+<pre><code>var clicks = $('#example button').asEventStream('click')
+  , counter = clicks
+      .map(1)
+      .scan(0, (x,y) =&gt; x + y)
+counter.onValue(x =&gt; $('#example .output').html(x))
+</code></pre>
 
+<p>Ohh, okay, so the 'take' and 'skip' combinators are new. They do what they sound like. Basically like slicing
+arrays, but with streams.</p>
 
+<hr />
+<p>tags: <a href='tag_bacon.html'>bacon</a>, <a href='tag_js.html'>js</a>, <a href='tag_frp.html'>frp</a>, <a href='tag_streams.html'>streams</a>, <a href='tag_events.html'>events</a>, <a href='tag_functional.html'>functional</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_reactive.html'>reactive</a></p>
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/baconjs.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/baconjs.html'><span id='count-25421'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/baconjs.html</link>
+<guid>http://zacanger.com/blog/./baconjs.html</guid>
+<dc:creator>Zac Anger</dc:creator>
+<pubDate>Sun, 01 May 2016 13:58:00 -0600</pubDate></item>
+<item><title>
+bash builtins
+</title><description><![CDATA[
 
+<p>Let's say that in some hypothetical horrible world, we have a system with no utilities, except the shell we're using, which happens to be GNU Bash. Maybe we were dumb and did something like <code>rm -rf --no-preserve-root /</code>, I don't know. Here's how we can get some basic programs back, just by using Bash builtins.</p>
 
+<p><code>type</code> still exists!</p>
 
+<p>We need an <code>ls</code>. So, <code>echo 'ls() { printf '%s\n' ${1:+${1%/}/}*; }' &gt;&gt; foo.sh</code></p>
+
+<p><code>source foo.sh</code></p>
+
+<p>Here's a rough <code>cat</code>: <code>(while read line; do echo "$line"; done) &lt; stuff.txt</code></p>
+
+<p><code>executable () { if [[ ( ! -d $1 ) &amp;&amp;  ( ! -h $1 ) &amp;&amp; -x $1 ]] ; then echo "$1"; fi }</code></p>
+
+<p>To find executables: <code>for file in /*; do executable $file; done</code>.</p>
+
+<p>Wanna just lock ourselves out for real? <code>echo 1 &gt; /proc/sys/kernel/sysrq</code> <code>echo "b" &gt; /proc/sysrq-trigger</code>.</p>
+
+<p>http://eusebeia.dyndns.org/bashcp go here, if we really must rescue a system and have no other options.</p>
+
+<p>tags: <a href='tag_bash.html'>bash</a>, <a href='tag_shell.html'>shell</a>, <a href='tag_sh.html'>sh</a>, <a href='tag_unix.html'>unix</a>, <a href='tag_linux.html'>linux</a>, <a href='tag_disaster-recovery.html'>disaster-recovery</a></p>
 
 
 
@@ -124,248 +369,49 @@ This Here's A Test!
 
 
 <!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/this-heres-a-test.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/this-heres-a-test.html'><span id='count-28006'></span></a>&nbsp;</p>
-]]></description><link>http://zacanger.com/blog/this-heres-a-test.html</link>
-<guid>http://zacanger.com/blog/./this-heres-a-test.html</guid>
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/bash-builtins.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/bash-builtins.html'><span id='count-28467'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/bash-builtins.html</link>
+<guid>http://zacanger.com/blog/./bash-builtins.html</guid>
 <dc:creator>Zac Anger</dc:creator>
-<pubDate>Sun, 01 May 2016 13:58:27 -0600</pubDate></item>
+<pubDate>Sun, 01 May 2016 13:58:00 -0600</pubDate></item>
 <item><title>
-tone and voice
-</title><description><![CDATA[
-
-<p>How you write something is more important than what you write. What good is
-having all the knowledge in the world if it cannot be shared? Having a good
-tone and voice is key to becoming likeable. Companies like Slack do a
-magnificent job at conveying <em>likeability</em>.</p>
-
-<h2>Frames</h2>
-
-<p>Tone and voice is an abstract concept; talking about it mostly hits the
-superficial level, the <em>how</em> of things. Framing is more integral to the message
-in that it is the actual message itself. When you convey information, there's a
-certain frame attached to it. What is the goal you're trying to achieve with
-the information you're sending; what is the feeling you're trying to invoke?
-Framing is staple to language, and recognizing the frame someone is using can
-lead to a sharper understanding of someone's message.</p>
-
-<h2>Error messages</h2>
-
-<ul>
-<li><a href="http://www.postgresql.org/docs/devel/static/error-style-guide.html">error style guide</a></li>
-</ul>
-
-<h2>See also</h2>
-
-<ul>
-<li><a href="https://bufferapp.com/tone-guide">Buffer Voice / Tone Guide</a></li>
-<li><a href="http://taalstrategie.nl/framing/">taalstrategie (Dutch)</a></li>
-</ul>
-
-<p>tags: <a href='tag_tone.html'>tone</a>, <a href='tag_voice.html'>voice</a>, <a href='tag_design.html'>design</a></p>
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/tone-and-voice.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/tone-and-voice.html'><span id='count-10135'></span></a>&nbsp;</p>
-]]></description><link>http://zacanger.com/blog/tone-and-voice.html</link>
-<guid>http://zacanger.com/blog/./tone-and-voice.html</guid>
-<dc:creator>Zac Anger</dc:creator>
-<pubDate>Sun, 01 May 2016 13:58:27 -0600</pubDate></item>
-<item><title>
-Treatise on Minimalism
+basic auth
 </title><description><![CDATA[
 
 <ul>
-<li>Minimalism should increase your happiness and contentment.</li>
-<li>Less is powerful.</li>
-<li>Elimination is incredibly powerful.</li>
-<li>No one can eliminate everything.</li>
-<li>Elimination without self-awareness is dangerous and harmful.</li>
-<li>Fix you before you fix your stuff.</li>
-<li>Minimalism is the most intense form of expression possible.</li>
-<li>Your stuff has no objective value.</li>
-<li>Beware of potential.</li>
-<li>There are no right minimalism answers, only theory and extrapolation.</li>
-<li>Minimalism is an enhancer, not a finder.</li>
-<li>Upkeep is all of the battle.</li>
-<li>You can't eliminate mistakes.</li>
-<li>Minimalism is distilling life.</li>
-<li>Focus creates beauty or abhorrence. You decide which.</li>
-<li>Minimalism is respected.</li>
-<li>Portability.</li>
-<li>Necessity is fluid.</li>
-<li>Memento mori.</li>
+<li>Basic HTTP:
+<ul>
+<li>restricted based on system user/pass</li>
+<li>http://zacanger:encryptedpassword@zacanger.com</li>
+</ul></li>
+<li>Form-based:
+<ul>
+<li>restricted based on cookies</li>
+<li>success = stored cookie on client</li>
+<li><code>POST whatever.com/login (headers)</code></li>
+</ul></li>
+<li>Token-based:
+<ul>
+<li>requests with auth token</li>
+<li>https://foo.bar/whatever?auth_token=asdfghjkl123456789</li>
+</ul></li>
+<li>OAuth
+<ul>
+<li>rate limited, expired, revoked server-side</li>
+</ul></li>
+<li>Passport
+<ul>
+<li>this is, clearly, the preferred method, both with devmtn and with express in general, i feel</li>
+</ul></li>
 </ul>
 
-<p>tags: <a href='tag_minimalism.html'>minimalism</a>, <a href='tag_manifesto.html'>manifesto</a>, <a href='tag_treatise.html'>treatise</a>, <a href='tag_design.html'>design</a></p>
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/treatise-on-minimalism.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/treatise-on-minimalism.html'><span id='count-3024'></span></a>&nbsp;</p>
-]]></description><link>http://zacanger.com/blog/treatise-on-minimalism.html</link>
-<guid>http://zacanger.com/blog/./treatise-on-minimalism.html</guid>
+<hr />
+<p>tags: <a href='tag_auth.html'>auth</a>, <a href='tag_node.html'>node</a>, <a href='tag_js.html'>js</a>, <a href='tag_passport.html'>passport</a></p>
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/basic-auth.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/basic-auth.html'><span id='count-27329'></span></a>&nbsp;</p>
+]]></description><link>http://zacanger.com/blog/basic-auth.html</link>
+<guid>http://zacanger.com/blog/./basic-auth.html</guid>
 <dc:creator>Zac Anger</dc:creator>
-<pubDate>Sun, 01 May 2016 13:58:27 -0600</pubDate></item>
-<item><title>
-UI
-</title><description><![CDATA[
-
-<h2>UI</h2>
-
-<h3>Systems</h3>
-
-<ul>
-<li>Modular is good</li>
-<li>Cards are good</li>
-<li>Systems are good</li>
-<li>Consistency is good</li>
-</ul>
-
-<h4>Future Trends:</h4>
-
-<ul>
-<li>Design systems</li>
-<li>Designing for change</li>
-<li>Designing personalized experiences</li>
-</ul>
-
-<p><a href="http://blog.intercom.io/design-futures-1-creating-systems-not-products/">Systems mean fast iteration means success.</a></p>
-
-<h3>Elements</h3>
-
-<p>Interfaces are composed of small components, which are composed of small primitives. <br />
-This lowest granular level only consists of a few elements:</p>
-
-<ul>
-<li>Buttons</li>
-<li>Forms</li>
-<li>Lists</li>
-</ul>
-
-<p>Everything else is usually a superset of these elements.</p>
-
-<h3>Trends</h3>
-
-<p>Don't buy into the hype. Not everything is a good thing. A lot of things are actually <br />
-really bad things, especially for the users you might not be considering.</p>
-
-<ul>
-<li>Parallax -- good for flashiness, bad for a11y, users, browsers</li>
-<li>Card -- good all around, for the right application</li>
-<li>Media object -- an example of the <em>elements</em> way of doings, the 'poster child of oocss'</li>
-<li>Infinite scroll -- again, looks cool, but all around actually a very bad thing to do</li>
-<li>Smooth scroll -- it's not necessarily harmful, but it's not exactly fantastic, either</li>
-</ul>
-
-<h3>Natural Language Form</h3>
-
-<p>Forms that aren't just inputs. Mad-libs style, so one doesn't have a giant box of empty <br />
-boxes to fill in, but instead something like
-<a href="http://www.lukew.com/ff/entry.asp?1007">I want my username to be {username} and my password to be {password}</a>, or 
-<a href="http://www.jroehm.com/2014/01/ui-pattern-natural-language-form/">I'm looking for {restaurant} in {city} at {time}.</a></p>
-
-<h3>Empty States</h3>
-
-<ul>
-<li>Zero-data states</li>
-<li><a href="https://www.google.com/design/spec/patterns/empty-states.html">When there's no content</a></li>
-<li>Should not just be an afterthought</li>
-<li><a href="http://emptystat.es">Excellent Examples</a></li>
-</ul>
-
-<p>tags: <a href='tag_ui.html'>ui</a>, <a href='tag_design.html'>design</a>, <a href='tag_guidelines.html'>guidelines</a>, <a href='tag_ux.html'>ux</a>, <a href='tag_css.html'>css</a>, <a href='tag_js.html'>js</a></p>
-
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/ui.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/ui.html'><span id='count-24302'></span></a>&nbsp;</p>
-]]></description><link>http://zacanger.com/blog/ui.html</link>
-<guid>http://zacanger.com/blog/./ui.html</guid>
-<dc:creator>Zac Anger</dc:creator>
-<pubDate>Sun, 01 May 2016 13:58:27 -0600</pubDate></item>
-<item><title>
-Unicode
-</title><description><![CDATA[
-
-<p>Unicode is not a 16-bit system. Unlike mapping letters to bits (<code>A =&gt; 0100 0001</code>, for example), with unicode, characters are mapped to a theoretical concept called a <strong>code point</strong>. So it's an... ideal.</p>
-
-<p>This 'code point' ideal is represented by the numbers we've already seen, like <code>U+0639</code>, and such. The numbers are hexadecimal (base 16) (and the <code>U+</code> prefix is for 'unicode').</p>
-
-<p>So, early on in the life of unicode, the idea was to store those numbers in two bytes each. But then there was some high-school level drama between the high-endian clique and the low-endian gang, so now we have this <code>FF FE</code> or whatever at the beginning--that's the Unicode <a href="https://en.wikipedia.org/wiki/Byte_order_mark">BOM</a>.</p>
-
-<p>But <em>then</em>, basically because Americans were still using the same restricted set of the Latin alphabet, we came up with UTF-8. That kind of screwed everyone else over, because now we have 0-127 all in one singe byte, and then 128 on up stored in 2-6 bytes. So the characters we use every day in American English still look the same as before (when we used ASCII), but now a whole bunch of other scripts (and symbols) are kind of screwy, because it takes several bytes to use other characters.</p>
-
-<p>tags: <a href='tag_unicode.html'>unicode</a>, <a href='tag_text.html'>text</a>, <a href='tag_ascii.html'>ascii</a></p>
-
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/unicode.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/unicode.html'><span id='count-18246'></span></a>&nbsp;</p>
-]]></description><link>http://zacanger.com/blog/unicode.html</link>
-<guid>http://zacanger.com/blog/./unicode.html</guid>
-<dc:creator>Zac Anger</dc:creator>
-<pubDate>Sun, 01 May 2016 13:58:27 -0600</pubDate></item>
-<item><title>
-Visual Studio Code's License
-</title><description><![CDATA[
-
-<p>...is crap.</p>
-<ul>
-  <li>This software is a pre-release. It may not operate correctly[...]. Microsoft may change iit for the final,
-    commercial version.</li>
-  <li>This software will stop running on 31/12/2016. You will not receive any other notice. You will not be able to
-    access data used with the software when it stops running.</li>
-  <li>The softare[...](collects) data about you. ... users cannot opt out.</li>
-  <li>The software is licensed. You may not work around limitations in the software, attempt to derive the source code,
-    reverse engineer [...](etc., etc., etc.,) share, publish, or lend the software....</li>
-  <li>Limitation on[...]damages. You can recover ... only up to $5.00 for lost profits or damages.</li>
-</ul>
-
-<p>...and to obtain the source you have a to send a check to Microsoft... and you access to the open-source third party
-  libraries included in VS Code.</p>
-<p>So tell me again how Microsoft is getting better, improving their open source activity, and all that bullshit? They
-  built you an editor that will _stop running_ when they're ready to release it for real money. It will just stop
-  working, and no longer access its own files. And they can press charges if you try to fix that. Literally, if you want
-to hack on the source, you can't, because you signed an agreement saying you'd give them your firstborn and your right
-kidney if you try to do so.</p>
-<p>If you use VS Code and think you're using a decent editor you can continue to use for years to come, you're being
-  duped. Sorry, that's all there is to it. Microsoft has never given a shit about users or developers, which is why they
-gave us that lovely VBScript. Remember that? Yeah. Don't be so quick to jump on their bandwagon. It's bullshit.</p>
-
-<p>tags: <a href='tag_microsoft.html'>microsoft</a>, <a href='tag_editor.html'>editor</a>, <a href='tag_vs-code.html'>vs-code</a>, <a href='tag_lol.html'>lol</a></p>
-
-
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/visual-studio-codes-license.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/visual-studio-codes-license.html'><span id='count-21178'></span></a>&nbsp;</p>
-]]></description><link>http://zacanger.com/blog/visual-studio-codes-license.html</link>
-<guid>http://zacanger.com/blog/./visual-studio-codes-license.html</guid>
-<dc:creator>Zac Anger</dc:creator>
-<pubDate>Sun, 01 May 2016 13:58:27 -0600</pubDate></item>
+<pubDate>Sun, 01 May 2016 13:58:00 -0600</pubDate></item>
 </channel></rss>
