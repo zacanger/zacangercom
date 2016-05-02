@@ -23,7 +23,7 @@
 <meta name='twitter:card' content='summary' />
 <meta name='twitter:site' content='@zacanger' />
 <meta name='twitter:title' content='angr &mdash; posts tagged "express"' />
-<meta name='twitter:description' content=" Auth with Passport and Express  January 23, 2016  &mdash;  Zac Anger   Passport/Flash Issues  npm i -S express-flash, and var flash = require('express-flash') in your app.app.use(flash())`.  So, make a route in your app/routes/config file, wherever " />
+<meta name='twitter:description' content=" NOTES FROM DEVMOUNTAIN  May 01, 2016  &mdash;  Zac Anger   This is going to be a crapton of my notes, from when I was going through the course at DevMountain.  Looking back over these, a lot of them are dumb. What I mean by this is that my opinions " />
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -32,6 +32,85 @@
 <div id="description">writings from zac anger, who is not all that angry</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="notes-from-devmountain.html">
+NOTES FROM DEVMOUNTAIN
+</a></h3>
+<div class="subtitle">May 01, 2016  &mdash; 
+Zac Anger</div>
+<!-- text begin -->
+
+<p>This is going to be a crapton of my notes, from when I was going through the course at DevMountain.</p>
+
+<p>Looking back over these, a lot of them are dumb. What I mean by this is that my opinions on things were dumb.</p>
+
+<p>Whatever.</p>
+
+<p>Don't take it all so seriously. Some of it could be really helpful. This is about half of my collected
+notes <em>that were inside project files</em>. Everything else has already been cleaned up and posted, or is in
+a directory of drafts somewhere. This stuff is totally unedited.</p>
+
+<p class="readmore"><a href="notes-from-devmountain.html">read more...</a></p>
+<p>tags: <a href='tag_notes.html'>notes</a>, <a href='tag_devmountain.html'>devmountain</a>, <a href='tag_lol.html'>lol</a>, <a href='tag_i-am-ridiculous.html'>i-am-ridiculous</a>, <a href='tag_directives.html'>directives</a>, <a href='tag_angular.html'>angular</a>, <a href='tag_firebase.html'>firebase</a>, <a href='tag_express.html'>express</a>, <a href='tag_mongo.html'>mongo</a>, <a href='tag_mongoose.html'>mongoose</a>, <a href='tag_node.html'>node</a>, <a href='tag_ionic.html'>ionic</a>, <a href='tag_d3.html'>d3</a>, <a href='tag_react.html'>react</a>, <a href='tag_heroku.html'>heroku</a>, <a href='tag_digital-ocean.html'>digital-ocean</a></p>
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/notes-from-devmountain.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/notes-from-devmountain.html'><span id='count-18760'></span></a>&nbsp;</p>
+<h3><a class="ablack" href="express-vs-koa-vs-hapi.html">
+Express vs Koa vs Hapi
+</a></h3>
+<div class="subtitle">December 30, 2015  &mdash; 
+Zac Anger</div>
+<!-- text begin -->
+
+<h2>Express vs Koa vs Hapi</h2>
+<p>Quick little comparison of the three. Express is clearly the most commonly used, but I'm inclined to jump to Koa whenever I can. The simple fact that the guy who initially started Express passed that off to a company to maintain and instead works on Koa, now (which he also started), says to me that maybe Koa's the right way to go.</p>
+<p>Okay, so all three are Sinatra-alikes for Node.</p>
+<p>Express was started in 2009, and is now maintained by StrongLoop, the Node API company.</p>
+<p>Koa was started in 2013, and rather than a 'server-side web development framework build on node.js' (that's Express), Koa is 'expressive middleware for node.js using generators ... to make writing web applications and REST APIs more enjoyable.' It's super small, too--around 400 SLOC.</p>
+<p>Hapi was started in 2011, and was originally built on Express. The original author still maintains it, backed by the original company (...Wal...Mart...). It's no longer Express-based, because 'configuration is better than code ... business logic must be isolated from the transport layer...', so, there's that.</p>
+<p>Making things happen:</p>
+<pre><code>    // express
+    const express = require('express')
+      , app = express()
+      , port = 3000
+    // etc, we already know all this
+    app.listen(port) // http.createServer() basically
+
+    // koa
+    const koa = require('koa')
+      , app = koa()
+      , port = 3000
+    const server = app.listen(port, function(){
+      console.log('listening on ' + port)
+    }) // well, THAT looks super familiar, huh?
+
+    //hapi
+    const Hapi = require('hapi')
+      , server = new Hapi.Server()
+    server.connection({port:3000})
+    server.start(() =&gt; {
+      console.log('server over yonder on ', server.info.uri)
+    }) // that takes a weee bit more work, there.
+    ```
+
+    routing:
+    ```javascript
+    app.get('/', function(req, res){res.send('hi')})
+
+    app.use(function *(){this.body = 'hi'}) // so, koa uses es6 generators.
+        // the context (this) is node's `request` and `response`, wrapped up
+        // `this.body` can be string, buffer, stream, object, or null
+
+    server.route({
+      method : 'GET',
+      path: '/',
+      handler: function(request, reply){
+        reply('hi') // holy boilerplate, batman
+      }
+    })
+</code></pre>
+<p class="readmore"><a href="express-vs-koa-vs-hapi.html">read more...</a></p>
+<p>tags: <a href='tag_express.html'>express</a>, <a href='tag_koa.html'>koa</a>, <a href='tag_js.html'>js</a>, <a href='tag_hapi.html'>hapi</a>, <a href='tag_server.html'>server</a>, <a href='tag_node.html'>node</a>, <a href='tag_framework.html'>framework</a></p>
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/express-vs-koa-vs-hapi.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/express-vs-koa-vs-hapi.html'><span id='count-11154'></span></a>&nbsp;</p>
 <h3><a class="ablack" href="auth-with-passport-and-express.html">
 Auth with Passport and Express
 </a></h3>
@@ -145,68 +224,10 @@ app.post('/reset/:token', function(req, res){
 })
 </code></pre>
 
-<p class="readmore"><a href="./auth-with-passport-and-express.html">read more...</a></p>
+<p class="readmore"><a href="auth-with-passport-and-express.html">read more...</a></p>
 <p>tags: <a href='tag_passport.html'>passport</a>, <a href='tag_express.html'>express</a>, <a href='tag_node.html'>node</a>, <a href='tag_auth.html'>auth</a>, <a href='tag_authentication.html'>authentication</a>, <a href='tag_local.html'>local</a>, <a href='tag_login.html'>login</a></p>
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/auth-with-passport-and-express.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
 <a href='http://topsy.com/trackback?url=http://zacanger.com/blog/auth-with-passport-and-express.html'><span id='count-8706'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="express-vs-koa-vs-hapi.html">
-Express vs Koa vs Hapi
-</a></h3>
-<div class="subtitle">December 30, 2015  &mdash; 
-Zac Anger</div>
-<!-- text begin -->
-
-<h2>Express vs Koa vs Hapi</h2>
-<p>Quick little comparison of the three. Express is clearly the most commonly used, but I'm inclined to jump to Koa whenever I can. The simple fact that the guy who initially started Express passed that off to a company to maintain and instead works on Koa, now (which he also started), says to me that maybe Koa's the right way to go.</p>
-<p>Okay, so all three are Sinatra-alikes for Node.</p>
-<p>Express was started in 2009, and is now maintained by StrongLoop, the Node API company.</p>
-<p>Koa was started in 2013, and rather than a 'server-side web development framework build on node.js' (that's Express), Koa is 'expressive middleware for node.js using generators ... to make writing web applications and REST APIs more enjoyable.' It's super small, too--around 400 SLOC.</p>
-<p>Hapi was started in 2011, and was originally built on Express. The original author still maintains it, backed by the original company (...Wal...Mart...). It's no longer Express-based, because 'configuration is better than code ... business logic must be isolated from the transport layer...', so, there's that.</p>
-<p>Making things happen:</p>
-<pre><code>    // express
-    const express = require('express')
-      , app = express()
-      , port = 3000
-    // etc, we already know all this
-    app.listen(port) // http.createServer() basically
-
-    // koa
-    const koa = require('koa')
-      , app = koa()
-      , port = 3000
-    const server = app.listen(port, function(){
-      console.log('listening on ' + port)
-    }) // well, THAT looks super familiar, huh?
-
-    //hapi
-    const Hapi = require('hapi')
-      , server = new Hapi.Server()
-    server.connection({port:3000})
-    server.start(() =&gt; {
-      console.log('server over yonder on ', server.info.uri)
-    }) // that takes a weee bit more work, there.
-    ```
-
-    routing:
-    ```javascript
-    app.get('/', function(req, res){res.send('hi')})
-
-    app.use(function *(){this.body = 'hi'}) // so, koa uses es6 generators.
-        // the context (this) is node's `request` and `response`, wrapped up
-        // `this.body` can be string, buffer, stream, object, or null
-
-    server.route({
-      method : 'GET',
-      path: '/',
-      handler: function(request, reply){
-        reply('hi') // holy boilerplate, batman
-      }
-    })
-</code></pre>
-<p class="readmore"><a href="./express-vs-koa-vs-hapi.html">read more...</a></p>
-<p>tags: <a href='tag_express.html'>express</a>, <a href='tag_koa.html'>koa</a>, <a href='tag_js.html'>js</a>, <a href='tag_hapi.html'>hapi</a>, <a href='tag_server.html'>server</a>, <a href='tag_node.html'>node</a>, <a href='tag_framework.html'>framework</a></p>
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/express-vs-koa-vs-hapi.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/express-vs-koa-vs-hapi.html'><span id='count-11154'></span></a>&nbsp;</p>
 </div>
 <div id="footer">WTFPL <a href="http://twitter.com/zacanger">Zac Anger</a> &mdash; <a href="mailto:zac&#64;zacanger&#46;com">zac&#64;zacanger&#46;com</a><br>
 written in <a href="https://daringfireball.net/projects/markdown/">markdown</a> and generated with a <a href="http://tiswww.case.edu/php/chet/bash/bashtop.html">shell script</a></div>
