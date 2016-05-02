@@ -23,7 +23,7 @@
 <meta name='twitter:card' content='summary' />
 <meta name='twitter:site' content='@zacanger' />
 <meta name='twitter:title' content='angr &mdash; posts tagged "events"' />
-<meta name='twitter:description' content=" BaconJS  May 01, 2016  &mdash;  Zac Anger   Note: this post references 'the snake game' a lot. That's over  https://github.com/zacanger/extras/tree/master/bacon, now.  Bacon is a JS lib for FRP, like Rx, but not MS.  Here's some jQuery, because I do" />
+<meta name='twitter:description' content=" More React Notes  April 27, 2016 &mdash;  Zac Anger   Lifecycle &amp;Co.   The three phases of life:  Mounting Updating Unmounting  Mounting:  getInitialState(), before component is mounted. componentWillMount(), immediately before mounting. compone" />
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -32,48 +32,10 @@
 <div id="description">writings from zac anger, who is not all that angry</div>
 </div></div></div>
 <div id="divbody"><div class="content">
-<h3><a class="ablack" href="baconjs.html">
-BaconJS
-</a></h3>
-<div class="subtitle">May 01, 2016  &mdash; 
-Zac Anger</div>
-<!-- text begin -->
-
-<p><em>Note: this post references 'the snake game' a lot. That's over <br />
-<a href="here">https://github.com/zacanger/extras/tree/master/bacon</a>, now.</em></p>
-
-<p>Bacon is a JS lib for FRP, like Rx, but not MS.</p>
-
-<p>Here's some jQuery, because I don't know why.</p>
-
-<pre><code>var go = $('#clickMe').asEventStream('click')
-go.onValue (
-  () =&gt; $('#output').append('clicked!'))
-</code></pre>
-
-<p>Is it just me or is this tutorial using <em>typescript</em>? Eww, it totally is! Gross.</p>
-
-<p><code>scan</code> combinator is kinda like <code>reduce</code>, except async and produces multiple values. So, there's an initial value,
-and a function to combine them. Returned stream contains the aggregate.</p>
-
-<pre><code>var clicks = $('#example button').asEventStream('click')
-  , counter = clicks
-      .map(1)
-      .scan(0, (x,y) =&gt; x + y)
-counter.onValue(x =&gt; $('#example .output').html(x))
-</code></pre>
-
-<p>Ohh, okay, so the 'take' and 'skip' combinators are new. They do what they sound like. Basically like slicing
-arrays, but with streams.</p>
-
-<p class="readmore"><a href="./baconjs.html">read more...</a></p>
-<p>tags: <a href='tag_bacon.html'>bacon</a>, <a href='tag_js.html'>js</a>, <a href='tag_frp.html'>frp</a>, <a href='tag_streams.html'>streams</a>, <a href='tag_events.html'>events</a>, <a href='tag_functional.html'>functional</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_reactive.html'>reactive</a></p>
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/baconjs.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='https://twitter.com/search?q=http://zacanger.com/blog/baconjs.html'><span id='count-25421'></span></a>&nbsp;</p>
 <h3><a class="ablack" href="more-react-notes.html">
 More React Notes
 </a></h3>
-<div class="subtitle">May 01, 2016  &mdash; 
+<div class="subtitle">April 27, 2016 &mdash; 
 Zac Anger</div>
 <!-- text begin -->
 
@@ -125,10 +87,47 @@ A parent component (or any other component) can never manipulate the state of an
 <p>Defaults set in <code>getInitialState</code> will be used for initial rendering.</p>
 
 <p>tags: <a href='tag_react.html'>react</a>, <a href='tag_lifecycle.html'>lifecycle</a>, <a href='tag_events.html'>events</a></p>
-
 <!-- text end -->
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/more-react-notes.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='https://twitter.com/search?q=http://zacanger.com/blog/more-react-notes.html'><span id='count-15'></span></a>&nbsp;</p>
+<a href='https://twitter.com/search?q=http://zacanger.com/blog/more-react-notes.html'><span id='count-21810'></span></a>&nbsp;</p>
+<h3><a class="ablack" href="baconjs.html">
+BaconJS
+</a></h3>
+<div class="subtitle">January 19, 2016  &mdash; 
+Zac Anger</div>
+<!-- text begin -->
+
+<p><em>Note: this post references 'the snake game' a lot. That's over <br />
+<a href="here">https://github.com/zacanger/extras/tree/master/bacon</a>, now.</em></p>
+
+<p>Bacon is a JS lib for FRP, like Rx, but not MS.</p>
+
+<p>Here's some jQuery, because I don't know why.</p>
+
+<pre><code>var go = $('#clickMe').asEventStream('click')
+go.onValue (
+  () =&gt; $('#output').append('clicked!'))
+</code></pre>
+
+<p>Is it just me or is this tutorial using <em>typescript</em>? Eww, it totally is! Gross.</p>
+
+<p><code>scan</code> combinator is kinda like <code>reduce</code>, except async and produces multiple values. So, there's an initial value,
+and a function to combine them. Returned stream contains the aggregate.</p>
+
+<pre><code>var clicks = $('#example button').asEventStream('click')
+  , counter = clicks
+      .map(1)
+      .scan(0, (x,y) =&gt; x + y)
+counter.onValue(x =&gt; $('#example .output').html(x))
+</code></pre>
+
+<p>Ohh, okay, so the 'take' and 'skip' combinators are new. They do what they sound like. Basically like slicing
+arrays, but with streams.</p>
+
+<p class="readmore"><a href="baconjs.html">read more...</a></p>
+<p>tags: <a href='tag_bacon.html'>bacon</a>, <a href='tag_js.html'>js</a>, <a href='tag_frp.html'>frp</a>, <a href='tag_streams.html'>streams</a>, <a href='tag_events.html'>events</a>, <a href='tag_functional.html'>functional</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_reactive.html'>reactive</a></p>
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/baconjs.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/baconjs.html'><span id='count-21805'></span></a>&nbsp;</p>
 </div>
 <div id="footer">WTFPL <a href="http://twitter.com/zacanger">Zac Anger</a> &mdash; <a href="mailto:zac&#64;zacanger&#46;com">zac&#64;zacanger&#46;com</a><br>
 written in <a href="https://daringfireball.net/projects/markdown/">markdown</a> and generated with a <a href="http://tiswww.case.edu/php/chet/bash/bashtop.html">shell script</a></div>

@@ -23,7 +23,7 @@
 <meta name='twitter:card' content='summary' />
 <meta name='twitter:site' content='@zacanger' />
 <meta name='twitter:title' content='angr &mdash; posts tagged "lang"' />
-<meta name='twitter:description' content=" Elm (notes)  May 01, 2016  &mdash;  Zac Anger   Differences from JS:   Elm has multiline string support, with triple sets of quotes, eg '''multiline string''' Elm cannot use single quotes for strings. Elm uses single quotes to denote characters. Boo" />
+<meta name='twitter:description' content=" Go  January 24, 2016  &mdash;  Zac Anger   Go programs are made of packages. The package name is the last element of the import path.  main is the entry point.  Imports can be written as a single statement, or multiple statements.  import 'fmt' impo" />
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -32,42 +32,10 @@
 <div id="description">writings from zac anger, who is not all that angry</div>
 </div></div></div>
 <div id="divbody"><div class="content">
-<h3><a class="ablack" href="differences-from-js.html">
-Elm (notes)
-</a></h3>
-<div class="subtitle">May 01, 2016  &mdash; 
-Zac Anger</div>
-<!-- text begin -->
-
-<p>Differences from JS:</p>
-
-<ul>
-<li>Elm has multiline string support, with <em>triple</em> sets of quotes, eg """multiline string"""</li>
-<li>Elm <em>cannot</em> use single quotes for <em>strings</em>. Elm uses single quotes to denote <em>characters</em>.</li>
-<li>Booleans are uppercase.</li>
-<li>Objects use <code>=</code> instead of <code>:</code>, so <code>{key: value, key2: value2}</code> in JS would be <code>{key = value, key2 = value2}</code> in Elm.</li>
-<li><code>point.x = 42</code> in JS would be <code>{point | x = 42}</code> in Elm.</li>
-<li>Functions are greatly simplified. <code>function(foo, bar){return foo+bar}</code> in js would be <code>\foo bar -&gt; foo + bar</code> in Elm.</li>
-<li>Math is a little simpler: <code>Math.max(2,4)</code> is just <code>max 2 4</code>. Same with <code>min</code>. <code>Math.pow</code> is just <code>^</code>, eg <code>Math.min(1, Math.pow(2, 4))</code> is <code>min 1 (2^4)</code>.</li>
-<li><code>numbers.map(Math.sqrt)</code> would be <code>List.map sqrt numbers</code>. <code>points.map(function(p){return p.x})</code> becomes <code>List.map .x points</code>.</li>
-<li><code>2 &lt; 4 ? 'WHAT' : 'how?'</code>, <code>if 2 &lt; 4 then "WHAT" else "how?"</code></li>
-<li><code>var foo = 72</code>; <code>let foo = 72 in...</code></li>
-<li>No return statements; everything is an expression.</li>
-<li><code>String.length "asdf"</code> rather than 'asdf.length'</li>
-</ul>
-
-<p>Mostly it looks pretty neat, but there's virtually nothing out there for actually <em>learning</em> it, so I'm already kind of over it....</p>
-
-<p>Note that the 'EventLog.elm' in this directory doesn't actually need the start-app package anymore; turns out it's really easy to just wire the damn thing up all on your own.</p>
-
-<p class="readmore"><a href="./differences-from-js.html">read more...</a></p>
-<p>tags: <a href='tag_js.html'>js</a>, <a href='tag_haskell.html'>haskell</a>, <a href='tag_functional.html'>functional</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_javascript.html'>javascript</a>, <a href='tag_elm.html'>elm</a>, <a href='tag_lang.html'>lang</a>, <a href='tag_language.html'>language</a></p>
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/differences-from-js.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='https://twitter.com/search?q=http://zacanger.com/blog/differences-from-js.html'><span id='count-1783'></span></a>&nbsp;</p>
 <h3><a class="ablack" href="go.html">
 Go
 </a></h3>
-<div class="subtitle">May 01, 2016  &mdash; 
+<div class="subtitle">January 24, 2016  &mdash; 
 Zac Anger</div>
 <!-- text begin -->
 
@@ -212,10 +180,41 @@ func main() {
 
 
 
-
 <!-- text end -->
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/go.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
-<a href='https://twitter.com/search?q=http://zacanger.com/blog/go.html'><span id='count-24382'></span></a>&nbsp;</p>
+<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/go.html'><span id='count-11475'></span></a>&nbsp;</p>
+<h3><a class="ablack" href="differences-from-js.html">
+Elm (notes)
+</a></h3>
+<div class="subtitle">January 14, 2016  &mdash; 
+Zac Anger</div>
+<!-- text begin -->
+
+<p>Differences from JS:</p>
+
+<ul>
+<li>Elm has multiline string support, with <em>triple</em> sets of quotes, eg """multiline string"""</li>
+<li>Elm <em>cannot</em> use single quotes for <em>strings</em>. Elm uses single quotes to denote <em>characters</em>.</li>
+<li>Booleans are uppercase.</li>
+<li>Objects use <code>=</code> instead of <code>:</code>, so <code>{key: value, key2: value2}</code> in JS would be <code>{key = value, key2 = value2}</code> in Elm.</li>
+<li><code>point.x = 42</code> in JS would be <code>{point | x = 42}</code> in Elm.</li>
+<li>Functions are greatly simplified. <code>function(foo, bar){return foo+bar}</code> in js would be <code>\foo bar -&gt; foo + bar</code> in Elm.</li>
+<li>Math is a little simpler: <code>Math.max(2,4)</code> is just <code>max 2 4</code>. Same with <code>min</code>. <code>Math.pow</code> is just <code>^</code>, eg <code>Math.min(1, Math.pow(2, 4))</code> is <code>min 1 (2^4)</code>.</li>
+<li><code>numbers.map(Math.sqrt)</code> would be <code>List.map sqrt numbers</code>. <code>points.map(function(p){return p.x})</code> becomes <code>List.map .x points</code>.</li>
+<li><code>2 &lt; 4 ? 'WHAT' : 'how?'</code>, <code>if 2 &lt; 4 then "WHAT" else "how?"</code></li>
+<li><code>var foo = 72</code>; <code>let foo = 72 in...</code></li>
+<li>No return statements; everything is an expression.</li>
+<li><code>String.length "asdf"</code> rather than 'asdf.length'</li>
+</ul>
+
+<p>Mostly it looks pretty neat, but there's virtually nothing out there for actually <em>learning</em> it, so I'm already kind of over it....</p>
+
+<p>Note that the 'EventLog.elm' in this directory doesn't actually need the start-app package anymore; turns out it's really easy to just wire the damn thing up all on your own.</p>
+
+<p class="readmore"><a href="./differences-from-js.html">read more...</a></p>
+<p>tags: <a href='tag_js.html'>js</a>, <a href='tag_haskell.html'>haskell</a>, <a href='tag_functional.html'>functional</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_javascript.html'>javascript</a>, <a href='tag_elm.html'>elm</a>, <a href='tag_lang.html'>lang</a>, <a href='tag_language.html'>language</a></p>
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://zacanger.com/blog/differences-from-js.html&text=&lt;say nice things about me&gt;&via=zacanger'>so, tweet it?</a> 
+<a href='http://topsy.com/trackback?url=http://zacanger.com/blog/differences-from-js.html'><span id='count-26621'></span></a>&nbsp;</p>
 </div>
 <div id="footer">WTFPL <a href="http://twitter.com/zacanger">Zac Anger</a> &mdash; <a href="mailto:zac&#64;zacanger&#46;com">zac&#64;zacanger&#46;com</a><br>
 written in <a href="https://daringfireball.net/projects/markdown/">markdown</a> and generated with a <a href="http://tiswww.case.edu/php/chet/bash/bashtop.html">shell script</a></div>
