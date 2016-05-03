@@ -1,20 +1,20 @@
 (function(w){
-  var sw             = document.body.clientWidth //Viewport Width
-    , minVPWidth     = 240 //Minimum Size for Viewport
-    , maxVPWidth     = 2600 //Maxiumum Size for Viewport
-    , vpResizerWidth = 14 //Width of the viewport drag-to-resize handle
-    , $sgWrapper     = $('#sg-gen-container') //Wrapper around viewport
-    , $sgViewport    = $('#sg-viewport') //Viewport element
-    , $sizePx        = $('.sg-size-px') //Px size input element in toolbar
-    , $sizeEms       = $('.sg-size-em') //Em size input element in toolbar
-    , $bodySize      = 16 //Body size of the document
+  var sw             = document.body.clientWidth     // viewport width
+    , minVPWidth     = 240                           // min viewport size
+    , maxVPWidth     = 2600                          // max viewport size
+    , vpResizerWidth = 14                            // resize handle width
+    , $sgWrapper     = $('#sg-gen-container')        // wrapper
+    , $sgViewport    = $('#sg-viewport')             // viewport element
+    , $sizePx        = $('.sg-size-px')              // px input
+    , $sizeEms       = $('.sg-size-em')              // em input
+    , $bodySize      = 16                            // body size
     , discoID        = false
     , fullMode       = true
     , discoMode      = false
     , hayMode        = false
     , hash           = window.location.hash.replace(/^.*?#/,'')
 
-  //URL Form Submission
+  // url submission
   $('#url-form').submit(function(e) {
     var urlVal = $('#url').val()
     var regex = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/;
@@ -88,7 +88,7 @@
     sizeLarge()
   })
 
-  $('#sg-size-full').on("click", function(e){ //Resets
+  $('#sg-size-full').on("click", function(e){ // resets
     e.preventDefault()
     killDisco()
     killHay()
@@ -268,15 +268,15 @@
   function sizeiframe(size,animate) {
     var theSize
 
-    if (size > maxVPWidth) { //If the entered size is larger than the max allowed viewport size, cap value at max vp size
+    if (size > maxVPWidth) {      // if entered size is larger than max allowed, cap val
       theSize = maxVPWidth
-    } else if (size<minVPWidth) { //If the entered size is less than the minimum allowed viewport size, cap value at min vp size
+    } else if (size<minVPWidth) { // if it's less than min, cap
       theSize = minVPWidth
     } else {
       theSize = size
     }
 
-    //Conditionally remove CSS animation class from viewport
+    // conditionally remove CSS animation class from viewport
     if (animate === false) {
       $sgWrapper.removeClass("vp-animate")
       $sgViewport.removeClass("vp-animate")
@@ -285,9 +285,9 @@
       $sgViewport.addClass("vp-animate")
     }
 
-    $sgWrapper.width(theSize + vpResizerWidth) //Resize viewport wrapper to desired size + size of drag resize handler
-    $sgViewport.width(theSize) //Resize viewport to desired size
-    updateSizeReading(theSize) //Update values in toolbar
+    $sgWrapper.width(theSize + vpResizerWidth) // resize wrapper to size + resize handle
+    $sgViewport.width(theSize)                 // resize viewport
+    updateSizeReading(theSize)                 // update vals in toolbar
   }
 
 
@@ -382,3 +382,4 @@
   }
 
 })(this)
+

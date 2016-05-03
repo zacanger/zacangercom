@@ -1,6 +1,4 @@
-body {
-  background: #ddd;
-}
+body { background: #ddd; }
 
 .sg-header {
   height: 33px;
@@ -63,9 +61,7 @@ body {
   text-transform: none;
 }
 
-#url-toggle {
-  display: none;
-}
+#url-toggle { display: none; }
 
 #url {
   height: 33px;
@@ -80,9 +76,7 @@ body {
   transition: background 0.15s ease-out;
 }
 
-#url:hover {
-  background: #454545;
-}
+#url:hover { background: #454545; }
 
 #url:focus {
   outline: 0;
@@ -91,9 +85,7 @@ body {
 }
 
 @media all and (min-width: 46.75em) {
-  #url {
-    width: 20em;
-  }
+  #url { width: 20em; }
 }
 
 #url-submit {
@@ -126,9 +118,7 @@ body {
 }
 
 @media all and (min-width: 44em) {
-  .sg-acc-handle:after {
-    float: none;
-  }
+  .sg-acc-handle:after { float: none; }
 }
 
 .sg-acc-handle.active {
@@ -136,9 +126,7 @@ body {
   background: rgba(255, 255, 255, 0.05);
 }
 
-.sg-acc-handle.active:after {
-  content: ' -';
-}
+.sg-acc-handle.active:after { content: ' -'; }
 
 .sg-acc-panel {
   overflow: hidden;
@@ -152,9 +140,7 @@ body {
   transition: max-height 0.5s ease-out;
 }
 
-.sg-acc-panel.active {
-  max-height: 50em;
-}
+.sg-acc-panel.active { max-height: 50em; }
 
 .sg-acc-panel.sg-right {
   position: absolute;
@@ -170,26 +156,16 @@ body {
   z-index: 2;
 }
 
-.sg-controls .sg-acc-panel.active {
-  max-height: 17em;
-}
+.sg-controls .sg-acc-panel.active { max-height: 17em; }
 
-.sg-controls .sg-nav-phases .sg-acc-panel {
-  min-width: 0;
-}
+.sg-controls .sg-nav-phases .sg-acc-panel { min-width: 0; }
 
-.sg-controls .sg-nav-phases .sg-acc-panel.active {
-  max-height: none;
-}
+.sg-controls .sg-nav-phases .sg-acc-panel.active { max-height: none; }
 
-.sg-control-trigger {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
+.sg-control-trigger { border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
 
 @media all and (min-width: 44em) {
-  .sg-control-trigger {
-    border: 0;
-  }
+  .sg-control-trigger { border: 0; }
 }
 
 @media all and (min-width: 45em) {
@@ -207,9 +183,7 @@ body {
   }
 }
 
-.sg-control > li {
-  float: left;
-}
+.sg-control > li { float: left; }
 
 .sg-control .sg-input {
   padding: 0.1em;
@@ -234,9 +208,7 @@ body {
     text-align: center;
   }
 
-  .sg-quarter:first-child {
-    border-left: 0;
-  }
+  .sg-quarter:first-child { border-left: 0; }
 }
 
 @media all and (max-width: 45em) {
@@ -247,9 +219,7 @@ body {
     text-align: center;
   }
 
-  .sg-half:nth-child(odd) {
-    border-left: 0;
-  }
+  .sg-half:nth-child(odd) { border-left: 0; }
 }
 
 .sg-current-size {
@@ -264,14 +234,10 @@ body {
 }
 
 @media all and (min-width: 45em) {
-  .sg-current-size {
-    float: left;
-  }
+  .sg-current-size { float: left; }
 }
 
-.sg-size-options {
-  max-width: 15em;
-}
+.sg-size-options { max-width: 15em; }
 
 @media all and (min-width: 45em) {
   .sg-size-options {
@@ -308,9 +274,7 @@ body {
   color: #000;
 }
 
-.sg-view {
-  position: relative;
-}
+.sg-view { position: relative; }
 
 .sg-view > ul {
   position: absolute;
@@ -405,9 +369,7 @@ body {
   transition: background 0.2s ease-out;
 }
 
-#sg-rightpull:hover {
-  background: #666;
-}
+#sg-rightpull:hover { background: #666; }
 
 #sg-rightpull:active {
   cursor: col-resize;
@@ -421,3 +383,4 @@ body {
   -o-transition: width 0.8s ease-out;
   transition: width 0.8s ease-out;
 }
+
