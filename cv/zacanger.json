@@ -5,11 +5,15 @@
     "handle": "zacanger"
   },
 
+  "status": "Seeking full-time employment in software development or devops (ideally in Node)",
+
   "website": "http://zacanger.com",
 
   "avatar": "http://zacanger.com/logo.svg",
 
   "writing": "http://zacanger.com/blog",
+
+  "description": "I'm an enthusiastic, always-curious individual with a varied history in a broad spectrum of fields. I've worked solo and in teams in a wide variety of professions and environments. I'm especially interested in new technologies, development, and design, with a strong preference for web technologies and doing things the UNIX way. I'm passionate about building better interfaces and smoother interactions, opening up the web to more people, keeping it open for everyone, keeping software and development free, open, and transparent, and keeping content accessible.",
 
   "occupations": [
     "*n*x nerd",
@@ -20,8 +24,6 @@
     "sometime web designer",
     "node fanboi"
   ],
-
-  "status": "Seeking full-time employment in software development or devops (ideally in Node)",
 
   "projects": [
     {
@@ -136,7 +138,7 @@
     }
   ],
 
-  "employment": [
+  "relevant experience": [
     {
       "name": "DevMountain",
       "position": "Mentor and Junior Developer",
@@ -155,6 +157,12 @@
       "dates": "2005-2008",
       "description": "Ran live music venue; lead engineer at in-house recording studio.",
       "technologies": "Windows, Mac, and Linux workstations and servers; pro audio hardware and software."
+    },{
+      "name": "York County Library System",
+      "position": "Volunteer",
+      "dates": "2001-2005",
+      "description": "Worked with catalogues, DDS, customer service.",
+      "technologies": "Various library systems including bespoke software and national systems."
     }
   ],
 
@@ -173,8 +181,42 @@
     },{
       "name": "Homeschool",
       "year completed": 2007,
-      "description": "High school years were fun. Fortunately, also totally irrelevant.",
+      "description": "Focus on music and recording technology, medieval history.",
       "url": null
+    }
+  ],
+
+  "references": [
+    {
+      "name": "Jeremy Robertson",
+      "type": "Professional",
+      "relation": "Supervisor, DevMountain",
+      "contact": "jeremy@devmounta.in"
+    },{
+      "name": "Erin Sheridan",
+      "type": "Professional",
+      "relation": "Co-worker, DevMountain",
+      "contact": "sheridanerin@gmail.com"
+    },{
+      "name": "Ryan Walsh",
+      "type": "Personal",
+      "relation": "Mentor, Devmountain",
+      "contact": "ryan@thehatrack.net"
+    },{
+      "name": "Destnyee Ceresini",
+      "type": "Professional",
+      "relation": "Coworker",
+      "concact": "destynee.ceresini@gmail.com"
+    },{
+      "name": "Melissa Jones",
+      "type": "Professional",
+      "relation": "Supervisor, McDonald's",
+      "contact": "717.825.1775"
+    },{
+      "name": "Mel Cranston",
+      "type": "Professional",
+      "relation": "Supervisor, Giant",
+      "contact": "717.246.7137"
     }
   ]
 
