@@ -1,39 +1,33 @@
 #!/usr/bin/env bash
 
-# BashBlog, a simple blog system written in a single bash script
 # (C) Carlos Fenollosa <carlos.fenollosa@gmail.com>, 2011-2014 and contributors
 # https://github.com/carlesfe/bashblog/contributors
-# Check out README.md for more details
 
-# Global variables
-# It is recommended to perform a 'rebuild' after changing any of this in the code
+# Perform a 'rebuild' after changing any of this in the code
 
-# Config file. Any settings "key=value" written there will override the
-# global_variables defaults. Useful to avoid editing bb.sh and having to deal
-# with merges in VCS
+# Any settings "key=value" written there will override global_variables.
 global_config=".config"
 
-# This function will load all the variables defined here. They might be overridden
-# by the 'global_config' file contents
+# Load all the variables defined here. Might be overriden by config file.
 global_variables() {
     global_software_name="BashBlog"
     global_software_version="2.6"
 
-    # Blog title
+    # title
     global_title="angr"
-    # The typical subtitle for each blog
+    # subtitle
     global_description="writings from zac anger, who is not all that angry"
-    # The public base URL for this blog
+    # public base URL for this blog
     global_url="http://zacanger.com/blog"
 
-    # Your name
+    # name
     global_author="Zac Anger"
-    # You can use twitter or facebook or anything for global_author_url
+    # twitter or facebook or anything for global_author_url
     global_author_url="http://twitter.com/zacanger"
-    # Your email
+    # email
     global_email="zac@zacanger.com"
 
-    # CC by-nc-nd is a good starting point, you can change this to "&copy;" for Copyright
+    # can change to "&copy;" for Copyright
     global_license="WTFPL"
 
     # If you have a Google Analytics ID (UA-XXXXX) and wish to use the standard
@@ -43,11 +37,10 @@ global_variables() {
     global_analytics="UA-37160536-1"
     global_analytics_file=""
 
-    # Leave this empty (i.e. "") if you don't want to use feedburner,
-    # or change it to your own URL
+    # Leave this empty (i.e. "") if you don't want to use feedburner, or change to URL.
     global_feedburner=""
 
-    # Change this to your username if you want to use twitter for comments
+    # your username if you want to use twitter for comments
     global_twitter_username="zacanger"
     # Set this to false for a Twitter button with share count. The cookieless version
     # is just a link.
@@ -55,11 +48,10 @@ global_variables() {
     # for the default search page, where tweets more than a week old are hidden
     global_twitter_search="twitter"
 
-    # Change this to your disqus username to use disqus for comments
+    # change to your username to use disqus for comments
     global_disqus_username=""
 
 
-    # Blog generated files
     # index page of blog (it is usually good to use "index.html" here)
     index_file="index.html"
     number_of_index_articles="10"
@@ -1097,10 +1089,6 @@ do_main() {
 }
 
 
-#
-# MAIN
-# Do not change anything here. If you want to modify the code, edit do_main()
-#
+# don't change anything here; instead edit do_main()
 do_main "$@"
 
-# vim: set shiftwidth=4 tabstop=4 expandtab:
