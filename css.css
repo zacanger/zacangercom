@@ -28,18 +28,22 @@ h1, h3 {
   margin: 0 0 1rem 0;
   font-weight: 700;
   font-family: "Cardo", serif;
-  letter-spacing: -.1rem;
+  letter-spacing: -0.1rem;
 }
 
 h1 { font-size: 3.4rem; line-height: 1.2; font-weight: 700; }
 h3 { font-size: 2.2rem; line-height: 1.2; font-weight: 700; }
 
-small { font-size: 0.8em; }
+small {
+  font-size: 6px;
+  line-height: 4px;
+  letter-spacing: -0.2px;
+}
 
-a { color: #3f786b; text-decoration: none; }
-a:hover { color: #46a17e; text-decoration: underline; }
-a:visted { color: #306358; text-decoration: none; }
-a:active { color: #426d66; text-decoration: none; }
+a { color: #0a542b; text-decoration: none; }
+a:hover { color: #337580; text-decoration: underline; }
+a:visted { color: #234534; text-decoration: none; }
+a:active { color: #304f4a; text-decoration: none; }
 
 p { margin-top: 1rem; margin-bottom: 1rem; }
 
