@@ -6,9 +6,7 @@
   color: #282828;
 }
 
-html {
-  background: #FEFEFE;
-}
+html { background: #FEFEFE; }
 
 body {
   text-align: center;
@@ -45,9 +43,7 @@ body {
     clear: both;
     width: 80%;
   }
-  #left {
-    width: 80%;
-  }
+  #left { width: 80%; }
 }
 
 h1, h2, h3, h4, p {
@@ -91,9 +87,7 @@ h3 a:hover i {
   text-shadow: 0 0 0px;
 }
 
-#right h3 {
-  border-bottom: 0px;
-}
+#right h3 { border-bottom: 0px; }
 
 h4 {
   font-family: "Fantasque Sans Mono", monospace;
@@ -146,9 +140,7 @@ section {
   font-family: "Fantasque Sans Mono", monospace;
 }
 
-.entry:hover {
-  background-color: rgb(240, 240, 240);
-}
+.entry:hover { background-color: rgb(240, 240, 240); }
 
 .date {
   width: 80px;
@@ -160,25 +152,15 @@ section {
   margin-left: 80px;
 }
 
-.employer {
-  font-weight: 700;
-}
+.employer { font-weight: 700; }
 
-.occupation {
-  font-weight: bold;
-}
+.occupation { font-weight: bold; }
 
-#right section {
-  margin-top: 0px;
-}
+#right section { margin-top: 0px; }
 
-#right section:hover {
-  background-color: rgb(240, 240, 240);
-}
+#right section:hover { background-color: rgb(240, 240, 240); }
 
-.tabular {
-  display: table-row;
-}
+.tabular { display: table-row; }
 
 .tabular-icon {
   display: table-cell;
@@ -206,9 +188,7 @@ footer {
   margin-bottom: 30px;
 }
 
-#wrapper-footer footer p {
-  text-align: center;
-}
+#wrapper-footer footer p { text-align: center; }
 
 .progress {
   height: 19px;
@@ -239,9 +219,7 @@ footer {
   text-align: left;
 }
 
-.scale {
-  margin-top: -10px;
-}
+.scale { margin-top: -10px; }
 
 .scale-left {
   width: 162px;
@@ -283,9 +261,7 @@ footer {
   background-color: transparent;
 }
 
-.timeline {
-  margin-top: -50px;
-}
+.timeline { margin-top: -50px; }
 
 ul.events {
   list-style-type: none;
@@ -344,25 +320,5 @@ ul.intervals li {
   width: 12.36%;
 }
 
-ul.intervals li.last {
-  border-right: 0px;
-}
-
-/* Bootstrap Addenda */
-
-.collapse {
-  display: none;
-}
-
-.collapse.in {
-  display: block;
-}
-
-.collapsing {
-  position: relative;
-  height: 0;
-  overflow: hidden;
-  -webkit-transition: height 0.35s ease;
-  transition: height 0.35s ease;
-}
+ul.intervals li.last { border-right: 0px; }
 

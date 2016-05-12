@@ -39,6 +39,10 @@
       "url": "http://npm.im/create-repo",
       "description": "Node tool to create GH repo using name/description from package.json."
     },{
+      "name": "hey-you",
+      "url": "http://npm.im/hey-you",
+      "description": "A very nice little desktop widget."
+    },{
       "name": "zeess",
       "url": "http://zacanger.github.io/zeess",
       "description": "CSS Microframework"

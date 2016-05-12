@@ -38,6 +38,9 @@
 ###  Projects
 
 #### 2016
+* [hey-you](http://npm.im/hey-you)
+  * Node
+  * A very nice little desktop widget.
 * [zeess](http://zacanger.github.io/zeess)
   * CSS
   * CSS Microframework.
