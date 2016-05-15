@@ -1,105 +1,275 @@
-<!doctype html>
-<html lang="en">
-<head>
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>zac anger</title>
-  <meta name="author" content="Zac Anger">
-  <meta name="description" content="Zac Anger is a software developer, nix hacker, and musician from the US.">
-  <meta name="keywords" content="javascript, js, blogs, web development, web design, open source, foss, software, linux, debain, musician, guitarist, producer">
-  <meta name="rating" content="General">
-  <meta name="revisit-after" content="30 Days">
-  <meta name="distribution" content="Global">
-  <meta http-equiv="refresh" content="30 Days">
-  <meta http-equiv="Content-Type" content="text/html">
-  <meta name="gleebox-default-selector" content="h3>a, a">
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" type="text/css" href="./css.css">
 
-</head>
+    <title>Zac Anger</title>
+    <meta name="designer" content="Alberto Hartzet">
+<meta name="author" content="Zac Anger>
+<meta name="description" content="Multi instrumental cross genre recording and performing musician; aspiring web designer; hacking n00b.">
 
-<body>
+		<meta name="keywords" content="zacanger, music, guitar, alternative, artist, local, original, folk, rock, indie, electronica, techno, dance, trance, strings, composition, orchestral, symphonic, sugo, web, front-end, design, css3, html5, linux, debian" />
+<meta property="og:url" content="http://codepen.io/hrtzt/details/NPZKRN">
 
-  <div>
-    <h3 id="main">hey, you.</h3>
-    <h1 id="button">what?</h1>
+    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+    <link rel="stylesheet" href="css/normalize.css">
+
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css'>
+
+        <style>
+      html, body, .page {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+  -webkit-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+  -moz-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+  -o-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);  
+  color: #fff;
+  overflow: hidden; 
+}
+
+* {
+  font-family: 'open sans', 'lato', 'helvetica', sans-serif;
+}
+
+.page {
+  position: absolute;
+}
+
+#p1 {
+  left: 0;
+}
+
+#p2, #p3, #p4 {
+  left: 200%;
+}
+
+#p1 { background: darkslategrey; }
+#p2 { background: maroon; }
+#p3 { background: dimgrey; }
+#p4 { background: sienna; }
+
+#t2:target #p2,
+#t3:target #p3,
+#t4:target #p4 {
+  transform: translateX(-190%);
+  -webkit-transform: translateX(-190%);
+  -moz-transform: translateX(-190%);
+  -o-transform: translateX(-190%);
+  transition-delay: .4s !important;
+}
+
+#t2:target #p1, 
+#t3:target #p1,
+#t4:target #p1 {
+  background: black;
+}
+
+#t2:target #p1 .icon, 
+#t3:target #p1 .icon,
+#t4:target #p1 .icon {
+  -webkit-filter: blur(3px);
+}
+
+.icon {
+  color: #fff;
+  font-size: 32px;
+  display: block;
+}
+
+ul .icon:hover {
+  opacity: 0.5;
+}
+
+.page .icon .title {
+  line-height: 2;
+}
+
+#t2:target ul .icon,
+#t3:target ul .icon,
+#t4:target ul .icon {
+  transform: scale(.6);
+  -webkit-transform: scale(.6);
+  -moz-transform: scale(.6);
+  -o-transform: scale(.6);
+  transition-delay: .25s;
+}
+
+#t2:target #dos,
+#t3:target #tres,
+#t4:target #cuatro {
+  transform: scale(1.2) !important;
+  -webkit-transform: scale(1.2) !important;
+  -moz-transform: scale(1.2) !important;
+  -o-transform: scale(1.2) !important;
+}
+
+ul {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  height: 280px;
+  width: 10%;
+  padding: 0;
+  text-align: center;
+ }
+
+#menu .icon {
+  margin: 30px 0;
+  transition: all .5s ease-out !important;
+  -webkit-transition: all .5s ease-out;
+  -moz-transition: all .5s ease-out;
+  -o-transition: all .5s ease-out;
+}
+
+a {
+  text-decoration: none;
+}
+
+.title, .hint {
+  display: block;
+}
+
+.title {
+  font-size: 38px;
+}
+
+.hint {
+  font-size: 13px;
+}
+
+#p4 .hint {
+  display: inherit !important;
+}
+
+.hint a {
+  color: yellow;
+  transition: all 250ms ease-out;
+  -webkit-transition: all 250ms ease-out;
+  -moz-transition: all 250ms ease-out;
+  -o-transition: all 250ms ease-out;
+}
+
+.hint a:hover {
+  color: #FFF;
+}
+
+.line-trough {
+  text-decoration: line-through;
+}
+
+.page .icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 10%;
+  left: 0;
+  width: 270px;
+  height: 170px;
+  margin: auto;
+  text-align: center;
+  font-size: 80px;
+  line-height: 1.3;
+  transform: translateX(360%);
+  -webkit-transform: translateX(360%);
+  -moz-transform: translateX(360%);
+  -o-transform: translateX(360%);
+  transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+  -webkit-transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+  -moz-transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+  -o-transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+}
+
+.page#p1 .icon {
+  height: 220px;
+}
+
+.page#p1 .icon {
+  transform: translateX(10%) !important;
+}
+
+#t2:target .page#p2 .icon,
+#t3:target .page#p3 .icon,
+#t4:target .page#p4 .icon {
+  transform: translateX(0) !important;
+  -webkit-transform: translateX(0) !important;
+  -moz-transform: translateX(0) !important;
+  -o-transform: translateX(0) !important;
+  transition-delay: 1s;
+}
+
+
+    </style>
+
+    
+        <script src="js/prefixfree.min.js"></script>
+
+    
+  </head>
+
+  <body>
+
+    <div class="ct" id="t1">
+  <div class="ct" id="t2">
+    <div class="ct" id="t3">
+      <div class="ct" id="t4">
+          <ul id="menu">
+            <a href="#t1"><li class="icon fa fa-circle" id="uno"></li></a>
+            <a href="#t2"><li class="icon fa fa-music" id="dos"></li></a>
+            <a href="#t3"><li class="icon fa fa-code" id="tres"></li></a>
+            <a href="#t4"><li class="icon fa fa-link" id="cuatro"></li></a>
+          </ul>
+          <div class="page" id="p1">
+             <section class="icon fa fa-circle">
+<span class="title">zac anger</span><span class="hint">musician<br> nerd</span></section>  
+          </div>
+          <div class="page" id="p2">
+            <section class="icon fa fa-music">
+              <p class="hint">
+              <p class="hint">i play things. sometimes with other people, frequently on my own. pick a genre, and you <a href="https://itunes.apple.com/us/artist/zac-anger/id693022865" target="_blank">should be able</a> <a href="https://play.google.com/store/music/artist/Zac_Anger?id=Ayyxzrjaa3ictrdadtqu7jaehwi" target="_blank">to find something</a> <a href="http://www.amazon.com/s?rh=n%3A163856011%2Ck%3AZac+Anger%2Cp_n_feature_browse-bin%3A625150011&keywords=Zac+Anger&ie=UTF8&qid=1382664887" target="_blank">that you like.</a></p>
+                <p class="hint"><a href="https://zacanger.bandcamp.com" target="_blank">check out my free albums on bandcamp.</a></p>
+             <p class="hint"> or my <a href="http://soundcloud.com/zacanger" target="_blank">soundcloud.</a></p>
+<p class="hint"> currently signed with <a href="http://sugomusic.com" target="_blank">sugo music group.</a></p>
+
+</section>
+
+          </div>  
+          <div class="page" id="p3">
+            <section class="icon fa fa-code">
+              <p class="hint">still learning. i've hacked together a few <a href="http://mickeyswholesalepizza.com" target="_blank">websites,</a> am always learning about all the <a href="http://sidebar.io" target="_blank">exciting things going on</a> in <a href="http://github.com/trending" target="_blank">design and code,</a> and love to <a href="https://wiki.debian.org/DontBreakDebian" target="_blank">mess around with linux</a> all the time.</p>
+              <p class="hint">check out my <a href="http://github.com/zacanger" target="_blank">github</a> to see what I'm working on.</p>
+</section>
+          </div>
+          <div class="page" id="p4">
+            <section class="icon fa fa-link">
+<span class="hint">links!</span>
+              <p class="hint">
+                <a href="mailto:zac@zacanger.com" target="_blank">email</a>
+<br> <a href="http://twitter.com/zacanger" target="_blank">twitter</a>
+<br> <a href="http://facebook/zacangermusic" target="_blank">facebook</a>
+<br> <a href="http://youtube.com/zacangermusic" target="_blank">youtube</a>
+<br> <a href="https://plus.google.com/112211443145066587762" target="_blank">g+</a>
+<br> <a href="http://zacanger.deviantart.com/" target="_blank">deviantart</a>
+<br> <a href="http://about.me/zacanger" target="_blank">about</a>
+              </p>
+              <p class="hint">site based on <a href="http://codepen.io/hrtzt/pen/NPZKRN" target="_blank">this design;</a> see the <a href="license.txt">license.</a></p>
+            </section>
+          </div>    
+      </div>
+    </div>
   </div>
+</div>
+    
+        <script src="js/index.js"></script>
 
-  <hr>
-
-  <div class="inline">
-    <h1>zac anger</h1> <h3>&middot;</h3>
-    <h3>developer &amp; musician</h3>
-  </div>
-
-  <h3>
-    <a href="http://zacanger.com/cv">cv</a> &middot; <a href="http://blog.zacanger.com/">blog</a>
-  </h3>
-
-  <hr>
-  JS developer, web technology enthusiast, Linux (Debian Sid) user.
-  <br>
-  Node fan, functional programming believer, internet addict, (neo)vim user.
-  <br>
-  Musician; multi-instrumentalist, recording engineer, amateur composer, beat-mangler.
-  <hr>
-
-  <h3>pages</h3>
-  <p>&middot;
-    <a href="http://mdkb.zacanger.com">doc</a> &middot;
-    <a href="http://zacanger.com/ghstats">github stats</a> &middot;
-    <a href="http://zacanger.com/mf">mobile-friendly test</a> &middot;
-    <a href="http://zacanger.com/gifland">gifland</a> &middot;
-    <a href="http://zacanger.com/p">paste</a> &middot;
-    <a href="http://zacanger.com/search">search</a> &middot;
-  </p>
-  <hr>
-
-  <h3>links</h3>
-  <p>&middot;
-    <a href="https://github.com/zacanger" target="_blank">github</a> &middot;
-    <a href="https://twitter.com/zacanger">twitter</a> &middot;
-    <a href="mailto:zac@zacanger.com">email</a> &middot;
-    <a href="http://linkedin.com/in/zacanger" target="_blank">linkedin</a> &middot;
-    <a href="http://about.me/zacanger" target="_blank">about.me</a> &middot;
-    <a href="https://zacanger.deviantart.com/" target="_blank">deviantart</a> &middot;
-    <a href="https://zacanger.bandcamp.com/" target="_blank">bandcamp</a> &middot;
-    <a href="https://soundcloud.com/zacanger" target="_blank">soundcloud</a> &middot;
-    <a href="http://youtube.com/zacangermusic" target="_blank">youtube</a> &middot;
-    <a href="https://plus.google.com/112211443145066587762" target="_blank">g+</a> &middot;
-    <a href="https://facebook.com/zacangermusic" target="_blank">facebook</a> &middot;
-    <a href="https://itunes.apple.com/us/artist/zac-anger/id693022865" target="_blank">itunes</a> &middot;
-    <a href="https://play.google.com/store/music/artist/Zac_Anger?id=Ayyxzrjaa3ictrdadtqu7jaehwi" target="_blank">google play</a> &middot;
-    <a href="http://www.amazon.com/s?rh=n%3A163856011%2Ck%3AZac+Anger%2Cp_n_feature_browse-bin%3A625150011&keywords=Zac+Anger&ie=UTF8&qid=1382664887" target="_blank">amazon</a> &middot;
-  </p>
-  <hr>
-
-  <small>
-    As you read this, you do not really see the pixels, the screen, your hands, and the surroundings, but an
-    internal and three-dimensional image that reproduces them almost exactly and that is constructed by your brain. The
-    photons emitted by your screen strike the retinas of your eyes, which transform them into electrochemical information;
-    the optic nerves relay this information to the visual cortex at the back of the head, where a cascade-like network of
-    nerve cells separates the input into categories (form, color, movement, depth, etc.). How the brain goes about reuniting
-    these sets of categorized information into a coherent image is still a mystery. And so, I cannot take any resposibility
-    for what you or any third parties feel you may have seen/witnessed/viewed on this website. Also, I did not write this
-    disclaimer. If you need a license for whatever reason, <a href="./LICENSE.txt">here you go</a>.
-    <br>
-    <a href="http://www.joereiss.net/geek/ungeek.cgi?GFA/IT/MU/O_d---(+)}$_s(-):-(--)}---_a-_C+++(++++)$}++++$_ULC++(+++)}++++$_P+}+++_L+++}++++$_!E-}---_!W+++$_!N+_!o_!K++}++++_!w--_!O-_!M--_!V--_PS++(+)}+++$_PE(-)}--$_Y+(++)}++$_!PGP}+++_!t-_!5_!X_!R-_tv--%3F_b+(++)}+++$_DI++_!D-_G++}$_!e_h++%3F_r%3F_z+*@">
-      GFA/IT/MU/O d---(+)&gt;$ s(-):-(--)&gt;--- a- C+++(++++)$&gt;++++$ ULC++(+++)&gt;++++$ P+&gt;+++ L+++&gt;++++$ !E-&gt;--- !W+++$ !N+ !o !K++&gt;++++ !w-- !O- !M-- !V-- PS++(+)&gt;+++$ PE(-)&gt;--$ Y+(++)&gt;++$ !PGP&gt;+++ !t- !5 !X !R- tv--? b+(++)&gt;+++$ DI++ !D- G++&gt;$ !e h++? r? z+*@
-    </a>
-
-  </small>
-  <script type="text/javascript" src="./hey.js"></script>
-  <script type="text/javascript">
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-37160536-1', 'auto');
-    ga('send', 'pageview');
-  </script>
-
-</body>
+    
+    
+    
+  </body>
 </html>
-
