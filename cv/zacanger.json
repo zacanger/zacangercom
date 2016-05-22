@@ -5,13 +5,13 @@
     "handle": "zacanger"
   },
 
-  "status": "Seeking full-time employment in software development or devops (ideally in Node)",
+  "status": "Happy employed.",
 
   "website": "http://zacanger.com",
 
   "avatar": "http://zacanger.com/logo.svg",
 
-  "writing": "http://zacanger.com/blog",
+  "writing": "http://blog.zacanger.com",
 
   "description": "I'm an enthusiastic, always-curious individual with a varied history in a broad spectrum of fields. I've worked solo and in teams in a wide variety of professions and environments. I'm especially interested in new technologies, development, and design, with a strong preference for web technologies and doing things the UNIX way. I'm passionate about building better interfaces and smoother interactions, opening up the web to more people, keeping it open for everyone, keeping software and development free, open, and transparent, and keeping content accessible.",
 
@@ -144,6 +144,12 @@
 
   "relevant experience": [
     {
+      "name": "Jane.com",
+      "position": "Front-end developer",
+      "dates": "2016-Present",
+      "description": "Buildin' stuffz!",
+      "technologies": "React, CSS, *nix, Typescript, Koa, Express, Purescript"
+    },{
       "name": "DevMountain",
       "position": "Mentor and Junior Developer",
       "dates": "2016",

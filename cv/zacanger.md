@@ -6,14 +6,12 @@
   * [HTML](http://zacanger.com/cv)
   * [JSON](http://zacanger.com/cv/zacanger.json)
   * [Markdown](http://zacanger.com/cv/zacanger.md)
-  * [Python](http://zacanger.com/cv/zacanger.py)
-  * [PDF](http://zacanger.com/cv/zacanger.pdf)
 * [GitHub](https://github.com/zacanger)
+* [Blog](http://blog.zacanger.com)
+* [Twitter](http://twitter.com/@zacanger)
 * [NPM](https://npmjs.com/~zacanger)
 * [zac@zacanger.com](mailto:zac@zacanger.com)
-* [@zacanger](http://twitter.com/@zacanger)
 * [LinkedIn](http://linkedin.com/in/zacanger)
-* [Blog](http://zacanger.com/blog)
 
 
 ### Languages & Technologies
@@ -33,6 +31,8 @@
   * Python
   * Ruby
   * C
+  * Typescript
+  * Purescript
 
 
 ###  Projects
@@ -88,10 +88,19 @@
 
 ### Relevant Experience
 
+* [Jane](https://jane.com)
+* 2016 -- Present
+* Front-end Developer
+* Technologies:
+  * Node
+  * React
+  * *nix
+  * CSS
+
 * [DevMountain](http://devmounta.in)
 * 2015 -- 2016
 * Mentor, Junior Developer
-* Technologies used:
+* Technologies:
   * Node
   * Express
   * Angular
